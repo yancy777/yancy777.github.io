@@ -1,0 +1,35 @@
+#listbox {
+	width: 200px;
+	height: 424px;
+	background: #FFFFff;
+	position: absolute;
+	left: 224px;
+	top:159px;
+	display: none;
+	z-index: 9;
+	border: 1px solid #989898;
+	
+}
+
+#listbox  ul{
+	padding-left: 10px;
+	line-height: 20px;
+
+}
+#listbox  ul  strong{
+	font-size: 12px;
+}
+#listbox  ul li{
+	list-style: none;
+	padding: 5px;
+	
+}
+#listbox  ul li a{
+	color: #AAAAAA;
+	text-decoration: none;
+	font-size: 12px;
+}
+#listbox  ul li a:hover{
+	border-bottom: 1px solid #CB005A;
+	color: #CB005A;
+}

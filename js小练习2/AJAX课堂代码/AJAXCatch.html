@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script>
+		window.onload = function(){
+			//AJAX缓存机制：如果当请求的URL地址相同时就会造成浏览对数据的缓存，一旦有了缓存浏览器不会再去请求服务器
+			//它会从客户端获取缓存下来的数据 （IE9以下的浏览器AJAX缓存机制）
+
+			//新的AJAX缓存机制：判断返回的数据是否相同，如有变化则更新
+		function createXHR(){
+			var xhr;
+			if(window.XMLHttpRequest){
+				xhr = new XMLHttpRequest();
+			}
+			else{
+				xhr = new ActiveXObject("Msxml2.XMLHTTP");
+			}
+			return xhr;
+		}
+
+
+
+
+
+
+
+
+
+			var xhr = createXHR();
+			xhr.open("GET","../API/article/get.aspx",true);
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){
+						div1.innerHTML = xhr.responseText;
+					}
+				}
+			}
+			xhr.send(null);
+		}
+
+		
+	</script>
+</head>
+<body>
+	AJAX Demo02
+	<div id="div1" style="border:solid 1px red;">
+		<img src="ajax-loader.gif" alt="">
+	</div>
+</body>
+</html>

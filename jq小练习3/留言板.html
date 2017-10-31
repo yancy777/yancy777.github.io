@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo9</title>
+	<script src="js/jquery-1.11.3.js"></script>
+	<style>
+	    * { padding: 0; margin: 0; }
+	    li { list-style: none; }
+	    #parent { width: 600px; margin: 0 auto; }
+	    h4 { line-height: 40px; margin-bottom: 10px; border-bottom: 1px solid #333; }
+	    p { width: 100%; margin-bottom: 25px; line-height:24px;}
+	    #box { width: 580px; padding: 25px 10px 0; border: 1px solid #ddd; margin-bottom: 10px; max-height: 450px; overflow-y:auto; word-break: break-all;}
+	    em { position: relative; top: -13px; }
+	    #text { width: 100%; height: 90px; overflow: auto; }
+	    #btn { width: 100%; height: 50px; }
+
+	    .yellow { background-color: yellow;}
+	    .grey { background-color: #ccc;}
+	    .red { background-color: red;}
+	    .pink { background-color: pink!important;}
+	</style>
+</head>
+<body>
+	<div id="parent">
+	    <h4>留言内容：</h4>
+	    <div id="box">
+	  		
+	    </div>
+	    <textarea id="text"></textarea><br />
+	    <input id="btn" type="button" value="发表留言" />
+	</div>
+	<!-- <div id="ddd"></div> -->
+	<!-- <textarea id="text1"></textarea><br /> -->
+	<script>
+		$('#btn').click(function(){
+			var content='<p><span></span>'+$('#text').val()+'</p>'+$('#box').html();
+			$('#box').html(content);
+			$('#text').val('');
+			change();
+		})
+
+		function change(){
+			var $span=$('#box span');
+			for(i=0;i<$span.length;i++){
+				$span.eq(i).html(i+1);
+			}
+		}
+
+
+		// $("#text1").val('<p>fhhhfhfhfh</p>')
+	</script>
+</body>
+</html>

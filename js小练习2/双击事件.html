@@ -1,0 +1,32 @@
+﻿<div  ondblclick="alert(123); " style="width:100px;height:100px;background:#f00;">双击返回123</div>
+<br><br>
+<div id="div1" style="width:100px;height:100px;background:#f00;">双击返回123</div>
+<br><br>
+<input id="textbox1"  type="text"  value="输入"></input>
+<script>
+	div1.ondblclick=function(){
+		alert(123);
+	}
+	textbox1.onfocus=function(){		
+		textbox1.value="";
+	}
+	textbox1.onblur=function(){
+		textbox1.value="输入";
+	}
+</script>
+<br><br><br><br>
+<input id="textbox2"  type="text"  value="输入"></input>
+<script>
+	textbox2.onfocus=function(){
+		if(textbox2.value=="输入"){
+			textbox2.value="";
+		}
+	}
+	textbox2.onblur=function(){
+		if(textbox2.value==""){
+			textbox2.value="输入";
+		}
+	}
+</script>
+输入不变，不输就变
+

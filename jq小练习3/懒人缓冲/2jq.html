@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo2</title>
+	<style>
+		*{margin: 0;padding: 0}
+		div{ margin-top:300px; width:470px; height:150px; border:1px #000 solid;}
+		
+	</style>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+	$(function(){
+		toChange();
+		$(window).scroll(toChange)
+		function toChange(){
+			var scrollY=$(document).scrollTop()
+			var viewHeight=$(window).height();
+			$('img').each(function(i,elem){
+				console.log($(elem).offset().top)
+				if($(elem).offset().top<scrollY+viewHeight){
+					$(elem).attr('src',$(elem).attr('_src'))
+				}
+			})
+
+		}
+
+	})
+	</script>
+</head>
+<body>
+	<div><img _src="img/1.jpg"></div>
+	<div><img _src="img/2.jpg"></div>
+	<div><img _src="img/3.jpg"></div>
+	<div><img _src="img/4.jpg"></div>
+	<div><img _src="img/5.jpg"></div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    #ni{width: 50px;height: 50px;background: red;}
+    </style>
+<body>
+<div id ='ni'></div>
+<script type="text/javascript" src =../../javascript/jquery-1.7.2.min.js></script>
+
+<!--   
+    获取设定内容 
+    text(), text只拿文本,加入标签时,标签变成内容,而不是插入节点,相当于nodevalue
+    html(), 括号里面可以加入标签,相当于加入节点append,相当于innerHtml,
+    val(),  input的value值,如果不写value属性,这默认为button的标签内容
+    attr(),a.attr(b)获取a的属性为b的属性值,a.attr(b,c)将a的属性b的属性值设为c,
+    获取设定属性 
+    attract(),
+    removeAttr(b),删除指定元素的属性名为b的属性,
+    height();
+    width();
+    css();
+    
+    获取设定class
+    addClass(),a.addClass(b),给a节点加入类名为b,
+    hasClass(),a.hasClass(b),检查a节点是否有类名为b,有则返回ture,否则返回false,
+    removeClass(),a.removeClass(b),移除a节点中类名为b的值,
+    toggelClass(),a.toggelClass(b),如果a节点没有类名b则添加b,如果a节点有类名b则删除,
+   
+     内部插入：
+    append(),   a.append(b), 把b插入到a的子节点里面的最后一个。
+    appendTo(), a.appendto(b), 把a插入到b的子节点里面的最后一个。
+    prepend(),  a.prepend(b),把b插入到a的子节点里面的第一个。
+    prependto(),a.prependto(b),把a插入到b的子节点里面的第一个。
+    
+     同级插入：
+    before(), a.before(b),在a之前插入b,
+    insertBefore(), a.insertBefore(b), a插到b之前,
+    after(),  a.after(b), 在a后面插入b,
+    insertAfter(), a.insertAfter(b),a插到b后面,
+    
+    删除：
+    remove(),删除匹配元素，a.remove(),删除了a节点,
+    empty(),清空子节点内容 a.empty(),删除a节点内的所有子节点或文本节点,
+    
+    .detach,
+    .wrapinner(),将每个匹配的元素的子内容(包括文本节点)用其他结构化标记包裹起来,a.wrapinner(b)将每个a的子内容用b包起来,
+    .wrap(),将指定节点用其他标记包裹起来，将所有元素进行单独包裹,a.wrap(b),将每个a分别用b包起来,
+    wrapAll(),将所有匹配的元素用一个元素来包裹，a.wrapAll(b),将所有a用一个b包起来。
+    unwrap(),
+    
+    替换：
+    replaceWith(),a.repalceWith(b),将a替换为b,将指定元素替换成匹配元素,将b剪切再替换a,
+    replaceAll(),  a.repalceAll(b),用指定元素替换匹配元素,将b替换成a，将a剪切再替换为b,
+    //如被替换的节点有绑定事件，那么替换过后绑定事件消失
+    克隆：
+    clone() 创建指定节点的副本,a.clone(),创建a节点的副本,副本不具有任何行为。
+    clone(ture) 表示复制节点的事件,false为不复制节点的事件,
+-->
+<script>
+//  $(html)创建节点
+    var div1 = $('<div id = "wo">1</div>');
+    console.log(div1);
+    $('body').append(div1);
+    $('#ni').click(function(){
+    $('#ni').clone(true).attr('id','ta').appendTo('body');
+    //相同id时不可以的，可以重置id,此时有了id无法运用之前的样式了。  
+});
+
+</script>
+</body>
+</html>

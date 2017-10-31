@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽</title>
+	<style type="text/css">
+	*{margin:0; padding:0;}
+	.clear{
+		clear: both;
+	}
+	#login{
+		width: 400px;
+		position: absolute;
+		z-index: 12;
+		top:0;
+		display: none;
+	}
+	#login-head{
+		background: url(headbg.png);
+		width:398px;
+		height: 46px;
+		border:solid 1px #F2F2F2;
+	}
+	#login-head .logo{
+		display:block;
+		float: left;
+		margin: 10px 0 0 10px;
+	}
+	#login-head p{
+		float: left;
+		line-height: 46px;
+		font-family: 微软雅黑;
+		font-size: 16px;
+		color:#666;
+		margin-left: 10px;
+	}
+	#login-head #close{
+		display: block;
+		float: right;
+		margin: 14px 10px 0 0;
+		cursor: pointer;
+	}
+	.login-form{
+		width: 400px;
+		height: 305px;
+		background: #fff;
+		padding-top:15px;
+	}
+	#cover{
+		width: 100%;
+		filter: alpha(opacity=60);
+		opacity: 0.6;
+		background: #000;
+		position: absolute;
+		z-index: 10;
+		left: 0;
+		display: none;
+	}
+	#fmian{
+		margin-left: 25px;
+		width: 350px;height: 245px;
+		font-size: 14px;
+		line-height: 38px;
+	}
+	span{
+		display: block;
+		float:right;
+		color:#f00;
+	}
+	#usename, #password, #suBnt{
+		width: 350px;height: 40px
+	}
+	#usename, #password{
+		color:#cccccc;
+	}
+	#usename{
+		 background:#fff url(use.jpg) no-repeat left center;
+	}
+	#password{
+		margin-top: 20px;
+		background:#fff url(pass.jpg) no-repeat left  center;
+	}
+	#suBnt{
+		color:#fff;
+		font-size: 20px;
+		font-family: "黑体";
+	}
+	</style>
+	<script src="mymodule.js"></script>
+	<script src="drag.js"></script>
+	<script src="mycookie.js"></script>
+	
+</head>
+<body>
+	<div id="cover"></div>
+	<input type="button" value="登 录" id="loginbtn" />
+	<div id="login">
+		<div id="login-head">
+			<span class="logo"><img src="logo.png" /></span>
+			<p>登录百度账号</p>
+			<span id="close"><img src="close.png" /></span>
+		</div>
+		<div class="clear"></div>
+		<div class="login-form">
+			<div id="fmian">
+				<span><img src="phone.jpg">&ensp;短信快捷登录</span><br>
+				<input  id="usename" type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;手机/邮箱/用户名"><br>
+				<input id="password" placeholder="" value="&nbsp;&nbsp;&nbsp;&nbsp;&ensp;密码"><br>
+				<input id="checkbox" type="checkbox">下次自动登录
+				<span>登录遇到问题</span><br>
+				<input id="suBnt" type="submit" value="登 录"><br>
+				<span>立即注册</span>
+			</div >
+		</div>
+	</div>
+	<script src="text.js"></script>
+</body>
+</html>

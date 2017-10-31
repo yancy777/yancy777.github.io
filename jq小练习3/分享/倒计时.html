@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+</head>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.tm{
+		width:800px;
+		height:11px;
+		margin: 200px 0 10px 400px;
+		font-size:30px;
+		font-weight:800;
+		color:#333333;
+		}
+    .tm .sur{
+    	color: #333;
+    	font-weight: normal;
+    	float: left;
+    	display: block;
+    	}
+    .tm .sy,.sq,.sf,.sfd{
+    	color: #e3383b;
+    	display: block;
+    	float: left;
+    	height: 11px;
+    	padding: 0 4px;
+    	}
+    .tm .day{
+    	display: block;
+    	float: left;
+    	}
+</style>
+<body>
+	<div class="tm">
+		<span class="sur">剩余</span>
+		<span class="sy"></span>
+		<span class="day">天</span>
+		<span class="sq"></span>
+		<span class="day">小时</span>
+		<span class="sf"></span>
+		<span class="day">分</span>
+		<span class="sfd"></span>
+		<span class="day">秒</span>
+	</div>
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var SysSecond = 3600000;  //倒计时起始时间
+    	var InterValObj;     //  定义倒计时
+    	InterValObj = window.setInterval(SetRemainTime, 1000); //间隔函数，1秒执行
+    	function SetRemainTime() {
+       		if (SysSecond > 0) {
+            		SysSecond = SysSecond - 1;
+            		var second = Math.floor(SysSecond % 60);             // 计算秒
+            		var minite = Math.floor((SysSecond / 60) % 60);      //计算分
+            		var hour = Math.floor((SysSecond / 3600) % 24);      //计算小时
+            		var day = Math.floor((SysSecond / 3600) / 24);        //计算天
+            		$('.tm').html();
+            		$('.sy').html(day);
+            		$('.sq').html(hour);
+            		$('.sf').html(minite);
+            		$('.sfd').html(second);
+        		} else {//剩余时间小于或等于0的时候，就停止间隔函数
+            	window.clearInterval(InterValObj);
+        	}
+    	}
+	})
+</script>
+</html>

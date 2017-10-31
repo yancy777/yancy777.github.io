@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	var btn1 = document.getElementById("btn");
+	s = 5;
+	btn.onclick = function(){
+		//s--;
+		btn1.disabled = "disabled";
+		btn1.value = "重新获取验证码"+s+"";
+		var ds = setInterval(function(){
+			s--;
+			btn1.value = "重新获取验证码"+s+"";
+			btn1.disabled = "disabled";
+			if(s==-1){
+				btn1.value = "获取验证码";
+				btn1.disabled = "";
+				clearInterval(ds);
+			}
+
+		},1000)
+		
+
+	}
+}
+</script>
+</head>
+<body>
+<input type="button" value="获取验证码" id="btn"/>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<script>
+
+    //JSON
+
+    var obj1 = {"a":1,"b":2};
+    var obj2 = {'a':1,'b':2};
+    var obj3 = {a:1,b:2};
+
+    console.log(JSON.stringify(obj1));
+    console.log(JSON.stringify(obj2));
+    console.log(JSON.stringify(obj3));
+    //都一样
+    //stringify 是吧json对象，转换为严格模式的字符串
+
+    var obj4 = '{"a":1,"b":2}';
+
+    var obj5 = "{'a':1,'b':2}";
+
+
+    console.log(JSON.parse(obj4));
+    console.log(JSON.parse(obj5));
+
+    //eval方法不安全
+    //因为的他 会立即执行 转换后的方法;
+
+
+//parse 只能把严格模式的json字符串转换为json对象
+
+
+</script>
+</body>
+</html>

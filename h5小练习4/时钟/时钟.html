@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时钟</title>
+    <style>
+        * { margin: 0; padding: 0;}
+        canvas { border: 1px solid red}
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="400" height="400"></canvas>
+
+<script>
+    var oCanvas = document.getElementById("myCanvas");
+    var oContext = oCanvas.getContext('2d');
+
+
+    /*把原地移到画布中间*/
+    oContext.translate(oCanvas.width/2,oCanvas.height/2);
+
+    fnF5()
+    function fnF5(){
+
+        setTimeout(function(){
+            biao();
+
+            fnF5()
+        },1000)
+    }
+
+
+   // setInterval(biao,1000);
+    //biao();
+    function biao(){
+
+        oContext.save();/*保存初始状态*/
+
+        oContext.clearRect(-oCanvas.width/2,-oCanvas.height/2,oCanvas.width,oCanvas.height)
+
+
+        /*表盘*/
+        oContext.beginPath();
+        oContext.strokeStyle= "skyblue";
+        oContext.lineWidth = 15;
+        oContext.arc(0,0,120,0,Math.PI*2,false)
+        oContext.stroke()
+
+        /*时针刻度*/
+        for(var i=0;i<12;i++){
+            oContext.beginPath();
+            oContext.strokeStyle = "#ff7700";
+            oContext.lineWidth = 5;
+            oContext.rotate(Math.PI*2/12);
+            oContext.moveTo(80,0);
+            oContext.lineTo(100,0);
+            oContext.stroke();
+        }
+
+
+        /*分针刻度*/
+        for(var i=0;i<60;i++){
+            oContext.beginPath();
+            oContext.strokeStyle = "#ff7700";
+            oContext.lineWidth = 2;
+            oContext.rotate(Math.PI*2/60);
+            oContext.moveTo(95,0);
+            oContext.lineTo(100,0);
+            oContext.stroke();
+        }
+
+        oContext.rotate(-Math.PI/2);/*回到12点*/
+        oContext.save();/*保存*/
+
+        /*获取时间*/
+        var oDate = new Date()
+        var hour = oDate.getHours();
+        var minute = oDate.getMinutes();
+        var second = oDate.getSeconds();
+
+        minute+=second/60;
+        hour+=minute/60;
+
+        //second
+        //30
+        /*画秒针*/
+        //(second/60) * (Math.PI*2）
+        //second*Math.PI/30
+        oContext.beginPath();
+        oContext.strokeStyle = "red";
+        oContext.lineWidth = 2;
+        oContext.rotate(second*Math.PI/30)
+        oContext.moveTo(-20,0);
+        oContext.lineTo(70,0);
+        oContext.stroke();
+
+        oContext.restore();/*恢复*/
+        oContext.save();/*保存*/
+        /*画分针*/
+        //
+        oContext.beginPath();
+        oContext.strokeStyle = "#000";
+        oContext.lineWidth = 3;
+        oContext.rotate(minute*Math.PI/30)
+        oContext.moveTo(-10,0);
+        oContext.lineTo(60,0);
+        oContext.stroke();
+
+        oContext.restore();/*恢复*/
+        oContext.save();/*保存*/
+        /*画时针
+         *6
+         * (hour/12)  * (Math.PI*2）
+         *
+         *hour*Math.PI/6
+         * */
+        oContext.beginPath();
+        oContext.strokeStyle = "#000";
+        oContext.lineWidth = 5;
+        oContext.rotate(hour*Math.PI/6);
+        oContext.moveTo(-5,0);
+        oContext.lineTo(50,0);
+        oContext.stroke();
+        oContext.restore();/*恢复*/
+
+        oContext.restore() /*h恢复初始状态*/
+
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

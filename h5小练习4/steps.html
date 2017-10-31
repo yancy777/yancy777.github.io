@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        @keyframes first{
+            0% { left: 0; background-color: red}
+
+            50% {left: 200px;}
+
+            100% { left: 400px; background-color: blue}
+        }
+
+        div { position: absolute; background-color: red;
+            top:0; left: 0; width: 100px; height: 100px;
+            animation: first 2s 99   both steps(100,end) ;
+
+          /*  animation-play-state: paused;*/
+        }
+        div:hover { animation-play-state: running;}
+
+    </style>
+</head>
+<body>
+
+<div></div>
+</body>
+</html>

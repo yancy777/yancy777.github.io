@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #wo{width: 100px;height:100px;background: red;}
+        #ni{width: 100px;height:100px;background: pink;display: none;}
+        #ta{width: 100px;height:100px;background: green;}
+        #women{width: 100px;height:100px;background: blue;}
+        #tamen{width: 100px;height:100px;background: purple;position: absolute;left:40px;top:500px;}
+    </style>
+</head>
+    <script type="text/javascript" src="../../javascript/jquery-1.7.2.min.js"></script>
+
+<body>
+<div id ="wo"></div>
+<Br></Br>
+<div id = 'ni'></div>
+<Br></Br>
+<div id = 'ta'></div>
+<Br></Br>
+<div id = 'women'></div>
+<Br></Br>
+<div id = 'tamen'></div>
+<Br></Br>
+<script>
+//    $('#wo').hide(2000,function(){
+//        alert(1);
+//    }).show(2000);
+//    
+    $('#ni').stop().fadeIn(5000,function(){
+        $('#ni').html('淡入').fadeOut(5000);
+    });
+    
+//    $('#ta').fadeOut(5000,function(){
+//        $('#ta').html('淡出');
+//    });
+//    
+//    $('#women').fadeTo(5000,0.5,function(){
+//        $('#women').html('fadeto');
+//    })
+//    
+//    $('#tamen').animate({
+//                        width:'400px',
+//                        height:'400px',
+//                        left:'50px',
+//                        top:'800px'
+//                       },2000,function(){
+//        alert('动画完成');
+//    });
+    </script>
+</body>
+</html>

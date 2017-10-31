@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>表单</title>
+	<style type="text/css">
+		*{margin: 0; padding:0; font-family: 微软雅黑; font-size: 14px;}
+		.container{
+			width: 386px;
+			margin: 20px auto;
+		}
+		.container dl{
+			padding-top:20px;
+		}
+		.container dt{
+			display: inline-block;
+			*display: inline;
+			*zoom:1;
+			width: 80px;
+			text-align: right;
+			vertical-align: top;
+		}
+		.container dd{
+			display: inline-block;
+			*display: inline;
+			*zoom:1;
+			*width: 280px;
+		}
+		.textbox{
+			width: 200px;
+			height:28px;
+			line-height: 28px;
+			border-radius: 3px;
+			border:solid 1px #CCC;
+		}
+		.textbox-error{
+			border:solid 1px #FF0000;
+			background: #FFF5F5;
+		}
+		.textbox-mid{
+			width: 84px;
+			height:28px;
+			line-height: 28px;
+			border-radius: 3px;
+			border:solid 1px #CCC;
+		}
+		.textbox-short{
+			width: 50px;
+			height:28px;
+			line-height: 28px;
+			border-radius: 3px;
+			border:solid 1px #CCC;
+		}
+		.btn {
+			padding-top:15px;
+			text-align: center;
+		}
+		.btn input{
+			width:60px;
+		}
+		#edit{
+			width:288px;
+			*height:100px;
+			min-height: 100px;
+			border:solid 1px #CCC;
+			text-align: left;
+		}
+		#edittext{
+			display: block;
+		}
+		#error{
+			position: absolute;
+			left: 0;
+			border:solid 1px #FBCBC8;
+			background: #FFF5F5;
+			color:#CD7373;
+			line-height: 28px;
+			height: 28px;
+			padding:0 6px 0 6px;
+			display: none;
+		}
+		#error span{
+			display: block;
+			float: left;
+			padding-top: 3px;
+		}
+		#error p{
+			float: left;
+			padding-left:6px; 
+		}
+		#state{
+			position: absolute;
+			top:125px;
+		}
+		#state span{
+			display: block;
+			float: left;
+			font-size: 0;
+			width: 60px;
+			height: 10px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="error"><span><img src="error.png"></span><p></p></div>
+		<div id="state"><span style="background:#8ED1FB;"></span><span style="background:#44ACF3;"></span><span style="background:#3399E3;"></span></div>
+		<form method="get" accept-charset="utf-8">
+			<dl>
+				<dt>用户名：</dt>
+				<dd><input type="text" name="username" class="textbox"></dd>
+			</dl>
+			<dl>
+				<dt>密码：</dt>
+				<dd><input type="pwd" name="pwd" class="textbox"></dd>
+			</dl>
+			<dl>
+				<dt>确认密码：</dt>
+				<dd><input type="password" name="confirmpwd" class="textbox"></dd>
+			</dl>
+			<dl>
+				<dt>性别：</dt>
+				<dd>
+					<label><input type="radio" name="sex" value="男" checked="checked">男</label>&nbsp;&nbsp;&nbsp;&nbsp;
+					<label><input type="radio" name="sex" value="女">女</label>
+				</dd>
+			</dl>
+			<dl>
+				<dt>手机号码：</dt>
+				<dd><input type="text" name="mobile" class="textbox"></dd>
+			</dl>
+			<dl>
+				<dt>固定电话：</dt>
+				<dd><input type="text" name="code" class="textbox-short" maxlength="4">-<input type="text" name="phone" class="textbox-mid" maxlength="8">-<input type="text" name="ext" class="textbox-short"  maxlength="3"></dd>
+			</dl>
+			<dl>
+				<dt>兴趣爱好：</dt>
+				<dd>
+					<label><input type="checkbox" name="hobby" value="全选">全选</label>&nbsp;
+					<label><input type="checkbox" name="hobby" value="音乐">音乐</label>&nbsp;
+					<label><input type="checkbox" name="hobby" value="美术">美术</label>&nbsp;
+					<label><input type="checkbox" name="hobby" value="运动">运动</label>&nbsp;
+					<label><input type="checkbox" name="hobby" value="读书">读书</label>&nbsp;
+					<label><input type="checkbox" name="hobby" value="编程">编程</label>
+				</dd>
+			</dl>
+			<dl>
+				<dt>自我介绍：</dt>
+				<dd>
+					<div id="edit" contenteditable="true"></div>
+					<span id="edittext">还可以输入140字</span>
+				</dd>
+			</dl>
+			<div class="btn">
+				<input type="submit" value="注 册">&nbsp;&nbsp;
+				<input type="reset" value="重 置">
+			</div>
+		</form>
+	</div>
+	<script>
+		var form = document.forms[0];
+		var pwd = form.elements["pwd"];
+		console.log(form);
+		var state = document.getElementById("state");
+		var error = document.getElementById("error");
+		state.style.left = pwd.offsetLeft + "px";
+		pwd.onkeyup = function(){
+			state.children[0].style.display = "none";
+			state.children[1].style.display = "none";
+			state.children[2].style.display = "none";
+			if(pwd.value.length > 5){
+				//当密码只是数字或只是字母时  为弱
+				//当密码是数字包含字母时   数组包含字符时  字母包含字符时  为中
+				//当密码时数字包含字母包含!+= 为强
+				// var p1 = /^\d+$/;
+				// var p2 = /^[a-zA-Z]+$/;
+				// var p3 = /^\d+[a-zA-Z]+(\d|[a-zA-Z])*$/;
+				// var p4 = /^[a-zA-Z]+\d+(\d|[a-zA-Z])*$/;
+				// var p5 = /^\d+[a-zA-Z]+[\!\+\=]+(\d|[a-zA-Z]|[\!\+\=])*$/;
+				// var p6 = /^[\!\+\=]+\d+[a-zA-Z]+(\d|[a-zA-Z]|[\!\+\=])*$/;
+				// var p7 = /^[a-zA-Z]+\d+[\!\+\=]+(\d|[a-zA-Z]|[\!\+\=])*$/;
+				// var p8 = /^[a-zA-Z]+[\!\+\=]+\d+(\d|[a-zA-Z]|[\!\+\=])*$/;
+				// var p9 = /^[\!\+\=]+[a-zA-Z]+\d+(\d|[a-zA-Z]|[\!\+\=])*$/;  
+				// if(p1.test(pwd.value) || p2.test(pwd.value)){
+				// 	state.children[0].style.display = "block";
+				// }
+				// if(p3.test(pwd.value) || p4.test(pwd.value)){
+				// 	state.children[0].style.display = "block";
+				// 	state.children[1].style.display = "block";
+				// }
+				// if(p5.test(pwd.value) || p6.test(pwd.value) || p7.test(pwd.value) || p8.test(pwd.value) || p9.test(pwd.value)){
+				// 	state.children[0].style.display = "block";
+				// 	state.children[1].style.display = "block";
+				// 	state.children[2].style.display = "block";
+				// }
+
+				var p1 = /\d+$/;
+				var p2 = /[a-zA-Z]+/;
+				var p3 = /[\+\=\!@]+/;
+				if(pwd.value.search(p1) > -1 && pwd.value.search(p2) == -1 && pwd.value.search(p3) == -1){
+					state.children[0].style.display = "block";
+				}
+				if(pwd.value.search(p1) == -1 && pwd.value.search(p2) > -1 && pwd.value.search(p3) == -1){
+					state.children[0].style.display = "block";
+				}
+				if(pwd.value.search(p1) > -1 && pwd.value.search(p2) > -1 && pwd.value.search(p3) == -1){
+					state.children[0].style.display = "block";
+				 	state.children[1].style.display = "block";
+				}
+				if(pwd.value.search(p1) > -1 && pwd.value.search(p2) > -1 && pwd.value.search(p3) > -1){
+					state.children[0].style.display = "block";
+				 	state.children[1].style.display = "block";
+				 	state.children[2].style.display = "block";
+				}
+			}
+		}
+		//不能以数字开头  字母下划线数字组成的 6到20位
+		form.onsubmit = valid;
+
+		form.elements["username"].onblur = form.elements["pwd"].onblur = form.elements["confirmpwd"].onblur = form.elements["mobile"].onblur = form.elements["code"].onblur = form.elements["phone"].onblur = form.elements["ext"].onblur = valid;
+
+		function valid(){
+			var username = form.elements["username"];
+			var pwd = form.elements["pwd"];
+			var cPwd = form.elements["confirmpwd"];
+			var mobile = form.elements["mobile"];
+			var code = form.elements["code"];
+			var phone = form.elements["phone"];
+			var ext = form.elements["ext"];
+			var p1 = /^[a-zA-Z_]\w{5,19}$/;
+			var p2 = /^[0-9a-zA-Z\+\=\!@]{6,10}$/;
+			var p3 = /^1\d{10}$/;
+			var p4 = /^0\d{2,3}$/;
+			var p5 = /^\d{7,8}$/;
+			var p6 = /^\d{0,3}$/;
+			if(!p1.test(username.value)){
+				errorInfo(username,"请输入正确用户名","block");
+			}
+			else if(!p2.test(pwd.value)){
+				errorInfo(pwd,"请输入正确密码","block");
+			}
+			else if(cPwd.value != pwd.value){
+				errorInfo(cPwd,"请一致","block");
+			}
+			else if(!p3.test(mobile.value)){
+				errorInfo(mobile,"请输入正确手机号","block");
+			}
+			else if(!p4.test(code.value)){
+				errorInfo(code,"请输入正确区号","block");
+			}
+			else if(!p5.test(phone.value)){
+				errorInfo(phone,"请输入正确电话号","block");
+			}
+			else if(!p6.test(ext.value)){
+				errorInfo(ext,"请输入正确分机号","block");
+			}
+			else{
+				errorInfo(null,"","none");
+			}
+			return false;
+		}
+
+		function errorInfo(obj,text,show){
+			error.style.display = show;
+			error.children[1].innerHTML = text;
+			if(obj){
+				error.style.left = obj.offsetLeft + obj.offsetWidth + 2 + "px";
+				error.style.top = obj.offsetTop + "px";
+			}
+		}
+	</script>
+</body>
+</html>

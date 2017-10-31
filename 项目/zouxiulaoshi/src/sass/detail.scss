@@ -1,0 +1,19 @@
+@import "base/base";
+
+
+#detail-page{
+  .swiper-container {
+    width:120vw;position:relative; margin-left: -10vw;
+    img { width: 40vw; height: 70vw}
+  }
+  .pagination-wrap {
+     height: 40px; text-align: center;
+    .self-pagination {
+      display: inline-block; padding: 5px; background-color: $lightenFontColor; border-radius: 10px;
+      span { margin: 0 5px;}
+    }
+  }
+  .detail-btn {@extend %position; top: auto; bottom: 0; height: 60px; padding: 10px 50px; background-color: $lightenFontColor;
+    button { @include button(40px)}
+  }
+}

@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+	*{margin:0 ;padding:0;margin:0 auto}	
+	.main{width:400px;height:500px ;background:#ff0;margin-top:100px;}
+	input{width:400px;height:90px;background:#f2f2f2;border:#f2f2f2;font-size:50px;text-align:right;}
+	li{float:left;width:100px;background:#e6e6e6;list-style:none;line-height:82px;
+		font-size:50px;text-align:center}
+	li:hover{background:#d0d0d0;}
+</style>
+</head>
+<body>
+	<div class="main">
+		<input type="text" id="text1" value="0">
+		<ul>
+			<li>CE</li>
+			<li>C</li>
+			<li onclick="jsj('d')">←</li>
+			<li onclick="jsj('/')">÷</li>
+			<li onclick="jsj('7')">7</li>
+			<li onclick="jsj('8')">8</li>
+			<li onclick="jsj('9')">9</li>
+			
+			<li onclick="jsj('*')">×</li>
+			<li onclick="jsj('4')">4</li>
+			<li onclick="jsj('5')">5</li>
+			<li onclick="jsj('6')">6</li>
+			
+			<li onclick="jsj('-')">-</li>
+			<li onclick="jsj('3')">3</li>
+			<li onclick="jsj('2')">2</li>
+			<li onclick="jsj('1')">1</li>
+			<li onclick="jsj('+')">+</li>
+			
+			<li onclick="jsj('±')">±</li>
+			<li onclick="jsj('0')">0</li>
+			<li onclick="jsj('.')">.</li>
+			<li onclick="jsj('=')">=</li>
+		</ul>
+	</div>
+	<script>
+	    var isClear;
+		var opt;
+		var oldData;
+		function jsj(n){
+			if(n=="+"||n=="-"||n=="*"||n=="/"||n=="="){
+				calculation();
+				isClear=true;
+				opt=n ;
+				oldData=text1.value;
+			}
+			else{
+				if(text1.value=="0"||isClear==true){
+					text1.value="";
+					isClear=false;
+				}
+				text1.value+=n;	
+			}
+		}
+		function calculation(){
+		var noldData = Number(oldData);
+		var resultValue = Number(text1.value);
+			switch(opt){
+				case "+":
+					text1.value = noldData+resultValue;
+					break;
+				case "-":
+					text1.value  = noldData-resultValue;
+					break;
+				case "*":
+					text1.value  = noldData*resultValue;
+					break;
+				case "/":
+					text1.value  = noldData/resultValue;
+					break;
+			}
+		}
+	</script>
+<boby>
+
+</html>
+
+
+
+

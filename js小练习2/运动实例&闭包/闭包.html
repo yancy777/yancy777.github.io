@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>闭包-closure</title>
+</head>
+<body>
+	<script>
+		//一个函数引用另一个函数中的变量的函数叫做闭包
+		//1、和函数有关
+		//2、和变量有关
+		//3、和内存也有关
+
+		function fn01(){
+			var i = 10; //i被创建在栈内存中
+		}
+		fn01(); 
+
+		//函数是可以嵌套的，并且在子函数可以引用父函数中的变量
+
+		//变量i不会销毁
+		//函数执行完毕后就会立即销毁函数中的变量
+		function fn02(){
+			var i = 0;
+			function fn03(){
+				i++;
+				alert(i);
+			}
+
+			function fn04(){
+				alert("我是FN04");
+			}
+			return fn03;
+		}
+		//当子函数引用了父函数的变量时并且子函数没有被调用此时父函数中的变量是不会被销毁
+		//不会被垃圾回收
+		// var subfn = fn02();
+		// subfn();
+		// subfn();
+		// subfn();
+		// subfn();
+		// subfn();
+		// var subfn = fn02();
+		// subfn.f3();
+		// subfn.f3();
+		// subfn.f3();
+		// subfn.f4();
+		//闭包特点：
+		//1、函数嵌套
+		//2、父函数中的变量可以被子函数共享
+		//3、变量将持续保存在内存当中
+		//4、使用闭包应该将包内的函数对外公开接口
+
+		//闭包的作用：模块化、防止全局变量污染
+		//闭包如果不合理使用会占用内存
+
+		//自我执行函数、即时执行函数
+
+		var result = (function(){
+			var i = 0;
+			return function(){
+				i++;
+				alert(i);
+			}
+		})();
+
+		result();
+		result();
+		result();
+		result();
+
+		var a = (function(){
+			var i = 0;
+			function fn03(){
+				i++;
+				alert(i);
+			}
+
+			function fn04(){
+				alert("我是FN04");
+			}
+			return {
+				f3:fn03,
+				f4:fn04
+			};
+		})();
+		a.f3();
+	</script>
+</body>
+</html>

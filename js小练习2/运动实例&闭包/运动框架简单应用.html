@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="startMove.js"></script>
+	<style>
+		*{margin:0; padding:0;}
+		#people{
+			width:48px;
+			height:40px;
+			background: url(img/1.gif);
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div id="people"></div>
+	<script>
+		var p = document.getElementById("people");
+		document.onclick = function(e){
+			e = e || event;
+			p.style.background = "url(img/2.gif)";
+			p.style.width = "66px";
+			p.style.height = "45px";
+			startMove(p,{left:e.clientX,top:e.clientY},function(){
+				p.style.background = "url(img/1.gif)";
+				p.style.width = "48px";
+				p.style.height = "40px";
+			})
+		}
+	</script>
+</body>
+</html>

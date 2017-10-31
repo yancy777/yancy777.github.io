@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/css1.css">
+	<title>换肤</title>
+	<script>
+		window.onload = function(){
+			var csslink = document.getElementsByTagName("link")[0];
+			document.getElementById("btn1").onclick=function(){
+
+				csslink.href=this.getAttribute("data-cssfile");
+
+			}
+			document.getElementById("btn2").onclick=function(){
+
+				csslink.href=this.getAttribute("data-cssfile");
+
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="红色" id="btn1" data-cssfile="css/css1.css" />
+	<input type="button" value="绿色" id="btn2" data-cssfile="css/css2.css" />
+</body>
+</html>

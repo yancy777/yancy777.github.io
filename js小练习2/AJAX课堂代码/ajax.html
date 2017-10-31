@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script>
+		//向服务器发送请求
+		//1、创建XMLHttpRequest对象
+		//2、调用xhr对象下的xhr.open()方法
+		//3、设置接收事件(异步通信时才游泳)
+		//4、调用xhr对象下的xhr.send()方法
+
+		//接收服务器传来的数据
+		//1、判断XMLHttpRequest对象的执行状态
+		//2、判断返回数据的状态
+		//3、拿到服务端数据
+
+
+		//同步
+		// var xhr = new XMLHttpRequest(); //创建xhr对象 1、找到电话机
+		// xhr.open("GET","data.txt",false);//2、拨电话号   第一个参数：通信方式(市内、长途)  第二个参数：通信地址(电话号) 第三个参数：true或false (是否为异步通信)  否就是同步通信
+		// xhr.send(null);//3、拨通了你说话了 只有一个参数 这个参数是向服务器端发送的文本数据
+		// //接收同步数据
+		// //xhr.status 代表此次通信的状态码  200代表已成功返回数据
+		// if(xhr.status == 200){
+		// 	alert(xhr.responseText);
+		// 	//xhr.responseText  该属性是获取服务器返回的数据
+		// }
+
+
+		//AJAX异步通信
+		//xhr.readyState AJAX执行状态
+		window.onload = function(){
+			var xhr = createXHR();
+			//?name=value
+			xhr.open("GET","../API/article/get.aspx"+Math.random(),true);
+			//接收服务端返回的数据
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){//304  404  500   405  302
+						//console.log(typeof xhr.responseText)
+						div1.innerHTML = xhr.responseText;
+					}
+				}
+			}
+			xhr.send(null);
+
+
+			// var xhr = new XMLHttpRequest(); //创建xhr对象 1、找到电话机
+			// xhr.open("GET","../API/article/test.aspx",false);//2、拨电话号   第一个参数：通信方式(市内、长途)  第二个参数：通信地址(电话号) 第三个参数：true或false (是否为异步通信)  否就是同步通信
+			// xhr.send(null);//3、拨通了你说话了 只有一个参数 这个参数是向服务器端发送的文本数据
+			// //接收同步数据
+			// //xhr.status 代表此次通信的状态码  200代表已成功返回数据
+			// if(xhr.status == 200){
+			// 	div1.innerHTML = xhr.responseText;
+			// 	//xhr.responseText  该属性是获取服务器返回的数据
+			// }
+
+			var div2 = document.getElementById("div2");
+			setInterval(function(){
+				div2.style.left = div2.offsetLeft + 1 + "px";
+			},100);
+
+		}
+
+		function createXHR(){
+			var xhr;
+			if(window.XMLHttpRequest){
+				xhr = new XMLHttpRequest();
+			}
+			else{
+				xhr = new ActiveXObject("Msxml2.XMLHTTP");
+			}
+			return xhr;
+		}
+	</script>
+</head>
+<body>
+	AJAX Demo01
+	<div id="div1" style="border:solid 1px red;">
+		<img src="ajax-loader.gif" alt="">
+	</div>
+
+	<div id="div2" style="width:100px;height:100px; background:red; position:absolute; left:0; top:150px;">
+
+	</div>
+</body>
+</html>

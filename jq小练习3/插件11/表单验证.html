@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+
+		<title>验证</title>
+		<style>
+		.error{color:#f00;}
+		</style>
+		<!-- 1.引入jQuery库 -->
+		<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+		<!--2.引入插件-->
+		<script type="text/javascript" src="js/jquery.validate.js"></script>
+		<!-- 3.添加语言包 -->
+		<script type="text/javascript" src="js/jquery.validate.messages_zh.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				// 表单验证插件
+				$("form").validate({
+					rules:{
+						user:{required:true,rangelength:[3,10]},
+						email:{email:true},
+						url:{url:true},
+						number:{number:true}
+					},
+					messages:{
+						// user:{required:'必填',minlength:'至少输入三个字符'}
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<form action="http://www.baidu.com">
+		<p>s数字：<input type="text" name="number" />（*）</p>
+			<p>用 户 名：<input type="text" name="user"/>（*）</p>
+			<p>电子邮件：<input type="text" name="email"/>（*）</p>
+			<p>网    址：<input type="text" name="url"/></p>
+			<p><input type="submit" value="提交"/></p>
+		</form>
+	</body>
+</html>

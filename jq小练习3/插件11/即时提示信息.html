@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>提示信息</title>
+    <style>
+    .tips {
+        position: absolute;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+    }
+    
+    .tips .arrow {
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        border: 10px solid #ddd;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        border-top: none;
+    }
+    
+    .tips .arrow.inner {
+        border-bottom-color: #fff;
+        top: -8px;
+    }
+    </style>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/jquery.mytips.js"></script>
+    <script>
+    // 编写tips插件
+    // jQuery.fn = jQuery.prototype
+        /*var a = {a:1,b:2,c:'cs',d:{e:1,f:2,g:'good'}};
+        // @复制一个对象
+        var b = {};
+        for(name in a){
+            b[name] = a[name]
+        }
+        console.log(b);
+        var c = {};
+
+        // @扩展对象
+        // 第一个参数如果为true,就是深度拷贝
+        // 如果只有一个参数，并且不为布尔值，则是对jQuery的扩展
+        $.extend(true,c,a);
+        a.d.e = 11;
+        console.log(c);
+
+        // 扩展jQuery对象,jquery全局方法
+        jQuery.sum = function(a,b){
+            return a + b;
+        }
+        console.log($.sum(2,5));
+        $.extend({
+            sum2:function(a,b){
+                return a*b;
+            }
+        });
+        $('div').sum(2,5);
+        console.log($.sum2(2,5));*/
+       
+        
+        
+
+        // @即时提示信息
+        jQuery(function($) {
+            // 鼠标移入时显示提示信息
+            // 用一个变量保存title值，并移除title属性
+            var $a = $('a')
+            $a.tips({trigger:'click',attr:'data-msg'});
+
+            //var myt = new Tips();
+            // myt.show().changeColor('#00f');
+
+            // $===jQuery
+            // 编写插件的原理
+            // jQuery.prototype.min = function(){
+            //     alert(this.attr('title'));
+            // }
+            // $('a[title]').min();
+        });
+
+
+        // @构造函数tips
+        // 1.在构造函数里新建一个属性msg
+        // 2.新建两个方法：show,init
+        // 3.在初始化init方法里
+        //      1）新建一个div对象,并把相应信息写到这个div里面
+        function Tips(){
+            this.msg = '提示信息';
+
+            this.show = function(){
+                this.init();
+                this.changeColor();
+                this.ele.style.display = 'block';
+                return this;
+            };
+            this.init = function(){
+                var div = document.createElement('div');
+                var self = this;
+                // 添加一个ele属性，目的在其他方法中进行调用
+                self.ele = div;
+                self.ele.className = 'tips';
+                self.ele.innerHTML = this.msg;
+                self.ele.style.display = 'none';
+
+                // 添加点击事件，关闭当前提示信息
+                self.ele.onclick = function(){
+                    self.hide();
+                }
+                document.body.appendChild(this.ele);
+                return this;
+            }
+        }
+
+        // 给原型对象添加方法
+        Tips.prototype = {
+            hide : function(){
+                this.ele.style.display = 'none';
+                return this;
+            }
+        }
+        Tips.prototype.changeColor = function(color){
+            this.ele.style.color = color || '#f00000';
+            return this;
+        }
+        Tips.prototype.getColor = function(){
+            return this.ele.style.color;
+        }
+    </script>
+</head>
+
+<body>
+    <a href="#" data-msg="原来我喜欢是它">搜狗</a>
+    <a href="#" title="百度是一家广告公司" data-msg="我不喜欢百度">百度</a>
+    <a href="#" title="谷歌是一家搜索引擎公司" data-msg="我也不喜欢谷歌">谷歌</a>
+</body>
+
+</html>

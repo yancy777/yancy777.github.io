@@ -1,0 +1,464 @@
+@import url("base.css");
+a:hover {
+	color: #f00;
+	border-bottom: 1px solid #CB005A;
+}
+
+
+/*====================toper==================================*/
+
+.
+/*====================toper==================================*/
+
+.top {
+	width: 100%;
+	height: 26px;
+	border-bottom: 1px solid #CECCCF;
+}
+
+.top1 {
+	width: 1200px;
+	height: 26px;
+	color: #797979;
+	font-size: 12px;
+	position: relative;
+	margin: 0 auto;
+}
+
+.top1 .logo {
+	position: absolute;
+	width: 192px;
+	height: 104px;
+}
+
+.top1 p {
+	float: left;
+	padding-top: 6px;
+}
+
+.top1 .topnav {
+	width: 510px;
+	height: 26px;
+	float: right;
+}
+
+.topnav li {
+	float: left;
+	padding: 6px 10px;
+}
+
+.topnav .tt1 a {
+	padding-right: 6px;
+	border-right: 1px solid #747474;
+	color: #747474;
+}
+
+.step {
+	width: 618px;
+	height: 25px;
+	background: greenyellow;
+	border-radius: 5px;
+	margin-left: 580PX;
+	line-height: 25px;
+	text-align: center;
+}
+
+.step span {
+	float: left;
+	width: 205px;
+	height: 25px;
+}
+
+.step span:hover {
+	background: red;
+}
+
+.step .midd {
+	border-right: 1px solid #333333;
+	border-left: 1px solid #333333;
+}
+
+.box1 {
+	width: 1200px;
+	height: 98px;
+	margin: 0 auto;
+}
+
+.search {
+	width: 500px;
+	height: 55px;
+	float: left;
+	margin-top: 20px;
+	margin-left: 310px;
+}
+
+.search input {
+	width: 416px;
+	height: 28px;
+	border: 2px solid #DF025F;
+	color: #CECCCF;
+}
+
+.search button {
+	border: 0px solid #DF025F;
+	width: 80px;
+	height: 32px;
+	float: right;
+}
+
+.search ul {
+	float: left
+}
+
+.search1 li {
+	color: #CECCCF;
+	font-size: 12px;
+	border-right;
+	1px solid #CECCCF;
+	float: left;
+	padding: 0 15px;
+	margin-top: 10px;
+	border-right: 1px solid #CECCCF;
+}
+
+.shopcar {
+	width: 330px;
+	height: 32px;
+	background: url(../img/details/abaifeibai.jpg) no-repeat left;
+	float: left;
+	margin-top: 20px;
+	margin-left: 50px;
+}
+
+.shopcar2 {
+	float: right;
+	width: 120px;
+	height: 32px;
+	border: 1px solid #CECCCF;
+	background: url(../img/details/shopcar.jpg) no-repeat left;
+}
+
+.shopcar2 span {
+	font-size: 16px;
+	line-height: 31px;
+	color: #747474;
+	padding-left: 50px;
+}
+
+.shopcar2:hover {
+	border: 1px solid #CB005A
+}
+
+
+/*-==topnav==========*/
+
+.box11 {
+	height: 183px;
+}
+
+.box11 .shangbox {
+	height: 41px;
+	background: #f9f9f9;
+	margin: auto;
+}
+
+.box11 .zhongbox {
+	height: 33px;
+	background: #e50065;
+}
+
+.box11 .shang {
+	/*border: 1px solid #999999;*/
+	border-bottom: 1px solid #999999;
+	border-top: 1px solid #999999;
+	border-right: 1px solid #999999;
+	width: 1200px;
+	height: 40px;
+	font-family: "黑体";
+	margin: auto;
+}
+
+.shang li {
+	padding: 0 27px;
+}
+
+.box11 .zhong {
+	width: 1200px;
+	height: 33px;
+	width: 1200px;
+	margin: auto;
+}
+
+.zhong li {
+	padding: 0 33px;
+	color: white;
+}
+
+.shang li:hover {
+	background: black;
+	color: white;
+}
+
+.shang li {
+	float: left;
+	line-height: 40px;
+	border-left: 1px solid #8E8E8E
+}
+
+.zhong li {
+	float: left;
+	line-height: 32px;
+}
+
+.zhong li:hover {
+	background: #970043;
+}
+
+.box11 .xia {
+	width: 1200px;
+	height: 90px;
+	margin: auto;
+}
+
+
+/*====mian1 2 3 =========*/
+
+.box2 {
+	height: 668px;
+	background: #f5f5f5
+}
+
+.main {
+	width: 1200px;
+	height: 668px;
+	margin: auto;
+}
+
+.main p {
+	line-height: 40px;
+}
+
+.left,
+.midd,
+.right {
+	float: left;
+}
+
+.left {
+	width: 128px;
+	height: 516px;
+	background: white;
+}
+
+.informtion1 {
+	width: 110px;
+	height: 100px;
+	margin-left: 13px;
+	line-height: 25px;
+	border-bottom: 1px solid #8E8E8E;
+	font-size: 14px;
+}
+
+.informtion1 a,
+#shara a {
+	color: #8E8E8E;
+}
+
+#shara {
+	width: 110px;
+	background: white;
+	margin-left: 13px;
+	line-height: 25px;
+	font-size: 14px;
+}
+
+.midd {
+	width: 760px;
+	height: 508px;
+	margin: 0 10px;
+}
+
+.right {
+	width: 290px;
+	height: 555px;
+}
+
+.midd .mtop {
+	width: 760px;
+	height: 151px;
+	background: white;
+	margin-bottom: 10px;
+}
+
+.midd .mtop1 {
+	width: 760px;
+	height: 100px;
+	border-bottom: 1px dotted #8e8e8e;
+}
+
+.midd .mtop2 {
+	width: 760px;
+	height: 50px;
+	line-height: 50px;
+}
+
+.midd .mtop2 span {
+	padding: 0 75px;
+	font-size: 20px;
+}
+
+.midd .mtop2 .spanmiddle {
+	border-left: 1px dotted #8E8E8E;
+	border-right: 1px dotted #8E8E8E;
+}
+
+.midd .mxia img:hover {
+	opacity: 0.5;
+}
+
+.midd .mxia1 {
+	width: 760px;
+	height: 42px;
+	background: white;
+	line-height: 42px;
+	border-bottom: 1px dotted #8e8e8e;
+}
+
+.midd .mxia2 {
+	width: 760px;
+	height: 330px;
+	background: white;
+	padding-top: 30px;
+}
+
+.midd .mxia2 img {
+	width: 200px;
+	float: left;
+	margin: 0 25px;
+}
+
+.right .rtop img:hover {
+	opacity: 0.5;
+}
+
+.right .rtop {
+	width: 290px;
+	height: 151px;
+	background: white;
+	margin-bottom: 10px;
+}
+
+.right .rtop1 {
+	width: 290px;
+	height: 40px;
+	border-bottom: 1px dotted #8e8e8e;
+}
+
+.right .rtop2 {
+	width: 290px;
+	height: 100px;
+	text-align: center;
+	line-height: 100px;
+}
+
+.right .rtop2 img {
+	padding: 0 24px;
+	float: left;
+}
+
+.right .rxia {
+	width: 290px;
+	height: 390px;
+	background: white;
+	text-align: center;
+}
+
+.right .rxia1 {
+	width: 110px;
+	height: 326px;
+	margin: auto;
+}
+
+.right .rxia1 img {
+	width: 110px;
+	padding: 30px 0;
+}
+
+
+/*====foot=========*/
+
+.fhelp {
+	height: 146px;
+	background: #ececec;
+}
+
+.fhelp .fhelp1 {
+	height: 146px;
+	width: 1200px;
+	padding-top: 20px;
+	margin: 0 auto;
+}
+
+.fhelp .fhelp1 ul {
+	height: 120px;
+}
+
+.fhelp .fhelp1 li {
+	float: left;
+	width: 120px;
+	padding-left: 30px;
+	line-height: 20px;
+}
+
+.fhelp .fhelp1 li a {
+	font-size: 12px;
+	color: #7f7f7f;
+}
+
+.fbottom .fbottom1 {
+	height: 313px;
+	width: 1200px;
+	padding-top: 15px;
+	margin: 0 auto;
+}
+
+.fbottom .fbottom1 .fbotimg {
+	height: 42px;
+	width: 844px;
+	margin: 0 auto;
+}
+
+.fbottom .fbottom1 .fbotimg img {
+	display: block;
+	border-right: 1px solid #797979;
+	float: left;
+	padding: 0 15px;
+}
+
+.fbottom .fbottom1 .fbotext {
+	height: 42px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 20px;
+	margin-top: 40px;
+}
+
+.fbottom .fbottom1 .fpolice {
+	width: 716px;
+	height: 34px;
+	padding-top: 26px;
+	margin: auto;
+}
+
+.fbottom .fbottom1 .fpolice img {
+	height: 34px;
+	float: left;
+}
+
+.fbottom .fbottom1 .friendlink {
+	height: 34px;
+	margin-top: 80px;
+	border-bottom: 1px dotted#7F7F7F;
+	border-top: 1px dotted#7F7F7F;
+	line-height: 34px;
+}

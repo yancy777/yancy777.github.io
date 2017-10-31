@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			.outer{
+				width:640px;
+				height:400px;
+				margin:100px auto 0;
+				transform-style:preserve-3d;
+				/*transform:perspective(800px);*/
+			}
+			.pic{
+				width:64px;
+				height:400px;
+				float:left;
+				position:relative;
+				transform-style:preserve-3d;
+				transform:rotateX(0deg);
+				transition:all 1s;
+			}
+
+
+			.pic p:nth-of-type(1){
+				transform:translateZ(200px);
+				background:url(img/pic1.jpg) no-repeat;
+			}
+			.pic p:nth-of-type(2){
+				transform:rotateX(-90deg) translateZ(200px);
+				background:url(img/pic2.jpg) no-repeat;
+			}
+			.pic p:nth-of-type(3){
+				transform:rotateX(180deg) translateZ(200px);
+				background:url(img/pic3.jpg) no-repeat;
+			}
+			.pic p:nth-of-type(4){
+				transform:rotateX(90deg) translateZ(200px);
+				background:url(img/pic4.jpg) repeat;
+			}
+			.pic p{
+				width:64px;
+				height:400px;
+				position:absolute;
+				left:0;
+				top:0;
+				background-size: auto 100% !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="pic">
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+			<div class="pic">
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+			<div class="pic">
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+			<div class="pic">
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+			<div class="pic">
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+			<div class="pic">
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+			<div class="pic">
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+			<div class="pic">
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+			<div class="pic">
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+			<div class="pic">
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var pic = document.getElementsByClassName("pic");
+			var index = 0;
+			for(var i=0;i<pic.length;i++){
+				var oP = pic[i].getElementsByTagName("p");
+				for(var j=0;j<oP.length;j++){
+					oP[j].style.backgroundPosition = i*(-64)+"px 0px";
+				}
+				pic[i].style.transitionDelay = 0.1*i+"s";
+			}
+			var time = setInterval(function(){
+				index++;
+				console.log(index)
+				for(var i=0;i<pic.length;i++){
+					pic[i].style.transform = "rotateX("+index*90+"deg)";
+					
+				}
+			},4000)
+		</script>
+	</body>
+</html>

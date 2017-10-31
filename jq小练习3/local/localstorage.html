@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>存入页面</title>
+	<script type="text/javascript" src = "jquery-1.12.3.js"></script>
+</head>
+<body>
+
+	<script>
+			// $.getJSON('data.json',function(data){
+			// 	var dataJs = data;
+			// 	console.log(dataJs.test[0]);
+			// 	var local = dataJs.test[0];//取到{"name":"liyang","age":"17"}赋给local
+			// })
+
+			var local =
+		       {
+		       	liyang:{name:"liyang",age:17},
+		       	lilei:{name:"lilei",age:18}
+		       }
+	       // console.log(local);
+			var localtest = JSON.stringify(local);//将对象转化成字符串格式,赋给变量
+         	// var localtest = JSON.parse(local);//转化成对象格式。
+         	// (对象格式是不能作为本地存储对象的，本地存储对象只接受字符串格式)
+       		localStorage.setItem("测试",localtest);//设置存储内容，("名称" 内容)
+   			// localStorage.clear("测试");//删除存储数据
+   		    var aaa =  localStorage.getItem("测试");//设置变量接收，获取存储数据
+   		    console.log(aaa);//直接获取
+	     	console.log(JSON.stringify(aaa));//以字符串格式输出存储数据
+	     	console.log(JSON.parse(aaa));//以对象格式输出存储数据
+  
+	</script>
+<!-- 
+	JSON.parse()只可以解析json格式的数据，并且会对要解析的字符串进行格式检查，
+	如果格式不正确则不进行解析，而eval()则可以解析任何字符串，eval()是不安全的。 
+-->
+
+</body>
+</html>

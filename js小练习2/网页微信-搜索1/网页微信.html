@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页微信</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script>
+		function getClientHeight(){
+			var result = 0;
+			if(window.innerHeight){
+				result = window.innerHeight;	
+			}
+			else{
+				if(document.compatMode == "CSS1Compat"){
+					result = document.documentElement.clientHeight;	
+				}
+				else{
+					result = document.body.clientHeight;	
+				}	
+			}
+			return result;	
+		}
+
+		/*function getMyClassName(){
+			var tagList;    //定义一个变量存储通过getElementsByTagName()方法返回的元素集合
+			var cssname;	//定义一个变量存储CSS属性名
+			if(arguments.length==1){  //如果调用时传递一个参数时执行以下代码块
+				tagList = document.getElementsByTagName("*");
+				cssname=arguments[0];  //当传递一个参数时，让cssname存储arguments的第1个参数（下标从0开始）
+			}
+			if(arguments.length==2){  //如果调用时传递二个参数时执行以下代码块
+				tagList = arguments[0].getElementsByTagName("*");
+				cssname = arguments[1];  //当传递两个参数时，让cssname存储arguments的第二个参数
+			}
+			var arr = []; //将合法的元素节点对象存入该数组
+
+			//遍历所有通过getElementsByTagName()方法获取到的元素对象
+			for(var i = 0 ;i<tagList.length;i++){
+				//如果元素节点的className属性值与传递过来的属性值相等则将元素对象装入arr数组中
+				if(tagList[i].className==cssname){
+					arr.push(tagList[i]);
+				}
+			}
+			return arr; //将数组返回
+		}*/
+		function getMyClassName(){
+			var tagList;
+			var cssname;
+			if(arguments.length == 1){
+				tagList = document.getElementsByTagName("*");
+				cssname = arguments[0];
+			}
+			if(arguments.length == 2){
+				tagList = arguments[0].getElementsByTagName("*");
+				cssname = arguments[1];
+			}
+			var arr = [];
+			for(var i = 0;i<tagList.length;i++){
+				if(tagList[i].className == cssname){
+					arr.push(tagList[i]);
+				}
+			}
+			return arr;
+		}
+
+		window.onload = function(){
+			var sidebar = document.getElementById("sidebar");
+			var chat = document.getElementById("chat");
+			var cHeight = getClientHeight();
+			sidebar.style.height = cHeight + "px";
+			chat.style.height = cHeight + "px";
+
+			/*var searchBox = document.getElementById("searchBox");
+			searchBox.onkeyup = function(){
+				var sValue = this.value;
+				var userList = getMyClassName(sidebar,"userlist")[0];
+				var userLI = userList.getElementsByTagName("li");
+				for(var i = 0;i<userLI.length;i++){
+					var lb = userLI[i].children[1];
+					if(lb.innerHTML.search(sValue) == -1){
+						userLI[i].style.display = "none";
+					}
+					else{
+						userLI[i].style.display = "block";
+					}
+				}
+			}*/
+
+			var searchBox = document.getElementById("searchBox");
+			searchBox.onkeyup = function(){
+				var sValue = searchBox.value;
+				var userList = getMyClassName(sidebar,"userlist")[0];
+				var userLI = userList.getElementsByTagName("li");
+				for(var i = 0;i<userLI.length;i++){
+					var lb = userLI[i].children[1];
+					if(lb.innerHTML.search(sValue) == -1){
+						userLI[i].style.display = "none";
+					}
+					else{
+						userLI[i].style.display = "block";
+					}
+				}
+			}
+
+			var headpic = document.getElementById("headpic");
+			var myinfopic = document.getElementById("myinfopic");
+			headpic.onmousemove = function(){
+				myinfopic.style.display = "block";
+			}
+			headpic.onmouseout = function(){
+				myinfopic.style.display = "none";
+			}
+
+			var userList = document.getElementsByClassName("userlist");
+			var userLI = userList[0].childNodes;
+			var userLi = [];
+			for(var i =0;i<userLI.length;i++){
+				if(userLI[i].nodeType == 1){
+					userLi.push(userLI[i]);
+				}
+			}
+			for(var i = 0;i<userLi.length;i++){
+				userLi[i].onclick = function(){
+					for(var j = 0;j<userLi.length;j++){
+						userLi[j].className = "";
+					}
+					this.className = "on";
+					var sub = this.childNodes;
+					document.getElementById("username").innerHTML = sub[3].innerHTML;
+					document.getElementById("sendInfo").style.display = "block";
+					document.getElementById("requestInfo").innerHTML = "";
+				}
+			}
+			var sendBtn = document.getElementById("sendBtn");
+			var sendcontent = document.getElementById("sendcontent");
+			var requestInfo = document.getElementById("requestInfo");
+			sendBtn.onclick = function(){
+				sendFn();
+			}
+			var sendcontent=document.getElementById("sendcontent")
+			sendcontent.onkeyup=function(e){
+				e=e||event;
+				//ctr+enter快捷点发送
+				if(e.keyCode==13&&e.ctrlKey){
+					sendFn();
+				}
+			}
+		}
+		function qc(obj){
+			obj.parentNode.removeChild(obj);
+		}
+		function sendFn(){
+			var sCont = sendcontent.value;
+				requestInfo.innerHTML += "<div class=\"infolist\" ondblclick=\"qc(this)\">"
+										+ "<label>"+sCont+"</label>"
+										+"<span><img src=\"img/headimg.png\"/></span>"
+										+"</div>"
+										+"<div class=\"clear\"></div>";
+				sendcontent.value = "";
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div id="sidebar">
+			<div class="myinfo">
+				<div id="myinfopic"><img src="img/my.png" /></div>
+				<span id="headpic"><img src="img/headimg.png"></span>
+				<p>Omlee</p>
+				<a href="javascript:;"><img src="img/menu.png" /></a>
+			</div>
+			<div class="clear"></div>
+			<div class="search">
+				<input type="text" placeholder="搜索" id="searchBox"></input>
+			</div>
+			<div class="tab">
+				<ul>
+					<li><span class="on"></span></li>
+					<li><span class="tab2"></span></li>
+					<li><span class="tab3"></span></li>
+				</ul>
+			</div>
+			<ul class="userlist">
+				<li>
+					<span><img src="img/1.jpg" /></span>
+					<label>张三</label>
+				</li>
+				<li>
+					<span><img src="img/2.jpg" /></span>
+					<label>李四</label>
+				</li>
+				<li>
+					<span><img src="img/3.jpg" /></span>
+					<label>王五</label>
+				</li>
+				<li>
+					<span><img src="img/4.jpg" /></span>
+					<label>赵六</label>
+				</li>
+				<li>
+					<span><img src="img/5.jpg" /></span>
+					<label>孙七</label>
+				</li>
+				<li>
+					<span><img src="img/6.jpg" /></span>
+					<label>孙八</label>
+				</li>
+			</ul>
+		</div>
+		<div id="chat">
+			<div id="username"></div>
+			<div class="chatcontent">
+				<div id="requestInfo">
+					<span id="propmtinfo"><img src="img/bg.png" /></span>
+				</div>
+				<div id="sendInfo">
+					<div><textarea id="sendcontent"></textarea></div>
+					<a href="#" id="sendBtn">发 送</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

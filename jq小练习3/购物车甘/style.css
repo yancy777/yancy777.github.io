@@ -1,0 +1,130 @@
+body,ul,li,span,a,i,div,h3,p{
+	margin:0;
+	padding:0;
+}
+img{
+	display:block;
+	border:none;
+}
+ul,li{
+	list-style:none;
+}
+
+ul{
+	width:1000px;
+	margin:50px auto;
+	overflow: hidden;
+}
+
+li{
+	margin-right:10px;
+	float:left;
+	padding:10px 8px 20px;
+	border:1px solid #eee;
+
+}
+li i{
+	font-size:22px;
+	color:red;
+	font-weight: 600;
+}
+li p{
+	margin-bottom:25px;
+}
+li a{
+	text-decoration:none;
+	color:red;
+	display:block;
+	width:120px;
+	border:1px solid #eee;
+	height:30px;
+	line-height:30px;
+	margin:0 auto;
+	text-align:center;
+	font-size:12px;
+}
+
+li a:hover{
+	border:1px solid red;
+}
+
+
+h3{
+	font-size:18px;
+	color:red;
+	font-weight: 600;
+	width:1000px;
+	margin:30px auto;
+	line-height:20px;
+}
+
+#head{
+	width:1000px;
+	margin:0 auto;
+	border-top:2px solid #aaa;
+	background:#ccc;
+	font-size:14px;
+}
+
+#head span{
+	height:40px;
+	line-height:40px;
+}
+#head span.s1{
+	margin-left:10px;
+}
+#head span.s2{
+	margin-left:600px;
+}
+#head span.s3{
+	margin-left:150px;
+}
+
+
+#cart_list{
+	width:1000px;
+	margin:0 auto;
+}
+
+#cart_list .box1{
+	background:pink;
+	border-bottom:2px solid #eee;
+	overflow: hidden;
+	padding:10px;
+}
+#cart_list .box1 img{
+	width:60px;
+	height:60px;
+	float:left;
+	float:left;
+}
+
+#cart_list .box1 p{
+	display:block;
+	height:60px;
+	line-height:60px;
+	float:left;
+}
+
+#cart_list .box1 i{
+	display:block;
+	width:60px;
+	height:60px;
+	line-height:60px;
+	float:left;
+	margin-left:440px;
+}
+
+#cart_list .box1 a{
+	margin-left:125px;
+	display:block;
+	width:60px;
+	height:60px;
+	line-height:60px;
+	float:left;
+	text-decoration:none;
+	color:#3e3e3e;
+}
+#cart_list .box1 a:hover{
+	color:red;
+}

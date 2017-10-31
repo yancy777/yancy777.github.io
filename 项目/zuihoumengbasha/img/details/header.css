@@ -1,0 +1,198 @@
+﻿body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+body{color:#555555;font-size:12px;font-family:"宋体";line-height:22px; background:#f5f5f5;}
+.clear{clear:both;}
+img{border:0;}
+a{color:#797979;text-decoration:none;font-size:12px;}
+a:hover{color:#ab0036;text-decoration:none;}
+li{ list-style-type:none;}
+.header_div{background: url("http://i1.mbscss.com/img/moonbasa/2013/09/07/bg1.jpg") repeat-x scroll 0 26px transparent;margin: 0 auto;width: 100%;}
+.header{width:1200px;margin:0 auto;height:118px;}
+
+/*梦芭莎旗下品牌*/
+.brandM{width:100%;background:#F9F9F9;height:40px;}
+.brandmenu{width:1200px;margin:auto;height:40px;}
+.brandmenu ul{width:1200px;height:40px;}
+.brandmenu li a{height:40px;display:block;text-indent:-9999px;float:left;background:url(http://i1.mbscss.com/img/moonbasa/2015/12/16/1216_1.jpg) no-repeat;}
+.brandmenu li a:hover{height:40px;display:block;text-indent:-9999px;float:left;background:url(http://i1.mbscss.com/img/moonbasa/2015/12/16/1216_2.jpg) no-repeat;}
+.brandmenu li a.hlogo1{background-position:0 0;width:110px;}
+.brandmenu li a.hlogo2{background-position:-110px 0;width:109px;}
+.brandmenu li a.hlogo3{background-position:-219px 0;width:109px;}
+.brandmenu li a.hlogo4{background-position:-328px 0;width:109px;}
+.brandmenu li a.hlogo5{background-position:-437px 0;width:109px;}
+.brandmenu li a.hlogo6{background-position:-546px 0;width:109px;}
+.brandmenu li a.hlogo7{background-position:-655px 0;width:109px;}
+.brandmenu li a.hlogo8{background-position:-764px 0;width:109px;}
+.brandmenu li a.hlogo9{background-position:-873px 0;width:109px;}
+.brandmenu li a.hlogo10{background-position:-982px 0;width:109px;}
+.brandmenu li a.hlogo11{background-position:-1091px 0;width:109px;}
+.brandmenu li a.hlogo1:hover{background-position:0 0;width:110px;}
+.brandmenu li a.hlogo2:hover{background-position:-110px 0;width:109px;}
+.brandmenu li a.hlogo3:hover{background-position:-219px 0;width:109px;}
+.brandmenu li a.hlogo4:hover{background-position:-328px 0;width:109px;}
+.brandmenu li a.hlogo5:hover{background-position:-437px 0;width:109px;}
+.brandmenu li a.hlogo6:hover{background-position:-546px 0;width:109px;}
+.brandmenu li a.hlogo7:hover{background-position:-655px 0;width:109px;}
+.brandmenu li a.hlogo8:hover{background-position:-764px 0;width:109px;}
+.brandmenu li a.hlogo9:hover{background-position:-873px 0;width:109px;}
+.brandmenu li a.hlogo10:hover{background-position:-982px 0;width:109px;}
+.brandmenu li a.hlogo11:hover{background-position:-1091px 0;width:109px;}
+
+/*系统消息*/
+.header .Collection{float:right;color:#747474;text-align:right;background:url(http://i1.mbscss.com/img/moonbasa/2014/06/biao/20/1339.jpg) no-repeat left 6px;padding-top:2px;padding-left:15px;margin-left:15px;}
+.header .Collection a{color:#747474;}
+.header .helpmsg a{display:inline-block;color:#747474;padding:0 5px;}
+.header .helpmsg a:hover{color:#e50056;}
+.header .helpmsg a.weixin,.header .helpmsg a.weibo,.helpmsg a.mobile,.helpmsg a.yidong{position:relative;padding-left:32px;background:url(http://i3.mbscss.com/img/moonbasa/2014/10/biao/08/icon.jpg) no-repeat;}
+.header .helpmsg a.weixin{background-position:10px 4px;}
+.header .helpmsg a.weibo{background-position:10px -22px;}
+.header .helpmsg a.mobile{background-position:10px -64px;}
+.header .helpmsg a.yidong{background-position:10px -93px;}
+.header .helpmsg a.weixin img,.header .helpmsg a.mobile img{display:none;position:absolute;left:-60px;top:20px;}
+.header .helpmsg span{display:inline-block;padding:0 5px;color:#747474;}
+.header .logininfo_outdiv{width:auto;height:26px;position:relative;float:right;z-index:11; padding-right:17px;}
+.header .logininfo_outdiv{width:auto;height:26px;position:relative;float:right;z-index:11; padding-right:17px;}
+.header #logininfo a{float:right;color:#747474;}
+.header #logininfo span{float:right;padding:0 5px;}
+.header #logininfo{width:auto;float:right;height:16px;padding:5px 0;color:#747474;line-height:16px;text-align:right;_overflow:hidden;}
+.header #logininfo .mymbs{display:inline;float:right;width:70px;padding:0 5px;position:relative;border:1px solid #fff;}
+.header #logininfo .mymbscss{background:#fff;border:1px solid #a0a0a0;}
+.header #logininfo .mymbs p{width:70px;overflow:hidden;float:left;}
+.header #logininfo .mymbscss a:hover{text-decoration:underline;color:#e50065;}
+.header #logininfo .mymbs p img{float:left;cursor:pointer;}
+.header #logininfo .mymbscss ul{margin-top:4px;border-top:1px dashed #e6e6e6;float:left;width:66px;padding-left:7px;}
+.header #logininfo .mymbscss ul li{width:67px;height:22px;overflow:hidden;padding-left:3px;}
+.header #logininfo .mymbscss ul li a,#logininfo .mymbscss ul li a:hover{clear:both;display:block;width:67px;height:22px;line-height:22px;text-align:left;}.header .helpmsg{float:right;padding-top:2px;}
+.header #divSiteMsg{overflow:hidden;position:absolute;right:123px;top:25px;width:350px;display:none;}
+.s_message{width:350px;height:auto;float:left;overflow:hidden;}
+.s_message h2{width:315px;height:40px;overflow:hidden;color:#fff;font:normal 16px/37px '宋体';padding:15px 19px 0 22px;background:0 none;background:url(http://images2.moonbasa.com/Images/20120710/m_message_top.png) no-repeat 0 0;_background:0 none;_background:url(http://images2.moonbasa.com/Images/20120710/m_message_topie6.png) no-repeat 1px 0;float:left;}
+.s_message h2 span{float:left;padding-left:7px;height:40px;line-height:40px;}
+.s_message h2 span font{font-size:12px;font-weight:normal;padding:0 5px;color:#959595;}
+.s_message h2 a.s_close{float:right;width:15px;height:15px;padding:10px 5px 15px 0;*padding:0 5px 15px 0;}
+.s_message .s_message_con{width:350px;background:url(http://images2.moonbasa.com/Images/20120710/m_message_px_bg.png) repeat-y 1px 0;_background:0 none;_background:url(http://images2.moonbasa.com/Images/20120710/m_message_px_bgie6.png) repeat-y 1px 0;position:relative;float:left;}
+.s_message .border_div{width:300px;height:0;line-height:0;font-size:1px;overflow:hidden;margin:0 25px;_margin:0 12px;border-top:1px solid #363636;border-bottom:1px solid #606060;float:left;}
+.s_message .s_message_c{width:300px;float:left;overflow:hidden;padding:8px 25px 0 25px;}
+.s_summary{width:300px;line-height:20px;padding:0 0 6px;float:left;overflow:hidden;color:#fff;font-size:12px;float:left;}
+.s_summary a{color:#fff;}
+.s_summary a:hover{color:#fff;text-decoration:underline;}
+.s_more{width:300px;line-height:16px;float:left;}
+.s_more a{float:right;color:#fff;text-decoration:none;background:#ea086c;width:70px;height:15px;line-height:15px;text-align:center;cursor:pointer;}
+.s_more a:hover{float:right;color:#fff;text-decoration:underline;background:#ea086c;width:70px;height:15px;line-height:15px;text-align:center;cursor:pointer;}
+.s_message .s_message_down{width:355px;height:22px;background:url(http://images2.moonbasa.com/Images/20120710/m_message_bottom.png) no-repeat 0 0;_background:0 none;_background:url(http://images2.moonbasa.com/Images/20120710/m_message_bottomie6.png) no-repeat 1px 0;text-indent:-9999px;float:left;}
+.m_moonbasa_mine{width:89px;height:27px;margin:5px 0 0;position:relative;z-index:1000;float:left;}
+.m_moonbasa_mine a.m_moonbasa_mine_link{width:77px;height:19px;border:1px solid #ccc;line-height:19px;padding:0 0 0 10px;background:url(http://images2.moonbasa.com/Images/20120710/m_moonbasa_mine.jpg) no-repeat 0 0;float:left;}
+.m_moonbasa_mine ul{width:77px;padding:0 0 0 10px;border:1px solid #ccc;border-top:0 none;position:absolute;top:20px;left:0;right:0;background:#fff;}
+.m_moonbasa_mine ul li{width:77px;}
+.m_moonbasa_mine a{color:#494949;}
+
+.top_cart{width:123px;height:30px;float:left;position:relative;display:inline;border:solid 1px #E2E2E2;background:#fff;}
+.cart{height:30px;width:123px;line-height:30px;background:#fff url(http://i0.mbscss.com/img/moonbasa/2014/11/biao/18/1556.jpg) no-repeat 13px 0; float:right;}
+.cart .cart_bg{background:url(http://i0.mbscss.com/img/moonbasa/2014/11/biao/18/1557.jpg) no-repeat top right;float:right;padding-right:23px;font-size:15px;font-family:宋体;color:#747474;line-height:30px;}
+#CartCount{clear:both;background:url(http://i1.mbscss.com/img/moonbasa/2013/09/07/g.png) no-repeat;width:17px;height:16px;line-height:16px;text-align:center;color:#fff;position:absolute;top:-6px;left:35px;font-size:12px;}
+*html #CartCount{background:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.mbscss.com/img/moonbasa/2013/09/07/g.png');}
+
+/*新版购物车-1107*/
+.Car{position:relative;float:right;margin-top:24px;z-index:10; padding-right:17px;}
+.cart_none,.cart_list{width:358px;border:solid 1px #F2F2F2;background:#FFF;position:absolute;right:17px;top:31px;display:none;}
+.cart_none {padding:45px 0;text-align:center;}
+.cart_list ul {margin:0 1px;max-height:420px;overflow-y:auto;padding-top:6px;position:relative;}
+.cart_list ul li {border-bottom:1px solid #F3F3F3;height:55px;padding:7px 10px;position:relative;z-index:999;}
+.cart_list ul li a.pro_img {border:1px solid #E4E4E4;float:left;height:55px;margin-right:5px;width:40px;}
+.cart_list ul li a.pro_name {float:left;height:55px;line-height:20px;overflow:hidden;width:130px;color:#4C4C4C;}
+.cart_list ul li .pro_price {color:#FF0E52;float:left;display:inline;font-weight:bold;height:40px;line-height:20px;margin-left:10px;margin-right:6px;overflow:hidden;width:70px;font-family:Arial;}
+.plus, .minusDisable {border:0 none;cursor:pointer;display:inline-block;height:13px;margin-top:3px;vertical-align:middle;width:13px;display:none;}
+.plus {background:url(http://i1.mbscss.com/img/moonbasa/2013/09/07/p.jpg) no-repeat;margin-left:3px;}
+.minusDisable {background:url(http://i1.mbscss.com/img/moonbasa/2013/09/07/j.jpg) no-repeat;margin-right:3px;}
+.num_box .minicart_num {color:#262626;float:left;text-align:center;width:28px;}
+.cart_list .num_box a {line-height:20px;float:right; cursor:pointer;}
+.cart_list .num_box {display:block;float:left;text-align:center;width:65px;overflow:hidden;}
+.cart_list a.delete {background:url("../images/indexhead_sprite.png?699418") no-repeat scroll -220px -20px transparent;display:block;float:right;height:7px;margin-top:16px;width:7px;}
+.cart_list .checkout_box {background:#F2F2F2;padding:7px 5px 11px 16px;position:relative;text-align:right; width: 337px;}
+.fl {float:left;}
+.cart_list .checkout_box strong {color:#E50065;font-family:Arial;}
+.cart_list .checkout_box .checkout_btn {background:#E50065;width:74px;height:28px;line-height:28px;text-align:center;color:#fff;display:inline-block;}
+
+
+
+.header .logo{width:192px;height:109px;float:left;}
+.header .logo img{display:block;}
+.header_right{ width:753px; float:right;}
+.header .header_a{float:right;padding:24px 74px 0 0;}
+.header .header_a a img{display:block;}
+.header .search_keyw{width:500px;float:left;padding:24px 0 0 106px;}
+.header .search{float:left;width:500px;position:relative;z-index:1;}
+.header .search .fsearch{width:500px;height:32px;background:url(http://i0.mbscss.com/img/moonbasa/2014/11/biao/18/1425.jpg) no-repeat;}
+.header .search .fsearch input{background:none;border:0;}
+.header .search .fsearch input.sinp{float:left;width:410px;height:28px;padding-left:5px;line-height:28px;margin:2px 2px 0 0;color:#999;}
+.header .search .fsearch input.s{float:right;width:83px;height:32px;text-indent:-200px;cursor:pointer;}
+.hot_keywords{ width:500px;height:25px; color:#c3c3c3; overflow:hidden;}
+.hot_keywords a { color:#717171;padding-left:5px}
+.hot_keywords a:hover { color:#E50056;}
+.hot_keywords p{float:left;}
+.hd_right{float:left; height:45px; line-height:45px; color:#999; padding-right:0px;}
+.hd_right a{ font-weight:bold; font-size:14px; float:left; padding-right:16px;}
+.hd_right a.hs{ position:relative;}
+
+.menucon{float:left;width:100%;background:#E50065;min-width:1200px;}
+.menu{width:1200px;margin:auto;height:33px;}
+.menu ul{list-style:none;width:1199px;float:right;}
+.menu .nav{float:left;}
+div.subnav_top{background:none repeat scroll 0 0 #FFF;border:1px solid #F09;clear:both;display:none;font-family:"宋体";height:35px;left:0;list-style:none outside none;position:absolute;top:34px;width:215px;z-index:99999;}
+ul.navlist_top{line-height:35px;margin-left:0;overflow:hidden;padding:0 0 0 12px;width:100%;}
+ul.navlist_top li .navlist_top_con a{background:none repeat scroll 0 0 transparent;color:#000;float:none;font-family:"宋体";font-size:12px;height:27px;line-height:27px;padding:0 6px;white-space:nowrap;}
+ul.navlist_top li .navlist_top_con a:hover{background:none repeat scroll 0 0 transparent;color:#F09;}
+.menu li{float:left;height:33px;text-align:center;display:inline;width:auto;position:relative;}
+.menu li a{float:left;height:33px;line-height:33px;padding:0 20px;color:#FFF;font-size:14px;text-decoration:none;font-family:"微软雅黑";}
+.menu li a:hover{color:#fff;text-decoration:none;background:#A60040;}
+.menu li a.on{color:#fff;background:#A60040;}
+.menu li.last{padding-left:9px;}
+.menu li.last a{padding:0 28px;font-weight:bold;}
+.menu .nav{position:relative;z-index:3;}
+
+.footer{margin:auto;width:980px;font-size:12px;line-height:22px;background:#fff;}
+.footmenu{float:left;width:980px;background:#fff;text-align:center;}
+.footmenu ul{list-style:none;padding:21px 0px 0px 0px;height:30px;float:left;width:750px;}
+.footmenu li{margin:0px 5px; float:left; display:inline}
+.footmenu li a{color:#515151}
+.footmenu a:hover{color:#ab0036}
+.foothelp{float:left; width:980px; padding:10px 0px 10px 0px; background:url(http://i1.mbscss.com/img/moonbasa/2012/08/liu/08/foot_tbg.jpg) repeat-x bottom #FFF; color:#565656;}
+.foothelp ul{ width:120px; height:130px; border-right:#c1c0c0 dashed 1px; float:left; padding:20px 15px 0px 32px; list-style:none;}
+.foothelp ul.f{ width:100px; padding-left:50px;}
+.foothelp ul.e{ border-right:0px; width:95px;}
+.foothelp .lititle{font-weight:bold;font-size:14px;font-family:"微软黑体";background:none;text-indent:0px;padding-bottom:6px;color:#292929}
+.foothelp a{color:#666666;font-size:12px;text-decoration:none;}
+.foothelp a:hover{color:#ab0036;text-decoration:none;}
+.footcxpic{float:left;width:980px;padding:10px 0px 15px 0px;background:url(http://images5.moonbasa.com/WebApp/image/footcxpic_bg.gif) no-repeat bottom center #fff;color:#565656;} 
+.footcxpic ul{list-style:none;padding:11px 0px 0px 0px;}
+.footcxpic li{float:left;padding-left:150px;}
+.footcxpic li.s{padding-left:30px;}
+.hzlogo{width:780px;margin:0 auto;padding:5px 0px 40px 0px;text-align:center;background:#FFFFFF}.hzlogo a,.hzlogo img{float:left;display:block;}.hzlogo a{margin-top:3px;}
+.footsearch{float:left;width:220px;padding:21px 0px 0px 0px;}
+.footsearch input{border:0px;background:none;color:#a2a2a2}
+.footsearch span.inp{width:150px;height:16px;float:left;padding:3px 0px 0px 2px;border:#666 solid 1px;}
+.footsearch span.sub{float:left;padding-left:3px;}
+.copyright{width:980px;padding:10px 0px 10px 0px;float:left;background:#FFF;text-align:center;color:#999999;font-family:Arial}
+.hand{cursor:pointer;}
+.main{margin:auto;width:980px;overflow:hidden;}
+a{color:#797979;text-decoration:none;}
+a:hover{color:#ab0036;text-decoration:none;}
+.membermain{margin:auto;width:980px;background:#FFF;overflow:hidden;padding-top:10px;}
+.tm10{margin-top:10px;}
+
+#gotop { position:fixed; bottom:10%; _position:absolute; display:block; width:24px; height:80px; background:url(http://images5.moonbasa.com/WebApp/image/topback.jpg) no-repeat 0 0; text-indent:-9em; overflow:hidden; }
+
+/*-----------2012-02-07-----------*/
+
+.sizedh{ z-index:9999;color:#ffffff;}
+.sizedh a.mapDroptit {color: #000;background: url(http://images.moonbasa.com/img/2012_yxy/dropTag.png) no-repeat right 14px;}
+.sizedh a.mapDroptit:hover {color: #ab0036;}
+
+/*搜索样式*/
+.header .search .hid{width:498px;overflow:hidden;display:none;border:1px solid #ddd;font-size:12px;position:absolute;z-index:9999;left:0;top:32px;background:#fff;}
+.header .search .hid ul{float:left;overflow:hidden;width:100%;overflow:hidden;border-bottom:1px solid #ddd;}
+.header .search .hid b{font-weight:normal;height:26px;line-height:26px;float:right;padding:0 3px;cursor:pointer;color:#000;}
+.header .search .hid ul li{line-height:26px;padding-left:5px;cursor:pointer;color:#333;overflow:hidden;}
+.header .search .hid ul li.on{background:#e3e3e3;}
+.header .search .hid ul li span.kskey{float:left;}
+.header .search .hid ul li span.ksfrequency{float:right;color:Green;}
+.brandmenu li{float:left;display:inline;}
+.brandmenu li img{display:block;}

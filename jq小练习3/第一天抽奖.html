@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo6</title>
+	<script src="js/jquery-1.11.3.js"></script>
+	<style>
+		ul{
+			width: 328px;
+		}
+		ul li{
+			width: 100px;height: 100px;border: 1px solid red;float: left;
+			list-style: none;margin: 5px 5px 0 0;
+		}
+		.active{
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="点击">
+	<ul>
+		<li>1等奖</li>
+		<li>2等奖</li>
+		<li>3等奖</li>
+		<li>4等奖</li>
+		<li>5等奖</li>
+		<li>6等奖</li>
+		<li>7等奖</li>
+		<li>8等奖</li>
+		<li>9等奖</li>
+	</ul>
+	<div></div>
+
+	<script>
+
+		
+		var timer=null;
+		$('input').click(function(){
+			var iNow=0;
+			clearInterval(timer)
+			var step=Math.floor(Math.random()*$('li').length+$('li').length)
+			timer=setInterval(function(){
+				
+				// $('li').attr('class','');
+				// $(this).attr('class','active');
+				$('li').eq(iNow).attr('class','active').siblings().attr('class','');
+
+				step--;
+				if(step==0){
+					clearInterval(timer);
+					$('div').html($('li').eq(iNow).html())
+
+				}
+				iNow++;
+				if(iNow==$('li').length){
+					iNow=0;
+				}
+			},300)
+		})
+	</script>
+
+
+</body>
+</html>

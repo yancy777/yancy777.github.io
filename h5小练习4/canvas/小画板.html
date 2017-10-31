@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{margin: 0;padding: 0;}
+		a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {margin: 0; padding: 0; border: 0; font-size: 100%; vertical-align: baseline} 
+		article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block}
+		body {line-height: 1}
+		ol, ul {list-style: none}
+		body,p,ul{margin:0;}
+		body{font:12px Arial,"微软雅黑"; }
+		ol,dl,dd,h1,h2,h3,h4,h5,h6{margin:0;}
+		ul,ol,li{padding-left:0;list-style:none;}
+		input{padding:0;}
+		img{border:0;}
+		a{text-decoration:none;}
+		/*====================================*/
+			.main{
+				width: 800px;
+				height: 600px;
+				border: 1px solid #989898;
+			}
+			.tool{
+				float: left;
+				width: 290px;
+				height: 600px;		
+			}
+			#myCanvas{
+				border:5px solid #f00;
+			}
+			ul{
+				padding-left: 20px;
+				font-size: 18px;
+			}
+			li{
+				padding-top:20px ;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<div class="tool"> 
+				<ul>
+					<li>选择颜色：<input id="line-color" type="color" /></li>
+					<li>划线粗细:<input id="line-width" type="range" value="1"  min="1" max="10" /></li>
+					<li>划线透明度:<input id="line-alpha" type="range" value="5"  min="0" max="10" /></li>
+					<li><input id="F5" type="button" value="清除画布"></li>
+					<li><input id="back"  type="button" value="上 一 步"></li>
+					<li><input id="clean"  type="button" value=" 橡  皮 "></li>					
+				</ul>	
+			</div>				
+				<canvas id="myCanvas" width="500" height="580" ></canvas>	
+		</div>
+	<script>
+	    var oColor =  document.getElementById("line-color");
+	    var oWidth =  document.getElementById("line-width");
+	    var oAlpha =  document.getElementById("line-alpha");
+	    var oCanvas = document.getElementById("myCanvas");
+	    var oContext = oCanvas.getContext("2d");   
+		 oCanvas.onmousedown=function(ev){
+	        /*鼠标每次按下开始新的路径*/
+	        /*在绘画之前确认 线条的宽度，和颜色,透明度*/
+	        var color = oColor.value;
+	        var width = oWidth.value;
+	        var alpha = oAlpha.value/10;
+	
+	        oContext.lineWidth = width;
+	        oContext.strokeStyle = color;
+	        oContext.globalAlpha =alpha;
+
+	        /*记录鼠标按下的位置*/
+	        var oldX = ev.offsetX;
+	        var oldY = ev.offsetY;
+	        console.log(oldX);
+	        console.log(oldY);
+	
+     	  oCanvas.onmousemove=function(ev){
+	            oContext.beginPath();
+	            oContext.moveTo(oldX,oldY);
+	            var mX =  ev.offsetX;
+	            var mY =  ev.offsetY;
+	            oContext.lineTo(mX,mY);
+	            oContext.stroke();
+	
+	            /*把上一次鼠标的坐标存起来*/
+	            oldX = mX;
+	            oldY = mY;
+	        };
+	
+	        oCanvas.onmouseup=function(){
+	            oCanvas.onmousemove = null;
+	            oCanvas.onmouseup = null;
+	        }
+	        //=========== 清除 \上一步 \橡皮擦 ====================
+	        var f5=document.getElementById("F5")
+	       	var back=document.getElementById("back")
+	       	var clean=document.getElementById("clean")
+	       	
+	       	f5.onclick=function(){
+	       		location.reload([true])
+	       	}
+	        back.onclick=function(){
+	        	
+	        }
+	        clean.onclick=function(){
+	        	
+	        }
+	        
+	    }
+</script>
+</body>
+</html>

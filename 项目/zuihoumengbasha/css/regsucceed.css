@@ -1,0 +1,111 @@
+@import url("base.css");
+a:hover {
+	color: #f00;
+	
+}
+
+body {
+	background: #cecccf;
+}
+
+.top,
+.main,
+.foot {
+	margin: 0 auto;
+}
+
+.top {
+	width: 1016px;
+	background: #fff;
+}
+
+.main {
+	width: 1016px;
+	height: 286px;
+	background: #fff;
+}
+
+.main .mgood {
+	margin: 0 auto;
+	padding-top: 50px;
+	width: 394px;
+	height: 70px;
+	background: url(../img/regsucceed/good.gif) no-repeat left;
+}
+
+.main .mgood p {
+	font-family: "微软雅黑";
+	font-size: 30px;
+	color: #ce0036;
+	padding-left: 60px;
+}
+
+.main .zhanghao {
+	padding-left: 60px;
+	font-size: 14px;
+	color: #555555 line-height: 30px;
+}
+
+.main .mgood1 {
+	margin: 0 auto;
+	width: 394px;
+	height: 70px;
+	margin-top: 25px;
+}
+
+.main .mgood1 span {
+	font-family: "微软雅黑";
+	font-size: 35px;
+	color: #ce0036;
+}
+
+.main .mgood2 {
+	margin: 0 auto;
+	width: 500px;
+	height: 70px;
+}
+
+.btn1,
+.btn2 {
+	width: 200px;
+	height: 50px;
+	color: #D1005B;
+	font-size: 18px;
+	font-family: "黑体";
+	border: 1px solid #D1005B;
+}
+
+.btn2 {
+	background: #D1005B;
+	color: #FFFFFF;
+	margin-left: 10px;
+}
+
+input:hover {
+	border: 1px solid #D1005B;
+}
+
+.btn2   a:hover {
+	border: 1px solid #000000;	
+}
+
+/*=====foot=========*/
+
+.foot {
+	padding-top: 130px;
+	width: 1016px;
+	height: 40px;
+	text-align: center;
+	line-height: 20px;
+	color: #555555;
+	font-size: 12px;
+}
+
+.foot a {
+	text-decoration: none;
+	color: #888888
+}
+
+.foot a:hover {
+	color: #f00;
+}

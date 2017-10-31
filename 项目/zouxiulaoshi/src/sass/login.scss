@@ -1,0 +1,21 @@
+@import "base/base";
+
+
+#login-page{
+  font-size: $midFont;
+  .login-box { padding: 0.3rem;}
+  li { margin: 10px 0; overflow: hidden}
+  .username { width: 100%; padding: 10px;border:1px solid #ccc; background-color: #fff; }
+  .password {@extend .username}
+
+  .select-wrap { float: left}
+  .select-btn {width: 20px; margin: 0 5px; height: 20px; float: left; border: 1px solid #ccc; position: relative}
+  .selected {
+    .select-btn:after {
+      content: ""; position: absolute; width: 10px; height: 10px; left: 4px; top: 4px; background-color: $fontColor;
+    }
+  }
+  .select-text  {float: left; margin: 0 5px;}
+  .forget { float: left; color: $lightenRed;}
+
+}

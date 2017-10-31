@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+		<title>jquery mobile</title>
+		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.css">
+		<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+		<script type="text/javascript" src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				
+			});
+		</script>
+	</head>
+	<body>
+	<div data-role="page" id="home">
+			<div data-role="header"><h3>首页</h3></div>
+			<div data-role="content">
+				<a href="#list" data-transition="slide">进入列表页</a>
+				<a href="#search" data-transition="slide">进入搜索页</a>
+				<div data-role="controlgroup" data-type="horizontal">
+				  <a href="#anylink" data-role="button">按钮 1</a>
+				  <a href="#anylink" data-role="button">按钮 2</a>
+				  <a href="#anylink" data-role="button">按钮 3</a>
+				</div>
+			</div>
+			<div data-role="footer"><h4>页面底部</h4></div>
+		</div>
+	<!--  data-inset="true" -->
+		<div data-role="page" id="list">
+			<div data-role="header">
+				<a href="#home" data-role="button">首页</a>
+				<h1>列表页</h1>
+				<a href="#search" data-role="button">搜索</a>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" data-theme="e">
+					<li><a href="#">Acura</a></li>
+					<li><a href="#">Audi</a></li>
+					<li><a href="#">BMW</a></li>
+					<li><a href="#">Cadillac</a></li>
+					<li><a href="#">Ferrari</a></li>
+				</ul>
+			</div>
+			<div data-role="footer"><h4>页面底部</h4></div>
+		</div>
+		<div data-role="page" id="search">
+			<div data-role="header">
+				<a href="#home" data-role="button">首页</a>
+				<h1>搜索页</h1>
+				<a href="#list" data-role="button">列表</a>
+			</div>
+			<div data-role="content">
+				<form method="post" action="#">
+				  <div data-role="fieldcontain">
+				    <label for="search">Search:</label>
+				    <input type="search" name="search" id="search">
+				  </div>
+				</form>
+			</div>
+			<div data-role="footer"><h4>页面底部</h4></div>
+		</div>
+	</body>
+</html>

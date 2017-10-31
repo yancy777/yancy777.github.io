@@ -1,0 +1,27 @@
+﻿<script>
+	var arr=["yellow","red"];
+	var arr1=["yes","no","true","false"];
+	var arr2=arr.splice(1,0,"green");
+	var arr3=arr1.splice(1,1,"ok",22);
+	 
+	result=arr.concat(arr1);
+	
+	result.forEach(function(item,index,arr){
+		document.write(item+"&nbsp;");
+	})
+	
+</script>
+<script>
+	var arr=[7,2,8,4,5,9,7,];
+	for(var i=0;i<arr.length-1;i++){
+		if(arr[i]<arr[i+1]){
+			temp=arr[i];
+			arr[i]=ar[i+1];
+			ar[i+1]=temp;
+		}
+	}
+	document.write(arr);
+	
+	
+	
+</script>

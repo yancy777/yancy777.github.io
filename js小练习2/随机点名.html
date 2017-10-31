@@ -1,0 +1,25 @@
+<script type="text/javascript">
+window.onload = function(){
+	function callName(){
+			var nameList = ["张三","李四","王五","赵六","小七" ];
+			var index = parseInt(nameList.length*Math.random());
+			div1.innerHTML=nameList[index];
+	}
+	var isOpen=true;
+	var inter;
+	btn2.onclick=function(){
+			if(isOpen){
+				isOpen=false;
+				btn2.value="停止点名";
+				inter = setInterval(callName,100);
+			}
+			else{
+				isOpen=true;
+				btn2.value="开始点名";
+				clearInterval(inter);
+			}
+	}
+}
+</script>
+<input type="button" id="btn2" value="开始点名"></input>
+<div id="div1" style="width:500px;height:300px; border:solid 5px #ff6600; font-family: 黑体;color:#0f0; font-size:214px; text-align: center; line-height: 300px;"></div>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        * { padding: 0; margin: 0;}
+        li { list-style: none}
+        .fl { float: left}
+        .fr { float: right}
+
+        em { color: #ff6600; font-style: normal;}
+        #list { width: 600px; margin: 0 auto; padding: 10px;}
+        .item { height: 100px; padding: 10px; overflow: hidden; border-bottom: 1px solid #ccc;}
+        img { width: 100px; height: 100px; float: left}
+        .info { float: left; margin-left: 50px; width: 400px;}
+        p { margin: 10px 0}
+        #btn { margin: 20px auto;  width: 100px; line-height: 40px; text-align: center;
+            cursor: pointer; background-color: rgba(255,0,0,.6); border-radius: 5px; color: #fff;  }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul id="list">
+
+           <!-- <li class="item"><img src=""  />
+                '<div class="info"><p>
+                    <strong>尔（DELL）Vostro 3800-R6308 台式电脑 （i3-4170 4G 500G DVD 三年上门服务 Win7）黑</strong></p>
+                    '<p><em class="fl">$qwe</em>
+                        '<span class="fr">月销量：2</span></p></div> </li>
+
+            <li class="item"><img src=""  />
+                '<div class="info"><p>
+                    <strong>尔（DELL）Vostro 3800-R6308 台式电脑 （i3-4170 4G 500G DVD 三年上门服务 Win7）黑</strong></p>
+                    '<p><em class="fl">$qwe</em>
+                        '<span class="fr">月销量：2</span></p></div> </li>
+
+            <li class="item"><img src=""  />
+                '<div class="info"><p>
+                    <strong>尔（DELL）Vostro 3800-R6308 台式电脑 （i3-4170 4G 500G DVD 三年上门服务 Win7）黑</strong></p>
+                    '<p><em class="fl">$qwe</em>
+                        '<span class="fr">月销量：2</span></p></div> </li>
+
+-->
+        </ul>
+        <div id="btn"> 加载更多</div>
+    </div>
+
+    <script src="ajax.js"></script>
+<script>
+    function  getId (str){
+        return document.getElementById(str)
+    }
+
+    var oBtn = getId('btn');
+    var pageNum = 0;
+    var oList = getId('list');
+    var canLoad = true; //能不能加载数据
+    var limt = 6;
+
+
+    oBtn.onclick = function(){
+        if(canLoad){
+            addData()
+            canLoad = false;
+        }
+
+    };
+    addData();
+
+    function addData(){
+        pageNum++;
+        //"CODE=125&id=3&num=5";
+        //post
+        //CODE + = + 125
+        //第二个参数 用&（与）链接
+        //id + = + 3
+
+        //data
+        //get
+        //"http://www.setfarm.com/index.php/Api/Api?"+data
+        var json = JSON.stringify({"page":pageNum,"pageRows":limt,"sortType":2,"sort":1,"cateId":"1001001"});
+        ///JSON.parse()//把“严格模式的”json字符串转换为json对象；
+        //JSON.stringify()//把json转换为“严格模式的”字符串;
+        var data = "CODE=125&num="+json;
+
+        ajax("get", "http://www.setfarm.com/index.php/Api/Api", data, function(data){
+           var oData = JSON.parse(data);
+           var oDataList = oData.data.dataInfo;
+
+            //oData.data.totalNum; 总数
+            //pageNum *limt //当前应该已经加载的数据总数
+
+            if(pageNum *limt>=oData.data.totalNum){//如果当前数据量大于等于总共的数据量
+                canLoad = false;//不让再次加载
+                oBtn.style.display  = "none";
+            }else {
+                canLoad = true;
+            }
+
+            //canLoad
+
+            var str = "";
+            for(var i = 0;i<oDataList.length;i++){
+                //oDataList[i]
+                str+= '<li class="item"><img src="'+oDataList[i].format_image+'"  />' +
+                        '<div class="info"><p>' +
+                        '<strong>'+oDataList[i].name+'</strong></p>' +
+                        '<p><em class="fl">$'+oDataList[i].format_price+'</em>' +
+                        ' <span class="fr">月销量：'+oDataList[i].sell_amount+'</span></p>' +
+                        '</div> </li>';
+                //oList 列表
+            }
+            oList.innerHTML +=str;
+        })
+    }
+
+
+
+   /* var oUl = getId("list");
+    var oBtn = getId("btn");
+    var pageNum = 0;
+    var limit = 10;
+    var canLoad = true;
+
+
+    addData();
+    oBtn.onclick = function(){
+        canLoad && addData()
+    };
+
+    oBtn.style.dispaly = "block";
+
+    function  addData(){
+        ajax("post", "http://www.setfarm.com/index.php/Api/Api",
+                'CODE=125&JSON='+JSON.stringify({"sortType":1,"sort":1,"cateId":"",
+                    "page":++pageNum,"pageRows":limit}), function(data){
+            var data = JSON.parse(data);
+            var oData = data.data.dataInfo;
+            var str = "";
+
+            if (oData.length >= 1) {//判断是否有数据
+
+                for (var i = 0; i < oData.length; i++) {
+                    str+=' <li class="item"><img src="'+ oData[i].format_image +'"  />' +
+                            '<div class="info"><p><strong>'+ oData[i].name +'</strong></p>' +
+                            '<p><em class="fl">$'+ oData[i].format_price +'</em>' +
+                            '<span class="fr">月销量：'+oData[i].sell_amount+'</span></p></div> </li>';
+                }
+                oUl.innerHTML = oUl.innerHTML+str;
+
+            }
+            if (limit*pageNum >= data.data.totalNum) {//后台返回数据条目如果与要求数据条目相等，就允许加载下页条数据；
+                canLoad = false;
+
+                oBtn.style.dispaly = "none";
+            }
+        })
+    }
+*/
+
+
+
+</script>
+</body>
+</html>

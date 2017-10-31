@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0; padding: 0;}
+			#main{ position: relative;}
+			.box{padding:15px 0 0 15px; float:left;}
+			.pic{padding: 10px; border: 1px solid #ccc; border-radius:5px; box-shadow: 0 0 5px #ccc;}
+			.pic img{ width: 165px; height: auto;}
+		</style>
+		<script>
+			window.onload = function(){
+				waterfall('main','box');//因文件在head里，写window,传进来两个参数
+			}
+			function waterfall(parent,box){
+				//将main下所有class为box的元素取出来
+				var oParent = document.getElementById(parent);
+				
+				var oBoxs=getByClass(oParent,box);//用一个变量接受获取的所有class为box的元素
+				//console.log(oBoxs)  测试获取多少个class名为box的元素
+				//计算出有多少列
+				var oBoxw = oBoxs[0].offsetWidth;
+				//console.log(oBoxw)  测试一个box宽为多少
+				var cols = Math.floor(document.documentElement.clientWidth/oBoxw);
+				//console.log(cols) 看看有多少列
+				//设置main的宽度
+				oParent.style.cssText='width:'+oBoxs*cols+'px;margin:0 auto';//用宽度*列数
+				
+				var hArr=[];//存放每一列
+				for(var i= 0;i<oBoxs.length; i++ ){
+					if(i<cols){
+						hArr.push(oBoxs[i].offsetHeight)
+					}
+					 //console.log(hArr)
+					else{
+						var minH = Math.min.apply(null,hArr)//求出最小h的索引，下标
+						//console.log(minH);
+						var index=getMinhIndex(hArr,minH);
+						oBoxs[i].style.position='absolute';
+						oBoxs[i].style.top=minH+'px';
+						oBoxs[i].style.left=oBoxs[index].offsetLeft+'px'
+						hArr[index]+=oBoxs[i].offsetHeight;
+					}
+				}
+				//console.log(hArr)
+				
+			}
+			function getByClass(parent,clsName){
+				var boxArr = new Array();//用来储存获得的所有class名为box的元素
+				oElements=parent.getElementsByTagName('*');//获取父元素下所有的元素
+				for(var i = 0 ; i<oElements.length; i++){
+					if(oElements[i].className==clsName){
+						boxArr.push(oElements[i])//将获取到的class名为box的元素添加进去
+					}
+				}
+				return boxArr;//返回
+			}
+			function getMinhIndex(arr,val){
+				for(var i in arr){
+					if(arr[i]==val){
+						return i;
+					}
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="main">
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/1.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/2.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/3.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/4.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/5.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/6.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/7.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/8.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/9.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/10.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/11.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/12.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/13.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/14.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/15.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/16.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/17.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/18.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/19.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/20.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/21.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/22.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/23.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/24.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/25.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/26.jpg" />
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="waterfall/27.jpg" />
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

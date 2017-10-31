@@ -1,0 +1,38 @@
+﻿<input type="text" id="text1" > 
+<input type="submit" value="添加" onclick="add()">
+<input type="button" value="删除" onclick="sub()">
+<input type="button" value="查看数据" onclick="look()">
+<script>
+	var  arr=[];
+	function add(){
+		arr.push(text1.value);
+		alert("压入成功");
+	}
+	function sub(){
+	    arr.pop();
+		alert("推出成功");
+	}
+	function look(){
+		alert(arr);
+	}
+</script>
+模拟一个队列结构的压入与弹出，一个文本框+2个按钮实现:<br>
+<input type="text" id="text1" > 
+<input type="submit" value="添加" onclick="add()">
+<input type="button" value="删除" onclick="sub()">
+<input type="button" value="查看数据" onclick="look()">
+<script>
+	var  arr=[];
+	function add(){
+		arr.push(text1.value);
+		alert("压入成功");
+	}
+	function sub(){
+	    arr.shift();
+		alert("弹出成功");
+	}
+	function look(){
+		alert(arr);
+	}
+	
+</script>

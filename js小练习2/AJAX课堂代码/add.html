@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script>
+		window.onload = function(){
+			//AJAX  GET方式传参   POST方式传参
+			//?key=value
+			//?是传递的意思
+			//key就是键名
+			//用=等号相连
+			//value就是键值
+			//多个键值对用&符分割
+
+			//?name=123&age=19&sex=男
+
+
+			//POST方式传递
+			//1、将open方法中第一个参数设置POST
+			//2、将传递参数键值对放在send方法中
+			//3、在open方法与send方法之间设置请求头，请求头的类型值为：application/x-www-form-urlencoded
+			
+			var xhr = createXHR();
+			xhr.open("POST","../API/article/update.aspx",true);
+			xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			//设置AJAX请求头类型  类型值为application/x-www-form-urlencoded
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){
+						var obj = new Function("","return " + xhr.responseText);
+						alert(obj().result);
+					}
+				}
+			}
+			xhr.send("id=40&atitle=我是一篇被修改过的文章&atype=被修改的类型&aclickcount=1000&acontent=你不好");
+		}
+
+		function createXHR(){
+			var xhr;
+			if(window.XMLHttpRequest){
+				xhr = new XMLHttpRequest();
+			}
+			else{
+				xhr = new ActiveXObject("Msxml2.XMLHTTP");
+			}
+			return xhr;
+		}
+	</script>
+</head>
+<body>
+	AJAX Demo03
+</body>
+</html>

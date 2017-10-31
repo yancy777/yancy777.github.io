@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页微信</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script type="text/javascript">
+		window.onload = function(){
+			
+
+			var searchBox = document.getElementById("searchBox");
+			searchBox.onkeyup = function(){
+				var sValue = this.value;
+				var userList = getMyClassName(sidebar,"userlist")[0];
+				var userLI = userList.getElementsByTagName("li");
+				for(var i = 0;i<userLI.length;i++){
+					var lb = userLI[i].children[1];
+					if(lb.innerHTML.search(sValue) == -1){
+						userLI[i].style.display = "none";
+					}
+					else{
+						userLI[i].style.display = "block";
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div id="sidebar">
+			
+			<ul class="userlist">
+				<li>
+					<span><img src="img/1.jpg" /></span>
+					<label>张三</label>
+				</li>
+				<li>
+					<span><img src="img/2.jpg" /></span>
+					<label>李四</label>
+				</li>
+				<li>
+					<span><img src="img/3.jpg" /></span>
+					<label>王五</label>
+				</li>
+				<li>
+					<span><img src="img/4.jpg" /></span>
+					<label>赵六</label>
+				</li>
+				<li>
+					<span><img src="img/5.jpg" /></span>
+					<label>孙七</label>
+				</li>
+				<li>
+					<span><img src="img/6.jpg" /></span>
+					<label>孙八</label>
+				</li>
+			</ul>
+		</div>
+		<div id="chat">
+			<div class="username"></div>
+			<div class="chatcontent">
+				<div id="requestInfo">
+					<span id="propmtinfo"><img src="img/bg.png" /></span>
+				</div>
+				<div id="sendInfo">
+					<div><textarea id="sendcontent"></textarea></div>
+					<a href="#" id="sendBtn">发 送</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

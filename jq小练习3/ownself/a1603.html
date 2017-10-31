@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type ="text/javascript" src = "javascript/jquery-1.7.2.min.js"></script>
+<style>
+    div{
+width:100px;
+        height: 100px;
+        border: 1px solid red;
+    }
+    </style>
+</head>
+<body>
+<p>blue</p>
+<p>yellow</p>
+<p>red</p>
+<p>green</p>
+   <button>清除</button>
+   <div></div>
+   <div></div>
+   <div></div>
+   <div></div>
+    <script>
+    $(function(){  
+        var b;
+        var arr=[];
+        var c;
+        $("p").click(function(){
+        b = $(this).html();
+        });
+        $("div").click(function(){
+             $(this).removeClass("wo");
+            if(b=="red"){
+             $(this).addClass('wo');
+            }
+            $(this).css("background",b);
+        });
+        $("button").click(function(){
+          $("div[class ='wo']").css('background','white');
+        });
+    });
+        
+    </script>
+</body>
+</html>

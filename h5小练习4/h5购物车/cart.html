@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * { margin:0; padding: 0;}
+        .main {width: 500px; margin: 20px auto}
+        li { list-style: none; line-height: 30px; padding: 5px; border-bottom: 1px dashed #ccc}
+        ul { border: 1px solid #ccc; padding: 20px;  }
+        .pro-list {  top: 0; left: 50px;}
+        .cart-list { top: 0; right: 50px;}
+        .name { font-weight: bold}
+
+        li { overflow: hidden}
+        img { float: left; width: 100px; height: 100px;}
+        .info { float: left; width: 200px; margin: 0 10px;}
+        button { float: left; margin-top: 20px; cursor: pointer}
+    </style>
+</head>
+<body>
+
+
+<div class="main">
+    <h3>我的购物车</h3>
+    <ul class="cart-list">
+       <!-- <li class="cart-item"><img src="1.jpg" />' +
+            ' <div class="info">' +
+                ' <p class="name" data-pid="'+cartInfo[i].pid+'">'+cartInfo[i].name+'</p>' +
+                '<p>价格：￥<em class="price">'+cartInfo[i].price+'</em></p>' +
+                '<p>数量：<em class="num">'+cartInfo[i].num+'</em></p> </div>' +
+            '<button class="cart-delete">删除</button></li>-->
+    </ul>
+</div>
+
+
+
+
+<script src="jquery-1.11.1.min.js" ></script>
+
+<script>
+    var cartList = localStorage.getItem("cartInfo");
+    var aCartInfo = JSON.parse(cartList)||[];
+
+    var str = "";
+    /* aCartInfo.push({
+     "pID":id,
+     "name":name,
+     "price":price,
+     "num":1,
+     "img":img
+     });*/
+    for(var i=0;i<aCartInfo.length;i++){
+        str+='<li class="cart-item"  data-pid="'+aCartInfo[i].pID+'"><img src="'+aCartInfo[i].img+'" />' +
+                ' <div class="info">' +
+                ' <p class="name">'+aCartInfo[i].name+'</p>' +
+                '<p>价格：￥<em class="price">'+aCartInfo[i].price+'</em></p>' +
+                '<p>数量：<em class="num">'+aCartInfo[i].num+'</em></p> </div>' +
+                '<button class="cart-delete">删除</button></li>'
+
+    }
+
+    $(".cart-list").html(str);
+    $(".cart-list").on("click",".cart-delete",function(){
+        /*删除*/
+        var oLi = $(this).parents(".cart-item");
+        var id = oLi.attr("data-pid");
+        oLi.remove();
+        for(var  i=0;i<aCartInfo.length;i++){
+                /*如果购物车信息表里的某个商品id 等于 要删除的商品id*/
+            if(aCartInfo[i].pID == id){
+                aCartInfo.splice(i,1)/*删除*/
+                localStorage.setItem("cartInfo",JSON.stringify(aCartInfo))
+            }
+
+        }
+    })
+
+
+
+
+</script>
+</body>
+</html>

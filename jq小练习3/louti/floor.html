@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>floor</title>
+	<script src="js/jquery-1.11.3.js"></script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#loutiNav{
+			position: fixed;
+			top: 25%;
+			left: 40px;
+			width: 30px;
+			border: 1px solid #000;
+		}
+		#loutiNav ul li{
+			position: relative;
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+			font-size: 12px;
+			list-style: none;
+			cursor: pointer;
+			border-bottom: 1px dotted #AAAAAA;
+		}
+		#loutiNav ul li.last{
+			color: #fff;
+			background: darkred;
+			border-bottom: none;
+		}
+		#loutiNav ul li span{
+			display: none;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			color: red;
+		}
+		#loutiNav ul li:hover span{
+			display: block;
+			background: darkred;
+			color: #fff;
+		}
+		#loutiNav ul li span.active{
+			display: block;
+			background: #fff;
+			color: red;
+		}
+		#loutiNav ul li:hover span.active{
+			display: block;
+			color: #fff;
+			background: darkred;
+		}
+		#header, #main, #footer{
+			width: 1000px;
+			margin: 0 auto;
+			text-align: center;
+			font-size: 40px;
+			font-weight: bold;
+		}
+		#header, #footer{
+			height: 500px;
+			background: darkcyan;
+			line-height: 500px;
+		}
+		#main div{
+			height: 700px;
+			line-height: 700px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 楼梯导航loutiNav --> 
+	<!-- div#loutiNav>ul>(li{$F}>span)*11 -->
+	<div id="loutiNav">
+		<ul>
+			<li>1F <span>服饰</span> </li>
+			<li>2F <span>美妆</span> </li>
+			<li>3F <span>手机</span> </li>
+			<li>4F <span>家电</span> </li>
+			<li>5F <span>数码</span> </li>
+			<li>6F <span>运动</span> </li>
+			<li>7F <span>居家</span> </li>
+			<li>8F <span>母婴</span> </li>
+			<li>9F <span>食品</span> </li>
+			<li>10F <span>图书</span> </li>
+			<li>11F <span>服务</span> </li>
+			<li class="last">Top</li>
+		</ul>
+	</div>
+	<!-- 头部 -->
+	<!-- div#header{头部} -->
+	<div id="header">头部</div>
+	<!-- 内容 -->
+	<!-- div#main>div.louti*11 -->
+	<div id="main">
+		<div class="louti" style="background: #cc0033;">服饰</div>
+		<div class="louti" style="background: #999933;">美妆</div>
+		<div class="louti" style="background: #ccff33;">手机</div>
+		<div class="louti" style="background: #006633;">家电</div>
+		<div class="louti" style="background: #6666cc;">数码</div>
+		<div class="louti" style="background: #ff6600;">运动</div>
+		<div class="louti" style="background: #ffff00;">居家</div>
+		<div class="louti" style="background: #3333ff;">母婴</div>
+		<div class="louti" style="background: #ff00cc;">食品</div>
+		<div class="louti" style="background: #669900;">图书</div>
+		<div class="louti" style="background: #ff66cc;">服务</div>
+	</div>
+	<!-- 尾部 -->
+	<!-- div#footer -->
+	<div id="footer">尾部</div>
+	
+	
+	<script type="text/javascript">
+		//添加开关  默认是关 /否
+		var isClick=false;
+		//除了最后一个，给每一个li添加单击事件  让当前的文字和背景颜色发生变化
+		$('#loutiNav ul li:not(.last)').click(function(){
+			isClick=true;
+			// alert(1)
+			$(this).find('span').addClass('active').parent().siblings().find('span').removeClass('active')
+			var ind=$(this).index()
+			var _top=$('#main div').eq(ind).offset().top;
+			$('body,html').stop().animate({scrollTop:_top},300,function(){
+				isClick=false;
+			});
+
+		})
+		//滚动右边的鼠标滚轮，让左边的楼层发生变化
+		$(window).scroll(function(){
+			
+			if(!isClick){
+				var heights=$(window).scrollTop();
+				var heightY=$(window).height();
+				$('.louti').each(function(){
+//				console.log($(this).offset().top-$(this).outerHeight()/2)
+				if($(this).offset().top<=heightY/2+heights){
+					console.log($(this).index())
+					var li=$('#loutiNav ul li').eq($(this).index())
+					li.find('span').addClass('active').parent().siblings().find('span').removeClass('active');
+					
+				}
+			})
+			}
+		})
+		//返回顶部
+		$('#loutiNav ul li.last').click(function(){
+			$('body,html').animate({scrollTop:0},500);
+		})
+		
+	</script>
+</body>
+</html>

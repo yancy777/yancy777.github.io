@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>提示信息</title>
+    <style>
+    body{}
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .popover{display:none;position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;z-index:10;width:300px;height:200px;border:1px solid #ccc;background-color:#fff;}
+    .popover .title{height:50px;line-height:50px;padding:0 10px;background:linear-gradient(#fff, #efefef 5%, #ddd);}
+    .popover .content{padding:15px;}
+    .popover .footer{position:absolute;left:0;bottom:0;right:0;padding:20px;text-align:center;}
+    .footer button{display:inline-block;margin:0 5px;padding:5px 15px;border:1px solid #ddd;background:linear-gradient(#efefef, #cfcfcf);}
+    .popover .btn-close{position:absolute;right:0;top:0;width:30px;height:30px;line-height:30px;text-align:center;}
+    .popover .btn-close::after{
+        content:"×";
+        color:#999;
+    }
+    .overlay{position:fixed;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,.5);}
+    /*
+        伪类:"单冒号:";
+        伪元素："双冒号::"
+     */
+    .popover .btn-close:hover{background-color:#c00;}
+    .popover .btn-close:hover::after{color:#fff;}
+    </style>
+    <script src="../assets/jquery.js"></script>
+    <script src="js/jquery.popup.js"></script>
+    <script>
+        /*
+            @编写一个弹窗插件
+            要求如下：
+            1）默认居中显示，弹窗有标题，有关闭按钮，有遮罩层，可拖动，按ESC键关闭弹窗（40）
+            2）可随意定制弹窗宽高（5）
+            3）可设定是否显示遮罩层（5）
+            4）可设定是否显示标题（5）
+            5）可自定弹窗内容（10）
+            6）可设定是否允许拖动（10）
+            7）可设定遮罩层透明度（10）
+            8）可设定回调函数，弹窗弹出后，能对弹窗做其他操作（15）
+         */
+        $(function(){
+            $(document).on('keyup',function(){
+                alert('不要动我的功能');
+            })
+            $('.btn-open').popup({
+                title:'我的第一个插件',
+                content:'我的自定义内容',
+                overlay:0,
+                callback:function(pop){
+                    pop.find('.title').html('<strong>'+pop.find('.title').html()+'</strong>');
+                }
+            });
+
+            $('.btn-open2').popup();
+        })
+    </script>
+</head>
+
+<body>
+<button class="btn-open">打开弹窗</button>
+<button class="btn-open2">打开弹窗2</button>
+</body>
+
+</html>

@@ -1,0 +1,2233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {margin: 0; padding: 0; border: 0; font-size: 100%; vertical-align: baseline} 
+		article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block}
+		body {line-height: 1}
+		ol, ul {list-style: none}
+		body,p,ul{margin:0;}
+		body{
+		font:12px Arial,"微软雅黑"; }
+		ol,dl,dd,h1,h2,h3,h4,h5,h6{margin:0;}
+		ul,ol,li{padding-left:0;list-style:none;}
+		input{padding:0;}
+		img{border:0;}
+		a{
+		text-decoration:none;
+		}
+		.ng-sort{
+		    position: relative;
+		    width:190px;
+		    height:450px;
+		    background: #41A8F7;
+		    /*margin-left:80px;*/
+		    z-index: 1000;
+		    margin:50px 0 0 100px;
+		}
+		.ng-sort .ng-sort-all{
+		    display: block;
+		    height: 35px;
+		    background: #2a9af0;
+		    font-size: 14px;
+		    padding-left: 10px;
+		    line-height: 35px;
+		    color: #fff!important;
+		    text-decoration: none;
+		    font-family: "Microsoft Yahei";
+		}
+		.ng-sort .ng-sort-all span{
+		    display:inline-block;
+		    margin-left:10px;
+		    font-weight:700;
+		}
+		.ng-sort .ng-sort-all span:hover{
+		    text-decoration: underline;
+		}
+		.ng-sort .ng-sort-all b{
+		    display: inline-block;
+		    height: 5px;
+		    width: 190px;
+		    position: absolute;
+		    top: 35px;
+		    left: 0;
+		    overflow: hidden;
+		    background: url(images/bg1.jpg) no-repeat 0 -200px;
+		}
+		.ng-sort .ng-sort-list{
+		    height: 407px;
+		    width: 190px;
+		    padding-top: 8px;
+		    background: #41a8f7;
+		}
+		.ng-sort .ng-sort-list li{
+		    float: left;
+		    height: 31px;
+		    width: 180px;
+		    padding-left: 10px;
+		    line-height: 31px;
+		    overflow: hidden;
+		}
+		.ng-sort .ng-sort-list li .sort-img{
+		    float:left;
+		    margin-top:6px;
+		}
+		.ng-sort .ng-sort-list li a{
+		    float: left;
+		    display: inline-block;
+		    margin-left: 8px;
+		    color: #fff;
+		    font-size: 13px;
+		}
+		.ng-sort .ng-sort-list li a:hover{
+		    text-decoration: underline;
+		}
+		.ng-nav-index{
+		    width: 90px;
+		    height: 450px;
+		    background: #f8fcfb;
+		    opacity: .95;
+		    font-family: "Microsoft Yahei";
+		    position: absolute;
+		    top:0px;
+		    left:190px;
+		    z-index: 2;
+		}
+		.ng-nav-index .ng-title{
+		    height: 35px;
+		    margin-bottom: 5px;
+		    text-align: center;
+		    font-size: 14px;
+		    color: #333;
+		}
+		.ng-nav-index .ng-title span{
+		    display: inline-block;
+		    line-height: 34px;
+		    border-bottom: 1px solid #eee;
+		}
+		.ng-nav-index .nav-list li{
+		    float: left;
+		    display: block;
+		    width: 90px;
+		    height: 31px;
+		    line-height: 31px;
+		}
+		.ng-nav-index .nav-list li a{
+		    float: left;
+		    padding-left: 16px;
+		    color: #333;
+		    font-size: 13px;
+		}
+		.ng-nav-index .nav-list li a:hover{
+		    color: #ff6600;
+		    text-decoration: underline;
+		}
+		.nav-sort-detail{
+		    border: 1px solid #ddd;
+		    width:620px;
+		    background-color: #fff;
+		    height: 448px;
+		    border-left: 0;
+		    margin:0 auto;
+		    position:absolute;
+		    top:0px;
+		    left:190px;
+		    z-index: 7800;
+		    display: none;
+		}
+		.x1{
+		    position: absolute;
+		    display: inline-block;
+		    height: 35px;
+		    width: 35px;
+		    text-align: center;
+		    line-height: 35px;
+		    color: #989898;
+		    right: 1px;
+		    top: 1px;
+		    font-size: 25px;
+		    cursor: pointer;
+		    font-family: "ng-iconfont" !important;
+		}
+		.x1:hover{
+		    color: #ff6600;
+		}
+		.nav-sort-detail .sort-channel{
+		    height: 39px;
+		    border-bottom: 1px solid #eee;
+		    margin: 0 15px;
+		    overflow: hidden;
+		}
+		.nav-sort-detail .sort-channel a{
+		    float: left;
+		    display: inline-block;
+		    height: 23px;
+		    width: 83px;
+		    text-align: center;
+		    line-height: 23px;
+		    color: #fff;
+		    margin: 8px 10px 0 0;
+		}
+		.nav-sort-detail .cate-list{
+		    height: 410px;
+		    margin-left: 15px;
+		}
+		.nav-sort-detail .cate-list dl{
+		    float: left;
+		    height: 185px;
+		    overflow: hidden;
+		    width: 83px;
+		    text-indent: 5px;
+		    margin:5px 15px 15px 0;
+		}
+		.nav-sort-detail .cate-list .wide{
+		    width:180px;
+		}
+		.nav-sort-detail .cate-list dl dt{
+		    height: 23px;
+		    line-height: 23px;
+		    background: #eee;
+		    font-weight: 700;
+		    margin-bottom: 5px;
+		}
+		.nav-sort-detail .cate-list dl dt a{
+		    color:#333;
+		}
+		.nav-sort-detail .cate-list dl dt a:hover{
+		    text-decoration: underline;
+		}
+		.nav-sort-detail .cate-list dl dd{
+		    width: 80px;
+		    height: 20px;
+		    font: 12px/1.5 arial,tahoma,\5b8b\4f53;
+		    line-height: 20px;
+		    overflow: hidden;
+		    float: left;
+		}
+		.nav-sort-detail .cate-list dl .mr{
+		    margin-right:17px;
+		}
+		.nav-sort-detail .cate-list dl .color{
+		    color:#ff6600;
+		}
+		.nav-sort-detail .cate-list dl dd a{
+		    color:#666;
+		}
+		.nav-sort-detail .cate-list dl dd a:hover{
+		    color:#ff6600;
+		    text-decoration: underline;
+		}
+
+
+
+
+		.ng-fix-bar {
+		    position: fixed;
+		    height: 50px;
+		    width: 100%;
+		    min-width:1190px;
+		    _width:expression(eval(document.documentElement.clientWidth>1190?document.documentElement.clientWidth:1190));
+		    background: #fff;
+		    box-shadow: rgba(0,0,0,.2) 0 1px 5px;
+		    left: 0;
+		    top: 0px;
+		    opacity: .95;
+		    -webkit-transition:height .1s linear;
+		    z-index: 2000;
+		    display: none;
+		}
+		.ng-fix-bar .ng-fix-bar-center{
+		    width:1190px;
+		    height:100%;
+		    margin:0 auto;
+		}
+		.ng-search.ng-search-fixed {
+		    position: absolute;
+		    top: 5px;
+		    margin-top: 0;
+		    left: 47%;
+		    margin-left: -215px;
+		    width: 500px;
+		    height:40px;
+		}
+		.search-keyword-box{
+		    width:358px;
+		}
+		.reg-bar-node-fixed{
+		    position: fixed;
+		    top: 6px;
+		    right: 50%;
+		    margin-right: -480px;
+		    float: left;
+		    padding: 0 10px;
+		    line-height: 35px;
+		    width:60px;
+		    height: 35px;
+		    overflow: hidden;
+		}
+		.reg-bar-node-fixed:hover{
+		    background-color: #EEEEEE;
+		}
+		.reg-bar-node-fixed a{
+		    color:#666;
+		}
+		.reg-bar-node-fixed a:hover{
+		    color:#ff6600;
+		}
+		.reg-bar-node-fixed .denglu{
+		    float: left;
+		}
+		.reg-bar-node-fixed .zhuce{
+		    float: right;
+		}
+		.gwc-box{
+		    position: fixed;
+		    top: 8px;
+		    right: 50%;
+		    margin-right: -594px;
+		}
+
+
+		.search-box{
+		    display:inline-block;
+		    width:600px;
+		    height:61px;
+		    margin:28px 0 0 0;
+		    position:relative;
+		    float:left; 
+		}
+		.search-inner{
+		    width:468px;
+		    height:34px;
+		    padding-left:30px;
+		    border:2px solid #40a8f7;
+		    border-right:0;
+		    float:left;
+		    color:#ccc;
+		    font-size:14px;
+		}
+		.search-submit{
+		    width:100px;
+		    height:38px;
+		    background:#40a8f7;
+		    border:0 none;
+		    float:left;
+		    color:#eee;
+		    font-size:16px;
+		    letter-spacing:7px;
+		    position: absolute;
+		}
+		.fdj{
+		    position:absolute;
+		    top:2px;
+		    left:2px;
+		}
+
+		.hide{
+			width: 500px;height: 100px;background: red;position: absolute;
+			top: 38px;left: 0;display: none;
+		}
+	</style>
+	<script src="jquery-1.11.3.js"></script>
+	<script>
+		$(function(){
+			$('.ng-list').hover(function(){
+			    $($('.nav-sort-detail')[$(this).index()]).show();
+			    $(this).css('background','#299AEF');
+			},function(){
+			    $($('.nav-sort-detail')[$(this).index()]).hide();
+			    $(this).css('background','#41A8F7');
+			})
+
+
+			$('.x1').click(function(){
+			    $($('.nav-sort-detail')[$(this).index('.x1')]).hide();
+			    console.log($(this).index('.x1'))
+			})
+
+
+
+			$('.search-inner').focus(function(){
+			    $('.search-inner').val('');
+			    $('.hide').show();
+			})
+			$('.search-inner').blur(function(){
+			    $('.search-inner').val('红孩子11周年 亿元红包抢先领');
+			    $('.hide').hide();
+			})
+
+
+			$(window).scroll(function(){
+				var scrollTop=$(window).scrollTop();
+				if(scrollTop>700){
+				    $('.ng-fix-bar').show();
+				}else if(scrollTop<400){
+				    $('.ng-fix-bar').hide();
+				}
+			})
+		})
+	</script>
+</head>
+<body style="height:2000px">
+	<div class="ng-sort">
+		<a class="ng-sort-all">
+			<img src="images/1.jpg">
+			<span>全部商品分类</span>
+			<b></b>
+		</a>
+		<ul class="ng-sort-list">
+			<li class="ng-list">
+				<img class='sort-img' src="images/s1.jpg">
+				<a href="javascript:;">母婴</a>
+				<a href="javascript:;">玩具</a>
+				<a href="javascript:;">童装童鞋</a>
+				<div class="nav-sort-detail">
+				<span class="x1">×</span>
+				<div class="sort-channel">
+					<a style='background:#ff4545' href="#">红孩子母婴</a>
+					<a style='background:#ff4545' href="#">奶粉辅食</a>
+					<a style='background:#538cf5' href="#">母婴海外购</a>
+				</div>
+				<div class="cate-list">
+					<dl>
+						<dt><a href="#">孕婴奶粉</a></dt>
+						<dd><a href="#">pre段奶粉</a></dd>
+						<dd><a href="#">1段</a></dd>
+						<dd><a href="#">2段</a></dd>
+						<dd><a class='color' href="#">3段</a></dd>
+						<dd><a href="#">4段</a></dd>
+						<dd><a href="#">5段</a></dd>
+						<dd><a href="#">特配奶粉</a></dd>
+						<dd><a href="#">孕妈奶粉</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">营养/辅食</a></dt>
+						<dd><a class='color' href="#">米粉</a></dd>
+						<dd><a href="#">果汁/泥</a></dd>
+						<dd><a href="#">面食类</a></dd>
+						<dd><a href="#">宝宝零食</a></dd>
+						<dd><a href="#">DHA</a></dd>
+						<dd><a href="#">清火开胃</a></dd>
+						<dd><a href="#">钙铁锌</a></dd>
+						<dd><a href="#">益生菌</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">尿裤/湿巾</a></dt>
+						<dd><a href="#">新生儿尿裤</a></dd>
+						<dd><a href="#">S号尿裤</a></dd>
+						<dd><a href="#">M号尿裤</a></dd>
+						<dd><a href="#">L号尿裤</a></dd>
+						<dd><a href="#">XL/XXL号</a></dd>
+						<dd><a href="#">拉拉裤</a></dd>
+						<dd><a class='color' href="#">湿巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">童车/童床</a></dt>
+						<dd><a class='color' href="#">安全座椅</a></dd>
+						<dd><a href="#">婴儿推车</a></dd>
+						<dd><a href="#">婴儿床</a></dd>
+						<dd><a href="#">餐椅</a></dd>
+						<dd><a href="#">自行车</a></dd>
+						<dd><a href="#">电动车</a></dd>
+						<dd><a href="#">三轮车</a></dd>
+						<dd><a href="#">学步车</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">童装童鞋</a></dt>
+						<dd class="mr"><a href="#">T恤</a></dd>
+						<dd><a href="#">连衣裙</a></dd>
+						<dd class="mr"><a href="#">短裤</a></dd>
+						<dd><a href="#">婴童套装</a></dd>
+						<dd class="mr"><a class='color' href="#">婴儿哈衣</a></dd>
+						<dd><a href="#">亲子装</a></dd>
+						<dd class="mr"><a href="#">外套/卫衣</a></dd>
+						<dd><a href="#">凉鞋</a></dd>
+						<dd class="mr"><a href="#">学步鞋</a></dd>
+						<dd><a href="#">运动鞋</a></dd>
+						<dd class="mr"><a href="#">帆布鞋</a></dd>
+						<dd><a href="#">公主鞋</a></dd>
+						<dd class="mr"><a href="#">隔尿垫</a></dd>
+						<dd><a class='color' href="#">凉席/蚊帐</a></dd>
+						<dd class="mr"><a href="#">婴儿枕</a></dd>
+						<dd><a href="#">毛巾/浴巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">喂养用品</a></dt>
+						<dd><a href="#">奶瓶</a></dd>
+						<dd><a href="#">奶嘴</a></dd>
+						<dd><a href="#">吸乳器</a></dd>
+						<dd><a class="color" href="#">驱蚊用品</a></dd>
+						<dd><a href="#">理发器</a></dd>
+						<dd><a href="#">水杯/水壶</a></dd>
+						<dd><a href="#">安全防护</a></dd>
+						<dd><a href="#">消毒用品</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕婴洗护</a></dt>
+						<dd><a href="#">洗涤用品</a></dd>
+						<dd><a href="#">洗发沐浴</a></dd>
+						<dd><a class='color' href="#">婴儿护肤</a></dd>
+						<dd><a href="#">孕妈护肤</a></dd>
+						<dd><a href="#">防蚊/袪痱</a></dd>
+						<dd><a href="#">洗衣液</a></dd>
+						<dd><a href="#">婴童洗衣皂</a></dd>
+						<dd><a href="#">清洁剂</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕妈专区</a></dt>
+						<dd><a class='color' href="#">孕妇裙</a></dd>
+						<dd><a href="#">打底裤</a></dd>
+						<dd><a href="#">防辐射服</a></dd>
+						<dd><a href="#">腰凳</a></dd>
+						<dd><a href="#">妈咪包</a></dd>
+						<dd><a href="#">收腹带</a></dd>
+						<dd><a href="#">哺乳文胸</a></dd>
+						<dd><a href="#">孕妇内裤</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">儿童玩具</a></dt>
+						<dd class="mr"><a href="#">0-6个月</a></dd>
+						<dd><a href="#">6-12个月</a></dd>
+						<dd class="mr"><a href="#">1-3岁</a></dd>
+						<dd><a href="#">3-6岁</a></dd>
+						<dd class="mr"><a href="#">6岁以上</a></dd>
+						<dd><a class='color' href="#">爬行垫</a></dd>
+						<dd class="mr"><a href="#">模型玩具</a></dd>
+						<dd><a href="#">户外玩具</a></dd>
+						<dd class="mr"><a href="#">益智玩具</a></dd>
+						<dd><a href="#">遥控航模</a></dd>
+						<dd class="mr"><a href="#">积木拼插</a></dd>
+						<dd><a href="#">过家家</a></dd>
+						<dd class="mr"><a href="#">毛绒公仔</a></dd>
+						<dd><a href="#">DIY绘画</a></dd>
+						<dd class="mr"><a class='color' href="#">戏水/泳池</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">母婴海外购</a></dt>
+						<dd><a href="#">喜宝</a></dd>
+						<dd><a href="#">爱他美</a></dd>
+						<dd><a class='color' href="#">花王</a></dd>
+						<dd><a href="#">karicare</a></dd>
+						<dd><a href="#">嘉宝</a></dd>
+						<dd><a href="#">Moony</a></dd>
+						<dd><a href="#">大王</a></dd>
+					</dl>
+				</div>
+			</div>
+			</li>
+			<li class="ng-list">
+				<img class='sort-img' src="images/s2.jpg">
+				<a href="javascript:;">手机</a>
+				<a href="javascript:;">数码</a>
+				<a href="javascript:;">苏宁互联</a>
+				<div class="nav-sort-detail">
+				<span class="x1">×</span>
+				<div class="sort-channel">
+					<a style='background:#ff4545' href="#">红孩子母婴</a>
+					<a style='background:#ff4545' href="#">奶粉辅食</a>
+					<a style='background:#538cf5' href="#">母婴海外购</a>
+				</div>
+				<div class="cate-list">
+					<dl>
+						<dt><a href="#">孕婴奶粉</a></dt>
+						<dd><a href="#">pre段奶粉</a></dd>
+						<dd><a href="#">1段</a></dd>
+						<dd><a href="#">2段</a></dd>
+						<dd><a class='color' href="#">3段</a></dd>
+						<dd><a href="#">4段</a></dd>
+						<dd><a href="#">5段</a></dd>
+						<dd><a href="#">特配奶粉</a></dd>
+						<dd><a href="#">孕妈奶粉</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">营养/辅食</a></dt>
+						<dd><a class='color' href="#">米粉</a></dd>
+						<dd><a href="#">果汁/泥</a></dd>
+						<dd><a href="#">面食类</a></dd>
+						<dd><a href="#">宝宝零食</a></dd>
+						<dd><a href="#">DHA</a></dd>
+						<dd><a href="#">清火开胃</a></dd>
+						<dd><a href="#">钙铁锌</a></dd>
+						<dd><a href="#">益生菌</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">尿裤/湿巾</a></dt>
+						<dd><a href="#">新生儿尿裤</a></dd>
+						<dd><a href="#">S号尿裤</a></dd>
+						<dd><a href="#">M号尿裤</a></dd>
+						<dd><a href="#">L号尿裤</a></dd>
+						<dd><a href="#">XL/XXL号</a></dd>
+						<dd><a href="#">拉拉裤</a></dd>
+						<dd><a class='color' href="#">湿巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">童车/童床</a></dt>
+						<dd><a class='color' href="#">安全座椅</a></dd>
+						<dd><a href="#">婴儿推车</a></dd>
+						<dd><a href="#">婴儿床</a></dd>
+						<dd><a href="#">餐椅</a></dd>
+						<dd><a href="#">自行车</a></dd>
+						<dd><a href="#">电动车</a></dd>
+						<dd><a href="#">三轮车</a></dd>
+						<dd><a href="#">学步车</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">童装童鞋</a></dt>
+						<dd class="mr"><a href="#">T恤</a></dd>
+						<dd><a href="#">连衣裙</a></dd>
+						<dd class="mr"><a href="#">短裤</a></dd>
+						<dd><a href="#">婴童套装</a></dd>
+						<dd class="mr"><a class='color' href="#">婴儿哈衣</a></dd>
+						<dd><a href="#">亲子装</a></dd>
+						<dd class="mr"><a href="#">外套/卫衣</a></dd>
+						<dd><a href="#">凉鞋</a></dd>
+						<dd class="mr"><a href="#">学步鞋</a></dd>
+						<dd><a href="#">运动鞋</a></dd>
+						<dd class="mr"><a href="#">帆布鞋</a></dd>
+						<dd><a href="#">公主鞋</a></dd>
+						<dd class="mr"><a href="#">隔尿垫</a></dd>
+						<dd><a class='color' href="#">凉席/蚊帐</a></dd>
+						<dd class="mr"><a href="#">婴儿枕</a></dd>
+						<dd><a href="#">毛巾/浴巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">喂养用品</a></dt>
+						<dd><a href="#">奶瓶</a></dd>
+						<dd><a href="#">奶嘴</a></dd>
+						<dd><a href="#">吸乳器</a></dd>
+						<dd><a class="color" href="#">驱蚊用品</a></dd>
+						<dd><a href="#">理发器</a></dd>
+						<dd><a href="#">水杯/水壶</a></dd>
+						<dd><a href="#">安全防护</a></dd>
+						<dd><a href="#">消毒用品</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕婴洗护</a></dt>
+						<dd><a href="#">洗涤用品</a></dd>
+						<dd><a href="#">洗发沐浴</a></dd>
+						<dd><a class='color' href="#">婴儿护肤</a></dd>
+						<dd><a href="#">孕妈护肤</a></dd>
+						<dd><a href="#">防蚊/袪痱</a></dd>
+						<dd><a href="#">洗衣液</a></dd>
+						<dd><a href="#">婴童洗衣皂</a></dd>
+						<dd><a href="#">清洁剂</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕妈专区</a></dt>
+						<dd><a class='color' href="#">孕妇裙</a></dd>
+						<dd><a href="#">打底裤</a></dd>
+						<dd><a href="#">防辐射服</a></dd>
+						<dd><a href="#">腰凳</a></dd>
+						<dd><a href="#">妈咪包</a></dd>
+						<dd><a href="#">收腹带</a></dd>
+						<dd><a href="#">哺乳文胸</a></dd>
+						<dd><a href="#">孕妇内裤</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">儿童玩具</a></dt>
+						<dd class="mr"><a href="#">0-6个月</a></dd>
+						<dd><a href="#">6-12个月</a></dd>
+						<dd class="mr"><a href="#">1-3岁</a></dd>
+						<dd><a href="#">3-6岁</a></dd>
+						<dd class="mr"><a href="#">6岁以上</a></dd>
+						<dd><a class='color' href="#">爬行垫</a></dd>
+						<dd class="mr"><a href="#">模型玩具</a></dd>
+						<dd><a href="#">户外玩具</a></dd>
+						<dd class="mr"><a href="#">益智玩具</a></dd>
+						<dd><a href="#">遥控航模</a></dd>
+						<dd class="mr"><a href="#">积木拼插</a></dd>
+						<dd><a href="#">过家家</a></dd>
+						<dd class="mr"><a href="#">毛绒公仔</a></dd>
+						<dd><a href="#">DIY绘画</a></dd>
+						<dd class="mr"><a class='color' href="#">戏水/泳池</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">母婴海外购</a></dt>
+						<dd><a href="#">喜宝</a></dd>
+						<dd><a href="#">爱他美</a></dd>
+						<dd><a class='color' href="#">花王</a></dd>
+						<dd><a href="#">karicare</a></dd>
+						<dd><a href="#">嘉宝</a></dd>
+						<dd><a href="#">Moony</a></dd>
+						<dd><a href="#">大王</a></dd>
+					</dl>
+				</div>
+			</div>
+			</li>
+			<li class="ng-list">
+				<img class='sort-img' src="images/s3.jpg">
+				<a href="javascript:;">电脑</a>
+				<a href="javascript:;">办公设备</a>
+				<a href="javascript:;">电脑DIY</a>
+				<div class="nav-sort-detail">
+				<span class="x1">×</span>
+				<div class="sort-channel">
+					<a style='background:#ff4545' href="#">红孩子母婴</a>
+					<a style='background:#ff4545' href="#">奶粉辅食</a>
+					<a style='background:#538cf5' href="#">母婴海外购</a>
+				</div>
+				<div class="cate-list">
+					<dl>
+						<dt><a href="#">孕婴奶粉</a></dt>
+						<dd><a href="#">pre段奶粉</a></dd>
+						<dd><a href="#">1段</a></dd>
+						<dd><a href="#">2段</a></dd>
+						<dd><a class='color' href="#">3段</a></dd>
+						<dd><a href="#">4段</a></dd>
+						<dd><a href="#">5段</a></dd>
+						<dd><a href="#">特配奶粉</a></dd>
+						<dd><a href="#">孕妈奶粉</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">营养/辅食</a></dt>
+						<dd><a class='color' href="#">米粉</a></dd>
+						<dd><a href="#">果汁/泥</a></dd>
+						<dd><a href="#">面食类</a></dd>
+						<dd><a href="#">宝宝零食</a></dd>
+						<dd><a href="#">DHA</a></dd>
+						<dd><a href="#">清火开胃</a></dd>
+						<dd><a href="#">钙铁锌</a></dd>
+						<dd><a href="#">益生菌</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">尿裤/湿巾</a></dt>
+						<dd><a href="#">新生儿尿裤</a></dd>
+						<dd><a href="#">S号尿裤</a></dd>
+						<dd><a href="#">M号尿裤</a></dd>
+						<dd><a href="#">L号尿裤</a></dd>
+						<dd><a href="#">XL/XXL号</a></dd>
+						<dd><a href="#">拉拉裤</a></dd>
+						<dd><a class='color' href="#">湿巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">童车/童床</a></dt>
+						<dd><a class='color' href="#">安全座椅</a></dd>
+						<dd><a href="#">婴儿推车</a></dd>
+						<dd><a href="#">婴儿床</a></dd>
+						<dd><a href="#">餐椅</a></dd>
+						<dd><a href="#">自行车</a></dd>
+						<dd><a href="#">电动车</a></dd>
+						<dd><a href="#">三轮车</a></dd>
+						<dd><a href="#">学步车</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">童装童鞋</a></dt>
+						<dd class="mr"><a href="#">T恤</a></dd>
+						<dd><a href="#">连衣裙</a></dd>
+						<dd class="mr"><a href="#">短裤</a></dd>
+						<dd><a href="#">婴童套装</a></dd>
+						<dd class="mr"><a class='color' href="#">婴儿哈衣</a></dd>
+						<dd><a href="#">亲子装</a></dd>
+						<dd class="mr"><a href="#">外套/卫衣</a></dd>
+						<dd><a href="#">凉鞋</a></dd>
+						<dd class="mr"><a href="#">学步鞋</a></dd>
+						<dd><a href="#">运动鞋</a></dd>
+						<dd class="mr"><a href="#">帆布鞋</a></dd>
+						<dd><a href="#">公主鞋</a></dd>
+						<dd class="mr"><a href="#">隔尿垫</a></dd>
+						<dd><a class='color' href="#">凉席/蚊帐</a></dd>
+						<dd class="mr"><a href="#">婴儿枕</a></dd>
+						<dd><a href="#">毛巾/浴巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">喂养用品</a></dt>
+						<dd><a href="#">奶瓶</a></dd>
+						<dd><a href="#">奶嘴</a></dd>
+						<dd><a href="#">吸乳器</a></dd>
+						<dd><a class="color" href="#">驱蚊用品</a></dd>
+						<dd><a href="#">理发器</a></dd>
+						<dd><a href="#">水杯/水壶</a></dd>
+						<dd><a href="#">安全防护</a></dd>
+						<dd><a href="#">消毒用品</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕婴洗护</a></dt>
+						<dd><a href="#">洗涤用品</a></dd>
+						<dd><a href="#">洗发沐浴</a></dd>
+						<dd><a class='color' href="#">婴儿护肤</a></dd>
+						<dd><a href="#">孕妈护肤</a></dd>
+						<dd><a href="#">防蚊/袪痱</a></dd>
+						<dd><a href="#">洗衣液</a></dd>
+						<dd><a href="#">婴童洗衣皂</a></dd>
+						<dd><a href="#">清洁剂</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕妈专区</a></dt>
+						<dd><a class='color' href="#">孕妇裙</a></dd>
+						<dd><a href="#">打底裤</a></dd>
+						<dd><a href="#">防辐射服</a></dd>
+						<dd><a href="#">腰凳</a></dd>
+						<dd><a href="#">妈咪包</a></dd>
+						<dd><a href="#">收腹带</a></dd>
+						<dd><a href="#">哺乳文胸</a></dd>
+						<dd><a href="#">孕妇内裤</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">儿童玩具</a></dt>
+						<dd class="mr"><a href="#">0-6个月</a></dd>
+						<dd><a href="#">6-12个月</a></dd>
+						<dd class="mr"><a href="#">1-3岁</a></dd>
+						<dd><a href="#">3-6岁</a></dd>
+						<dd class="mr"><a href="#">6岁以上</a></dd>
+						<dd><a class='color' href="#">爬行垫</a></dd>
+						<dd class="mr"><a href="#">模型玩具</a></dd>
+						<dd><a href="#">户外玩具</a></dd>
+						<dd class="mr"><a href="#">益智玩具</a></dd>
+						<dd><a href="#">遥控航模</a></dd>
+						<dd class="mr"><a href="#">积木拼插</a></dd>
+						<dd><a href="#">过家家</a></dd>
+						<dd class="mr"><a href="#">毛绒公仔</a></dd>
+						<dd><a href="#">DIY绘画</a></dd>
+						<dd class="mr"><a class='color' href="#">戏水/泳池</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">母婴海外购</a></dt>
+						<dd><a href="#">喜宝</a></dd>
+						<dd><a href="#">爱他美</a></dd>
+						<dd><a class='color' href="#">花王</a></dd>
+						<dd><a href="#">karicare</a></dd>
+						<dd><a href="#">嘉宝</a></dd>
+						<dd><a href="#">Moony</a></dd>
+						<dd><a href="#">大王</a></dd>
+					</dl>
+				</div>
+			</div>
+			</li>
+			<li class="ng-list">
+				<img class='sort-img' src="images/s4.jpg">
+				<a href="javascript:;">电视</a>
+				<a href="javascript:;">冰箱</a>
+				<a href="javascript:;">洗衣机</a>
+				<a href="javascript:;">空调</a>
+				<div class="nav-sort-detail">
+				<span class="x1">×</span>
+				<div class="sort-channel">
+					<a style='background:#ff4545' href="#">红孩子母婴</a>
+					<a style='background:#ff4545' href="#">奶粉辅食</a>
+					<a style='background:#538cf5' href="#">母婴海外购</a>
+				</div>
+				<div class="cate-list">
+					<dl>
+						<dt><a href="#">孕婴奶粉</a></dt>
+						<dd><a href="#">pre段奶粉</a></dd>
+						<dd><a href="#">1段</a></dd>
+						<dd><a href="#">2段</a></dd>
+						<dd><a class='color' href="#">3段</a></dd>
+						<dd><a href="#">4段</a></dd>
+						<dd><a href="#">5段</a></dd>
+						<dd><a href="#">特配奶粉</a></dd>
+						<dd><a href="#">孕妈奶粉</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">营养/辅食</a></dt>
+						<dd><a class='color' href="#">米粉</a></dd>
+						<dd><a href="#">果汁/泥</a></dd>
+						<dd><a href="#">面食类</a></dd>
+						<dd><a href="#">宝宝零食</a></dd>
+						<dd><a href="#">DHA</a></dd>
+						<dd><a href="#">清火开胃</a></dd>
+						<dd><a href="#">钙铁锌</a></dd>
+						<dd><a href="#">益生菌</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">尿裤/湿巾</a></dt>
+						<dd><a href="#">新生儿尿裤</a></dd>
+						<dd><a href="#">S号尿裤</a></dd>
+						<dd><a href="#">M号尿裤</a></dd>
+						<dd><a href="#">L号尿裤</a></dd>
+						<dd><a href="#">XL/XXL号</a></dd>
+						<dd><a href="#">拉拉裤</a></dd>
+						<dd><a class='color' href="#">湿巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">童车/童床</a></dt>
+						<dd><a class='color' href="#">安全座椅</a></dd>
+						<dd><a href="#">婴儿推车</a></dd>
+						<dd><a href="#">婴儿床</a></dd>
+						<dd><a href="#">餐椅</a></dd>
+						<dd><a href="#">自行车</a></dd>
+						<dd><a href="#">电动车</a></dd>
+						<dd><a href="#">三轮车</a></dd>
+						<dd><a href="#">学步车</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">童装童鞋</a></dt>
+						<dd class="mr"><a href="#">T恤</a></dd>
+						<dd><a href="#">连衣裙</a></dd>
+						<dd class="mr"><a href="#">短裤</a></dd>
+						<dd><a href="#">婴童套装</a></dd>
+						<dd class="mr"><a class='color' href="#">婴儿哈衣</a></dd>
+						<dd><a href="#">亲子装</a></dd>
+						<dd class="mr"><a href="#">外套/卫衣</a></dd>
+						<dd><a href="#">凉鞋</a></dd>
+						<dd class="mr"><a href="#">学步鞋</a></dd>
+						<dd><a href="#">运动鞋</a></dd>
+						<dd class="mr"><a href="#">帆布鞋</a></dd>
+						<dd><a href="#">公主鞋</a></dd>
+						<dd class="mr"><a href="#">隔尿垫</a></dd>
+						<dd><a class='color' href="#">凉席/蚊帐</a></dd>
+						<dd class="mr"><a href="#">婴儿枕</a></dd>
+						<dd><a href="#">毛巾/浴巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">喂养用品</a></dt>
+						<dd><a href="#">奶瓶</a></dd>
+						<dd><a href="#">奶嘴</a></dd>
+						<dd><a href="#">吸乳器</a></dd>
+						<dd><a class="color" href="#">驱蚊用品</a></dd>
+						<dd><a href="#">理发器</a></dd>
+						<dd><a href="#">水杯/水壶</a></dd>
+						<dd><a href="#">安全防护</a></dd>
+						<dd><a href="#">消毒用品</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕婴洗护</a></dt>
+						<dd><a href="#">洗涤用品</a></dd>
+						<dd><a href="#">洗发沐浴</a></dd>
+						<dd><a class='color' href="#">婴儿护肤</a></dd>
+						<dd><a href="#">孕妈护肤</a></dd>
+						<dd><a href="#">防蚊/袪痱</a></dd>
+						<dd><a href="#">洗衣液</a></dd>
+						<dd><a href="#">婴童洗衣皂</a></dd>
+						<dd><a href="#">清洁剂</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕妈专区</a></dt>
+						<dd><a class='color' href="#">孕妇裙</a></dd>
+						<dd><a href="#">打底裤</a></dd>
+						<dd><a href="#">防辐射服</a></dd>
+						<dd><a href="#">腰凳</a></dd>
+						<dd><a href="#">妈咪包</a></dd>
+						<dd><a href="#">收腹带</a></dd>
+						<dd><a href="#">哺乳文胸</a></dd>
+						<dd><a href="#">孕妇内裤</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">儿童玩具</a></dt>
+						<dd class="mr"><a href="#">0-6个月</a></dd>
+						<dd><a href="#">6-12个月</a></dd>
+						<dd class="mr"><a href="#">1-3岁</a></dd>
+						<dd><a href="#">3-6岁</a></dd>
+						<dd class="mr"><a href="#">6岁以上</a></dd>
+						<dd><a class='color' href="#">爬行垫</a></dd>
+						<dd class="mr"><a href="#">模型玩具</a></dd>
+						<dd><a href="#">户外玩具</a></dd>
+						<dd class="mr"><a href="#">益智玩具</a></dd>
+						<dd><a href="#">遥控航模</a></dd>
+						<dd class="mr"><a href="#">积木拼插</a></dd>
+						<dd><a href="#">过家家</a></dd>
+						<dd class="mr"><a href="#">毛绒公仔</a></dd>
+						<dd><a href="#">DIY绘画</a></dd>
+						<dd class="mr"><a class='color' href="#">戏水/泳池</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">母婴海外购</a></dt>
+						<dd><a href="#">喜宝</a></dd>
+						<dd><a href="#">爱他美</a></dd>
+						<dd><a class='color' href="#">花王</a></dd>
+						<dd><a href="#">karicare</a></dd>
+						<dd><a href="#">嘉宝</a></dd>
+						<dd><a href="#">Moony</a></dd>
+						<dd><a href="#">大王</a></dd>
+					</dl>
+				</div>
+			</div>
+			</li>
+			<li class="ng-list">
+				<img class='sort-img' src="images/s5.jpg">
+				<a href="javascript:;">厨卫电器</a>
+				<a href="javascript:;">小家电</a>
+				<div class="nav-sort-detail">
+				<span class="x1">×</span>
+				<div class="sort-channel">
+					<a style='background:#ff4545' href="#">红孩子母婴</a>
+					<a style='background:#ff4545' href="#">奶粉辅食</a>
+					<a style='background:#538cf5' href="#">母婴海外购</a>
+				</div>
+				<div class="cate-list">
+					<dl>
+						<dt><a href="#">孕婴奶粉</a></dt>
+						<dd><a href="#">pre段奶粉</a></dd>
+						<dd><a href="#">1段</a></dd>
+						<dd><a href="#">2段</a></dd>
+						<dd><a class='color' href="#">3段</a></dd>
+						<dd><a href="#">4段</a></dd>
+						<dd><a href="#">5段</a></dd>
+						<dd><a href="#">特配奶粉</a></dd>
+						<dd><a href="#">孕妈奶粉</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">营养/辅食</a></dt>
+						<dd><a class='color' href="#">米粉</a></dd>
+						<dd><a href="#">果汁/泥</a></dd>
+						<dd><a href="#">面食类</a></dd>
+						<dd><a href="#">宝宝零食</a></dd>
+						<dd><a href="#">DHA</a></dd>
+						<dd><a href="#">清火开胃</a></dd>
+						<dd><a href="#">钙铁锌</a></dd>
+						<dd><a href="#">益生菌</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">尿裤/湿巾</a></dt>
+						<dd><a href="#">新生儿尿裤</a></dd>
+						<dd><a href="#">S号尿裤</a></dd>
+						<dd><a href="#">M号尿裤</a></dd>
+						<dd><a href="#">L号尿裤</a></dd>
+						<dd><a href="#">XL/XXL号</a></dd>
+						<dd><a href="#">拉拉裤</a></dd>
+						<dd><a class='color' href="#">湿巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">童车/童床</a></dt>
+						<dd><a class='color' href="#">安全座椅</a></dd>
+						<dd><a href="#">婴儿推车</a></dd>
+						<dd><a href="#">婴儿床</a></dd>
+						<dd><a href="#">餐椅</a></dd>
+						<dd><a href="#">自行车</a></dd>
+						<dd><a href="#">电动车</a></dd>
+						<dd><a href="#">三轮车</a></dd>
+						<dd><a href="#">学步车</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">童装童鞋</a></dt>
+						<dd class="mr"><a href="#">T恤</a></dd>
+						<dd><a href="#">连衣裙</a></dd>
+						<dd class="mr"><a href="#">短裤</a></dd>
+						<dd><a href="#">婴童套装</a></dd>
+						<dd class="mr"><a class='color' href="#">婴儿哈衣</a></dd>
+						<dd><a href="#">亲子装</a></dd>
+						<dd class="mr"><a href="#">外套/卫衣</a></dd>
+						<dd><a href="#">凉鞋</a></dd>
+						<dd class="mr"><a href="#">学步鞋</a></dd>
+						<dd><a href="#">运动鞋</a></dd>
+						<dd class="mr"><a href="#">帆布鞋</a></dd>
+						<dd><a href="#">公主鞋</a></dd>
+						<dd class="mr"><a href="#">隔尿垫</a></dd>
+						<dd><a class='color' href="#">凉席/蚊帐</a></dd>
+						<dd class="mr"><a href="#">婴儿枕</a></dd>
+						<dd><a href="#">毛巾/浴巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">喂养用品</a></dt>
+						<dd><a href="#">奶瓶</a></dd>
+						<dd><a href="#">奶嘴</a></dd>
+						<dd><a href="#">吸乳器</a></dd>
+						<dd><a class="color" href="#">驱蚊用品</a></dd>
+						<dd><a href="#">理发器</a></dd>
+						<dd><a href="#">水杯/水壶</a></dd>
+						<dd><a href="#">安全防护</a></dd>
+						<dd><a href="#">消毒用品</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕婴洗护</a></dt>
+						<dd><a href="#">洗涤用品</a></dd>
+						<dd><a href="#">洗发沐浴</a></dd>
+						<dd><a class='color' href="#">婴儿护肤</a></dd>
+						<dd><a href="#">孕妈护肤</a></dd>
+						<dd><a href="#">防蚊/袪痱</a></dd>
+						<dd><a href="#">洗衣液</a></dd>
+						<dd><a href="#">婴童洗衣皂</a></dd>
+						<dd><a href="#">清洁剂</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕妈专区</a></dt>
+						<dd><a class='color' href="#">孕妇裙</a></dd>
+						<dd><a href="#">打底裤</a></dd>
+						<dd><a href="#">防辐射服</a></dd>
+						<dd><a href="#">腰凳</a></dd>
+						<dd><a href="#">妈咪包</a></dd>
+						<dd><a href="#">收腹带</a></dd>
+						<dd><a href="#">哺乳文胸</a></dd>
+						<dd><a href="#">孕妇内裤</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">儿童玩具</a></dt>
+						<dd class="mr"><a href="#">0-6个月</a></dd>
+						<dd><a href="#">6-12个月</a></dd>
+						<dd class="mr"><a href="#">1-3岁</a></dd>
+						<dd><a href="#">3-6岁</a></dd>
+						<dd class="mr"><a href="#">6岁以上</a></dd>
+						<dd><a class='color' href="#">爬行垫</a></dd>
+						<dd class="mr"><a href="#">模型玩具</a></dd>
+						<dd><a href="#">户外玩具</a></dd>
+						<dd class="mr"><a href="#">益智玩具</a></dd>
+						<dd><a href="#">遥控航模</a></dd>
+						<dd class="mr"><a href="#">积木拼插</a></dd>
+						<dd><a href="#">过家家</a></dd>
+						<dd class="mr"><a href="#">毛绒公仔</a></dd>
+						<dd><a href="#">DIY绘画</a></dd>
+						<dd class="mr"><a class='color' href="#">戏水/泳池</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">母婴海外购</a></dt>
+						<dd><a href="#">喜宝</a></dd>
+						<dd><a href="#">爱他美</a></dd>
+						<dd><a class='color' href="#">花王</a></dd>
+						<dd><a href="#">karicare</a></dd>
+						<dd><a href="#">嘉宝</a></dd>
+						<dd><a href="#">Moony</a></dd>
+						<dd><a href="#">大王</a></dd>
+					</dl>
+				</div>
+			</div>
+			</li>
+			<li class="ng-list">
+				<img class='sort-img' src="images/s6.jpg">
+				<a href="javascript:;">美妆</a>
+				<a href="javascript:;">护肤</a>
+				<a href="javascript:;">洗护</a>
+				<a href="javascript:;">防晒</a>
+				<div class="nav-sort-detail">
+				<span class="x1">×</span>
+				<div class="sort-channel">
+					<a style='background:#ff4545' href="#">红孩子母婴</a>
+					<a style='background:#ff4545' href="#">奶粉辅食</a>
+					<a style='background:#538cf5' href="#">母婴海外购</a>
+				</div>
+				<div class="cate-list">
+					<dl>
+						<dt><a href="#">孕婴奶粉</a></dt>
+						<dd><a href="#">pre段奶粉</a></dd>
+						<dd><a href="#">1段</a></dd>
+						<dd><a href="#">2段</a></dd>
+						<dd><a class='color' href="#">3段</a></dd>
+						<dd><a href="#">4段</a></dd>
+						<dd><a href="#">5段</a></dd>
+						<dd><a href="#">特配奶粉</a></dd>
+						<dd><a href="#">孕妈奶粉</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">营养/辅食</a></dt>
+						<dd><a class='color' href="#">米粉</a></dd>
+						<dd><a href="#">果汁/泥</a></dd>
+						<dd><a href="#">面食类</a></dd>
+						<dd><a href="#">宝宝零食</a></dd>
+						<dd><a href="#">DHA</a></dd>
+						<dd><a href="#">清火开胃</a></dd>
+						<dd><a href="#">钙铁锌</a></dd>
+						<dd><a href="#">益生菌</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">尿裤/湿巾</a></dt>
+						<dd><a href="#">新生儿尿裤</a></dd>
+						<dd><a href="#">S号尿裤</a></dd>
+						<dd><a href="#">M号尿裤</a></dd>
+						<dd><a href="#">L号尿裤</a></dd>
+						<dd><a href="#">XL/XXL号</a></dd>
+						<dd><a href="#">拉拉裤</a></dd>
+						<dd><a class='color' href="#">湿巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">童车/童床</a></dt>
+						<dd><a class='color' href="#">安全座椅</a></dd>
+						<dd><a href="#">婴儿推车</a></dd>
+						<dd><a href="#">婴儿床</a></dd>
+						<dd><a href="#">餐椅</a></dd>
+						<dd><a href="#">自行车</a></dd>
+						<dd><a href="#">电动车</a></dd>
+						<dd><a href="#">三轮车</a></dd>
+						<dd><a href="#">学步车</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">童装童鞋</a></dt>
+						<dd class="mr"><a href="#">T恤</a></dd>
+						<dd><a href="#">连衣裙</a></dd>
+						<dd class="mr"><a href="#">短裤</a></dd>
+						<dd><a href="#">婴童套装</a></dd>
+						<dd class="mr"><a class='color' href="#">婴儿哈衣</a></dd>
+						<dd><a href="#">亲子装</a></dd>
+						<dd class="mr"><a href="#">外套/卫衣</a></dd>
+						<dd><a href="#">凉鞋</a></dd>
+						<dd class="mr"><a href="#">学步鞋</a></dd>
+						<dd><a href="#">运动鞋</a></dd>
+						<dd class="mr"><a href="#">帆布鞋</a></dd>
+						<dd><a href="#">公主鞋</a></dd>
+						<dd class="mr"><a href="#">隔尿垫</a></dd>
+						<dd><a class='color' href="#">凉席/蚊帐</a></dd>
+						<dd class="mr"><a href="#">婴儿枕</a></dd>
+						<dd><a href="#">毛巾/浴巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">喂养用品</a></dt>
+						<dd><a href="#">奶瓶</a></dd>
+						<dd><a href="#">奶嘴</a></dd>
+						<dd><a href="#">吸乳器</a></dd>
+						<dd><a class="color" href="#">驱蚊用品</a></dd>
+						<dd><a href="#">理发器</a></dd>
+						<dd><a href="#">水杯/水壶</a></dd>
+						<dd><a href="#">安全防护</a></dd>
+						<dd><a href="#">消毒用品</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕婴洗护</a></dt>
+						<dd><a href="#">洗涤用品</a></dd>
+						<dd><a href="#">洗发沐浴</a></dd>
+						<dd><a class='color' href="#">婴儿护肤</a></dd>
+						<dd><a href="#">孕妈护肤</a></dd>
+						<dd><a href="#">防蚊/袪痱</a></dd>
+						<dd><a href="#">洗衣液</a></dd>
+						<dd><a href="#">婴童洗衣皂</a></dd>
+						<dd><a href="#">清洁剂</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕妈专区</a></dt>
+						<dd><a class='color' href="#">孕妇裙</a></dd>
+						<dd><a href="#">打底裤</a></dd>
+						<dd><a href="#">防辐射服</a></dd>
+						<dd><a href="#">腰凳</a></dd>
+						<dd><a href="#">妈咪包</a></dd>
+						<dd><a href="#">收腹带</a></dd>
+						<dd><a href="#">哺乳文胸</a></dd>
+						<dd><a href="#">孕妇内裤</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">儿童玩具</a></dt>
+						<dd class="mr"><a href="#">0-6个月</a></dd>
+						<dd><a href="#">6-12个月</a></dd>
+						<dd class="mr"><a href="#">1-3岁</a></dd>
+						<dd><a href="#">3-6岁</a></dd>
+						<dd class="mr"><a href="#">6岁以上</a></dd>
+						<dd><a class='color' href="#">爬行垫</a></dd>
+						<dd class="mr"><a href="#">模型玩具</a></dd>
+						<dd><a href="#">户外玩具</a></dd>
+						<dd class="mr"><a href="#">益智玩具</a></dd>
+						<dd><a href="#">遥控航模</a></dd>
+						<dd class="mr"><a href="#">积木拼插</a></dd>
+						<dd><a href="#">过家家</a></dd>
+						<dd class="mr"><a href="#">毛绒公仔</a></dd>
+						<dd><a href="#">DIY绘画</a></dd>
+						<dd class="mr"><a class='color' href="#">戏水/泳池</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">母婴海外购</a></dt>
+						<dd><a href="#">喜宝</a></dd>
+						<dd><a href="#">爱他美</a></dd>
+						<dd><a class='color' href="#">花王</a></dd>
+						<dd><a href="#">karicare</a></dd>
+						<dd><a href="#">嘉宝</a></dd>
+						<dd><a href="#">Moony</a></dd>
+						<dd><a href="#">大王</a></dd>
+					</dl>
+				</div>
+			</div>
+			</li>
+			<li class="ng-list">
+				<img class='sort-img' src="images/s7.jpg">
+				<a href="javascript:;">运动户外</a>
+				<a href="javascript:;">汽车用品</a>
+				<div class="nav-sort-detail">
+				<span class="x1">×</span>
+				<div class="sort-channel">
+					<a style='background:#ff4545' href="#">红孩子母婴</a>
+					<a style='background:#ff4545' href="#">奶粉辅食</a>
+					<a style='background:#538cf5' href="#">母婴海外购</a>
+				</div>
+				<div class="cate-list">
+					<dl>
+						<dt><a href="#">孕婴奶粉</a></dt>
+						<dd><a href="#">pre段奶粉</a></dd>
+						<dd><a href="#">1段</a></dd>
+						<dd><a href="#">2段</a></dd>
+						<dd><a class='color' href="#">3段</a></dd>
+						<dd><a href="#">4段</a></dd>
+						<dd><a href="#">5段</a></dd>
+						<dd><a href="#">特配奶粉</a></dd>
+						<dd><a href="#">孕妈奶粉</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">营养/辅食</a></dt>
+						<dd><a class='color' href="#">米粉</a></dd>
+						<dd><a href="#">果汁/泥</a></dd>
+						<dd><a href="#">面食类</a></dd>
+						<dd><a href="#">宝宝零食</a></dd>
+						<dd><a href="#">DHA</a></dd>
+						<dd><a href="#">清火开胃</a></dd>
+						<dd><a href="#">钙铁锌</a></dd>
+						<dd><a href="#">益生菌</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">尿裤/湿巾</a></dt>
+						<dd><a href="#">新生儿尿裤</a></dd>
+						<dd><a href="#">S号尿裤</a></dd>
+						<dd><a href="#">M号尿裤</a></dd>
+						<dd><a href="#">L号尿裤</a></dd>
+						<dd><a href="#">XL/XXL号</a></dd>
+						<dd><a href="#">拉拉裤</a></dd>
+						<dd><a class='color' href="#">湿巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">童车/童床</a></dt>
+						<dd><a class='color' href="#">安全座椅</a></dd>
+						<dd><a href="#">婴儿推车</a></dd>
+						<dd><a href="#">婴儿床</a></dd>
+						<dd><a href="#">餐椅</a></dd>
+						<dd><a href="#">自行车</a></dd>
+						<dd><a href="#">电动车</a></dd>
+						<dd><a href="#">三轮车</a></dd>
+						<dd><a href="#">学步车</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">童装童鞋</a></dt>
+						<dd class="mr"><a href="#">T恤</a></dd>
+						<dd><a href="#">连衣裙</a></dd>
+						<dd class="mr"><a href="#">短裤</a></dd>
+						<dd><a href="#">婴童套装</a></dd>
+						<dd class="mr"><a class='color' href="#">婴儿哈衣</a></dd>
+						<dd><a href="#">亲子装</a></dd>
+						<dd class="mr"><a href="#">外套/卫衣</a></dd>
+						<dd><a href="#">凉鞋</a></dd>
+						<dd class="mr"><a href="#">学步鞋</a></dd>
+						<dd><a href="#">运动鞋</a></dd>
+						<dd class="mr"><a href="#">帆布鞋</a></dd>
+						<dd><a href="#">公主鞋</a></dd>
+						<dd class="mr"><a href="#">隔尿垫</a></dd>
+						<dd><a class='color' href="#">凉席/蚊帐</a></dd>
+						<dd class="mr"><a href="#">婴儿枕</a></dd>
+						<dd><a href="#">毛巾/浴巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">喂养用品</a></dt>
+						<dd><a href="#">奶瓶</a></dd>
+						<dd><a href="#">奶嘴</a></dd>
+						<dd><a href="#">吸乳器</a></dd>
+						<dd><a class="color" href="#">驱蚊用品</a></dd>
+						<dd><a href="#">理发器</a></dd>
+						<dd><a href="#">水杯/水壶</a></dd>
+						<dd><a href="#">安全防护</a></dd>
+						<dd><a href="#">消毒用品</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕婴洗护</a></dt>
+						<dd><a href="#">洗涤用品</a></dd>
+						<dd><a href="#">洗发沐浴</a></dd>
+						<dd><a class='color' href="#">婴儿护肤</a></dd>
+						<dd><a href="#">孕妈护肤</a></dd>
+						<dd><a href="#">防蚊/袪痱</a></dd>
+						<dd><a href="#">洗衣液</a></dd>
+						<dd><a href="#">婴童洗衣皂</a></dd>
+						<dd><a href="#">清洁剂</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕妈专区</a></dt>
+						<dd><a class='color' href="#">孕妇裙</a></dd>
+						<dd><a href="#">打底裤</a></dd>
+						<dd><a href="#">防辐射服</a></dd>
+						<dd><a href="#">腰凳</a></dd>
+						<dd><a href="#">妈咪包</a></dd>
+						<dd><a href="#">收腹带</a></dd>
+						<dd><a href="#">哺乳文胸</a></dd>
+						<dd><a href="#">孕妇内裤</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">儿童玩具</a></dt>
+						<dd class="mr"><a href="#">0-6个月</a></dd>
+						<dd><a href="#">6-12个月</a></dd>
+						<dd class="mr"><a href="#">1-3岁</a></dd>
+						<dd><a href="#">3-6岁</a></dd>
+						<dd class="mr"><a href="#">6岁以上</a></dd>
+						<dd><a class='color' href="#">爬行垫</a></dd>
+						<dd class="mr"><a href="#">模型玩具</a></dd>
+						<dd><a href="#">户外玩具</a></dd>
+						<dd class="mr"><a href="#">益智玩具</a></dd>
+						<dd><a href="#">遥控航模</a></dd>
+						<dd class="mr"><a href="#">积木拼插</a></dd>
+						<dd><a href="#">过家家</a></dd>
+						<dd class="mr"><a href="#">毛绒公仔</a></dd>
+						<dd><a href="#">DIY绘画</a></dd>
+						<dd class="mr"><a class='color' href="#">戏水/泳池</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">母婴海外购</a></dt>
+						<dd><a href="#">喜宝</a></dd>
+						<dd><a href="#">爱他美</a></dd>
+						<dd><a class='color' href="#">花王</a></dd>
+						<dd><a href="#">karicare</a></dd>
+						<dd><a href="#">嘉宝</a></dd>
+						<dd><a href="#">Moony</a></dd>
+						<dd><a href="#">大王</a></dd>
+					</dl>
+				</div>
+			</div>
+			</li>
+			<li class="ng-list">
+				<img class='sort-img' src="images/s8.jpg">
+				<a href="javascript:;">男装 </a>
+				<a href="javascript:;">女装</a>
+				<a href="javascript:;">内衣鞋靴</a>
+				<div class="nav-sort-detail">
+				<span class="x1">×</span>
+				<div class="sort-channel">
+					<a style='background:#ff4545' href="#">红孩子母婴</a>
+					<a style='background:#ff4545' href="#">奶粉辅食</a>
+					<a style='background:#538cf5' href="#">母婴海外购</a>
+				</div>
+				<div class="cate-list">
+					<dl>
+						<dt><a href="#">孕婴奶粉</a></dt>
+						<dd><a href="#">pre段奶粉</a></dd>
+						<dd><a href="#">1段</a></dd>
+						<dd><a href="#">2段</a></dd>
+						<dd><a class='color' href="#">3段</a></dd>
+						<dd><a href="#">4段</a></dd>
+						<dd><a href="#">5段</a></dd>
+						<dd><a href="#">特配奶粉</a></dd>
+						<dd><a href="#">孕妈奶粉</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">营养/辅食</a></dt>
+						<dd><a class='color' href="#">米粉</a></dd>
+						<dd><a href="#">果汁/泥</a></dd>
+						<dd><a href="#">面食类</a></dd>
+						<dd><a href="#">宝宝零食</a></dd>
+						<dd><a href="#">DHA</a></dd>
+						<dd><a href="#">清火开胃</a></dd>
+						<dd><a href="#">钙铁锌</a></dd>
+						<dd><a href="#">益生菌</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">尿裤/湿巾</a></dt>
+						<dd><a href="#">新生儿尿裤</a></dd>
+						<dd><a href="#">S号尿裤</a></dd>
+						<dd><a href="#">M号尿裤</a></dd>
+						<dd><a href="#">L号尿裤</a></dd>
+						<dd><a href="#">XL/XXL号</a></dd>
+						<dd><a href="#">拉拉裤</a></dd>
+						<dd><a class='color' href="#">湿巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">童车/童床</a></dt>
+						<dd><a class='color' href="#">安全座椅</a></dd>
+						<dd><a href="#">婴儿推车</a></dd>
+						<dd><a href="#">婴儿床</a></dd>
+						<dd><a href="#">餐椅</a></dd>
+						<dd><a href="#">自行车</a></dd>
+						<dd><a href="#">电动车</a></dd>
+						<dd><a href="#">三轮车</a></dd>
+						<dd><a href="#">学步车</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">童装童鞋</a></dt>
+						<dd class="mr"><a href="#">T恤</a></dd>
+						<dd><a href="#">连衣裙</a></dd>
+						<dd class="mr"><a href="#">短裤</a></dd>
+						<dd><a href="#">婴童套装</a></dd>
+						<dd class="mr"><a class='color' href="#">婴儿哈衣</a></dd>
+						<dd><a href="#">亲子装</a></dd>
+						<dd class="mr"><a href="#">外套/卫衣</a></dd>
+						<dd><a href="#">凉鞋</a></dd>
+						<dd class="mr"><a href="#">学步鞋</a></dd>
+						<dd><a href="#">运动鞋</a></dd>
+						<dd class="mr"><a href="#">帆布鞋</a></dd>
+						<dd><a href="#">公主鞋</a></dd>
+						<dd class="mr"><a href="#">隔尿垫</a></dd>
+						<dd><a class='color' href="#">凉席/蚊帐</a></dd>
+						<dd class="mr"><a href="#">婴儿枕</a></dd>
+						<dd><a href="#">毛巾/浴巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">喂养用品</a></dt>
+						<dd><a href="#">奶瓶</a></dd>
+						<dd><a href="#">奶嘴</a></dd>
+						<dd><a href="#">吸乳器</a></dd>
+						<dd><a class="color" href="#">驱蚊用品</a></dd>
+						<dd><a href="#">理发器</a></dd>
+						<dd><a href="#">水杯/水壶</a></dd>
+						<dd><a href="#">安全防护</a></dd>
+						<dd><a href="#">消毒用品</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕婴洗护</a></dt>
+						<dd><a href="#">洗涤用品</a></dd>
+						<dd><a href="#">洗发沐浴</a></dd>
+						<dd><a class='color' href="#">婴儿护肤</a></dd>
+						<dd><a href="#">孕妈护肤</a></dd>
+						<dd><a href="#">防蚊/袪痱</a></dd>
+						<dd><a href="#">洗衣液</a></dd>
+						<dd><a href="#">婴童洗衣皂</a></dd>
+						<dd><a href="#">清洁剂</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕妈专区</a></dt>
+						<dd><a class='color' href="#">孕妇裙</a></dd>
+						<dd><a href="#">打底裤</a></dd>
+						<dd><a href="#">防辐射服</a></dd>
+						<dd><a href="#">腰凳</a></dd>
+						<dd><a href="#">妈咪包</a></dd>
+						<dd><a href="#">收腹带</a></dd>
+						<dd><a href="#">哺乳文胸</a></dd>
+						<dd><a href="#">孕妇内裤</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">儿童玩具</a></dt>
+						<dd class="mr"><a href="#">0-6个月</a></dd>
+						<dd><a href="#">6-12个月</a></dd>
+						<dd class="mr"><a href="#">1-3岁</a></dd>
+						<dd><a href="#">3-6岁</a></dd>
+						<dd class="mr"><a href="#">6岁以上</a></dd>
+						<dd><a class='color' href="#">爬行垫</a></dd>
+						<dd class="mr"><a href="#">模型玩具</a></dd>
+						<dd><a href="#">户外玩具</a></dd>
+						<dd class="mr"><a href="#">益智玩具</a></dd>
+						<dd><a href="#">遥控航模</a></dd>
+						<dd class="mr"><a href="#">积木拼插</a></dd>
+						<dd><a href="#">过家家</a></dd>
+						<dd class="mr"><a href="#">毛绒公仔</a></dd>
+						<dd><a href="#">DIY绘画</a></dd>
+						<dd class="mr"><a class='color' href="#">戏水/泳池</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">母婴海外购</a></dt>
+						<dd><a href="#">喜宝</a></dd>
+						<dd><a href="#">爱他美</a></dd>
+						<dd><a class='color' href="#">花王</a></dd>
+						<dd><a href="#">karicare</a></dd>
+						<dd><a href="#">嘉宝</a></dd>
+						<dd><a href="#">Moony</a></dd>
+						<dd><a href="#">大王</a></dd>
+					</dl>
+				</div>
+			</div>
+			</li>
+			<li class="ng-list">
+				<img class='sort-img' src="images/s9.jpg">
+				<a href="javascript:;">箱包皮具</a>
+				<a href="javascript:;">钟表饰品</a>
+				<div class="nav-sort-detail">
+				<span class="x1">×</span>
+				<div class="sort-channel">
+					<a style='background:#ff4545' href="#">红孩子母婴</a>
+					<a style='background:#ff4545' href="#">奶粉辅食</a>
+					<a style='background:#538cf5' href="#">母婴海外购</a>
+				</div>
+				<div class="cate-list">
+					<dl>
+						<dt><a href="#">孕婴奶粉</a></dt>
+						<dd><a href="#">pre段奶粉</a></dd>
+						<dd><a href="#">1段</a></dd>
+						<dd><a href="#">2段</a></dd>
+						<dd><a class='color' href="#">3段</a></dd>
+						<dd><a href="#">4段</a></dd>
+						<dd><a href="#">5段</a></dd>
+						<dd><a href="#">特配奶粉</a></dd>
+						<dd><a href="#">孕妈奶粉</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">营养/辅食</a></dt>
+						<dd><a class='color' href="#">米粉</a></dd>
+						<dd><a href="#">果汁/泥</a></dd>
+						<dd><a href="#">面食类</a></dd>
+						<dd><a href="#">宝宝零食</a></dd>
+						<dd><a href="#">DHA</a></dd>
+						<dd><a href="#">清火开胃</a></dd>
+						<dd><a href="#">钙铁锌</a></dd>
+						<dd><a href="#">益生菌</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">尿裤/湿巾</a></dt>
+						<dd><a href="#">新生儿尿裤</a></dd>
+						<dd><a href="#">S号尿裤</a></dd>
+						<dd><a href="#">M号尿裤</a></dd>
+						<dd><a href="#">L号尿裤</a></dd>
+						<dd><a href="#">XL/XXL号</a></dd>
+						<dd><a href="#">拉拉裤</a></dd>
+						<dd><a class='color' href="#">湿巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">童车/童床</a></dt>
+						<dd><a class='color' href="#">安全座椅</a></dd>
+						<dd><a href="#">婴儿推车</a></dd>
+						<dd><a href="#">婴儿床</a></dd>
+						<dd><a href="#">餐椅</a></dd>
+						<dd><a href="#">自行车</a></dd>
+						<dd><a href="#">电动车</a></dd>
+						<dd><a href="#">三轮车</a></dd>
+						<dd><a href="#">学步车</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">童装童鞋</a></dt>
+						<dd class="mr"><a href="#">T恤</a></dd>
+						<dd><a href="#">连衣裙</a></dd>
+						<dd class="mr"><a href="#">短裤</a></dd>
+						<dd><a href="#">婴童套装</a></dd>
+						<dd class="mr"><a class='color' href="#">婴儿哈衣</a></dd>
+						<dd><a href="#">亲子装</a></dd>
+						<dd class="mr"><a href="#">外套/卫衣</a></dd>
+						<dd><a href="#">凉鞋</a></dd>
+						<dd class="mr"><a href="#">学步鞋</a></dd>
+						<dd><a href="#">运动鞋</a></dd>
+						<dd class="mr"><a href="#">帆布鞋</a></dd>
+						<dd><a href="#">公主鞋</a></dd>
+						<dd class="mr"><a href="#">隔尿垫</a></dd>
+						<dd><a class='color' href="#">凉席/蚊帐</a></dd>
+						<dd class="mr"><a href="#">婴儿枕</a></dd>
+						<dd><a href="#">毛巾/浴巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">喂养用品</a></dt>
+						<dd><a href="#">奶瓶</a></dd>
+						<dd><a href="#">奶嘴</a></dd>
+						<dd><a href="#">吸乳器</a></dd>
+						<dd><a class="color" href="#">驱蚊用品</a></dd>
+						<dd><a href="#">理发器</a></dd>
+						<dd><a href="#">水杯/水壶</a></dd>
+						<dd><a href="#">安全防护</a></dd>
+						<dd><a href="#">消毒用品</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕婴洗护</a></dt>
+						<dd><a href="#">洗涤用品</a></dd>
+						<dd><a href="#">洗发沐浴</a></dd>
+						<dd><a class='color' href="#">婴儿护肤</a></dd>
+						<dd><a href="#">孕妈护肤</a></dd>
+						<dd><a href="#">防蚊/袪痱</a></dd>
+						<dd><a href="#">洗衣液</a></dd>
+						<dd><a href="#">婴童洗衣皂</a></dd>
+						<dd><a href="#">清洁剂</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕妈专区</a></dt>
+						<dd><a class='color' href="#">孕妇裙</a></dd>
+						<dd><a href="#">打底裤</a></dd>
+						<dd><a href="#">防辐射服</a></dd>
+						<dd><a href="#">腰凳</a></dd>
+						<dd><a href="#">妈咪包</a></dd>
+						<dd><a href="#">收腹带</a></dd>
+						<dd><a href="#">哺乳文胸</a></dd>
+						<dd><a href="#">孕妇内裤</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">儿童玩具</a></dt>
+						<dd class="mr"><a href="#">0-6个月</a></dd>
+						<dd><a href="#">6-12个月</a></dd>
+						<dd class="mr"><a href="#">1-3岁</a></dd>
+						<dd><a href="#">3-6岁</a></dd>
+						<dd class="mr"><a href="#">6岁以上</a></dd>
+						<dd><a class='color' href="#">爬行垫</a></dd>
+						<dd class="mr"><a href="#">模型玩具</a></dd>
+						<dd><a href="#">户外玩具</a></dd>
+						<dd class="mr"><a href="#">益智玩具</a></dd>
+						<dd><a href="#">遥控航模</a></dd>
+						<dd class="mr"><a href="#">积木拼插</a></dd>
+						<dd><a href="#">过家家</a></dd>
+						<dd class="mr"><a href="#">毛绒公仔</a></dd>
+						<dd><a href="#">DIY绘画</a></dd>
+						<dd class="mr"><a class='color' href="#">戏水/泳池</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">母婴海外购</a></dt>
+						<dd><a href="#">喜宝</a></dd>
+						<dd><a href="#">爱他美</a></dd>
+						<dd><a class='color' href="#">花王</a></dd>
+						<dd><a href="#">karicare</a></dd>
+						<dd><a href="#">嘉宝</a></dd>
+						<dd><a href="#">Moony</a></dd>
+						<dd><a href="#">大王</a></dd>
+					</dl>
+				</div>
+			</div>
+			</li>
+			<li class="ng-list">
+				<img class='sort-img' src="images/s10.jpg">
+				<a href="javascript:;">食品粮油</a>
+				<a href="javascript:;">酒水冲调</a>
+				<div class="nav-sort-detail">
+				<span class="x1">×</span>
+				<div class="sort-channel">
+					<a style='background:#ff4545' href="#">红孩子母婴</a>
+					<a style='background:#ff4545' href="#">奶粉辅食</a>
+					<a style='background:#538cf5' href="#">母婴海外购</a>
+				</div>
+				<div class="cate-list">
+					<dl>
+						<dt><a href="#">孕婴奶粉</a></dt>
+						<dd><a href="#">pre段奶粉</a></dd>
+						<dd><a href="#">1段</a></dd>
+						<dd><a href="#">2段</a></dd>
+						<dd><a class='color' href="#">3段</a></dd>
+						<dd><a href="#">4段</a></dd>
+						<dd><a href="#">5段</a></dd>
+						<dd><a href="#">特配奶粉</a></dd>
+						<dd><a href="#">孕妈奶粉</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">营养/辅食</a></dt>
+						<dd><a class='color' href="#">米粉</a></dd>
+						<dd><a href="#">果汁/泥</a></dd>
+						<dd><a href="#">面食类</a></dd>
+						<dd><a href="#">宝宝零食</a></dd>
+						<dd><a href="#">DHA</a></dd>
+						<dd><a href="#">清火开胃</a></dd>
+						<dd><a href="#">钙铁锌</a></dd>
+						<dd><a href="#">益生菌</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">尿裤/湿巾</a></dt>
+						<dd><a href="#">新生儿尿裤</a></dd>
+						<dd><a href="#">S号尿裤</a></dd>
+						<dd><a href="#">M号尿裤</a></dd>
+						<dd><a href="#">L号尿裤</a></dd>
+						<dd><a href="#">XL/XXL号</a></dd>
+						<dd><a href="#">拉拉裤</a></dd>
+						<dd><a class='color' href="#">湿巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">童车/童床</a></dt>
+						<dd><a class='color' href="#">安全座椅</a></dd>
+						<dd><a href="#">婴儿推车</a></dd>
+						<dd><a href="#">婴儿床</a></dd>
+						<dd><a href="#">餐椅</a></dd>
+						<dd><a href="#">自行车</a></dd>
+						<dd><a href="#">电动车</a></dd>
+						<dd><a href="#">三轮车</a></dd>
+						<dd><a href="#">学步车</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">童装童鞋</a></dt>
+						<dd class="mr"><a href="#">T恤</a></dd>
+						<dd><a href="#">连衣裙</a></dd>
+						<dd class="mr"><a href="#">短裤</a></dd>
+						<dd><a href="#">婴童套装</a></dd>
+						<dd class="mr"><a class='color' href="#">婴儿哈衣</a></dd>
+						<dd><a href="#">亲子装</a></dd>
+						<dd class="mr"><a href="#">外套/卫衣</a></dd>
+						<dd><a href="#">凉鞋</a></dd>
+						<dd class="mr"><a href="#">学步鞋</a></dd>
+						<dd><a href="#">运动鞋</a></dd>
+						<dd class="mr"><a href="#">帆布鞋</a></dd>
+						<dd><a href="#">公主鞋</a></dd>
+						<dd class="mr"><a href="#">隔尿垫</a></dd>
+						<dd><a class='color' href="#">凉席/蚊帐</a></dd>
+						<dd class="mr"><a href="#">婴儿枕</a></dd>
+						<dd><a href="#">毛巾/浴巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">喂养用品</a></dt>
+						<dd><a href="#">奶瓶</a></dd>
+						<dd><a href="#">奶嘴</a></dd>
+						<dd><a href="#">吸乳器</a></dd>
+						<dd><a class="color" href="#">驱蚊用品</a></dd>
+						<dd><a href="#">理发器</a></dd>
+						<dd><a href="#">水杯/水壶</a></dd>
+						<dd><a href="#">安全防护</a></dd>
+						<dd><a href="#">消毒用品</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕婴洗护</a></dt>
+						<dd><a href="#">洗涤用品</a></dd>
+						<dd><a href="#">洗发沐浴</a></dd>
+						<dd><a class='color' href="#">婴儿护肤</a></dd>
+						<dd><a href="#">孕妈护肤</a></dd>
+						<dd><a href="#">防蚊/袪痱</a></dd>
+						<dd><a href="#">洗衣液</a></dd>
+						<dd><a href="#">婴童洗衣皂</a></dd>
+						<dd><a href="#">清洁剂</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕妈专区</a></dt>
+						<dd><a class='color' href="#">孕妇裙</a></dd>
+						<dd><a href="#">打底裤</a></dd>
+						<dd><a href="#">防辐射服</a></dd>
+						<dd><a href="#">腰凳</a></dd>
+						<dd><a href="#">妈咪包</a></dd>
+						<dd><a href="#">收腹带</a></dd>
+						<dd><a href="#">哺乳文胸</a></dd>
+						<dd><a href="#">孕妇内裤</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">儿童玩具</a></dt>
+						<dd class="mr"><a href="#">0-6个月</a></dd>
+						<dd><a href="#">6-12个月</a></dd>
+						<dd class="mr"><a href="#">1-3岁</a></dd>
+						<dd><a href="#">3-6岁</a></dd>
+						<dd class="mr"><a href="#">6岁以上</a></dd>
+						<dd><a class='color' href="#">爬行垫</a></dd>
+						<dd class="mr"><a href="#">模型玩具</a></dd>
+						<dd><a href="#">户外玩具</a></dd>
+						<dd class="mr"><a href="#">益智玩具</a></dd>
+						<dd><a href="#">遥控航模</a></dd>
+						<dd class="mr"><a href="#">积木拼插</a></dd>
+						<dd><a href="#">过家家</a></dd>
+						<dd class="mr"><a href="#">毛绒公仔</a></dd>
+						<dd><a href="#">DIY绘画</a></dd>
+						<dd class="mr"><a class='color' href="#">戏水/泳池</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">母婴海外购</a></dt>
+						<dd><a href="#">喜宝</a></dd>
+						<dd><a href="#">爱他美</a></dd>
+						<dd><a class='color' href="#">花王</a></dd>
+						<dd><a href="#">karicare</a></dd>
+						<dd><a href="#">嘉宝</a></dd>
+						<dd><a href="#">Moony</a></dd>
+						<dd><a href="#">大王</a></dd>
+					</dl>
+				</div>
+			</div>
+			</li>
+			<li class="ng-list">
+				<img class='sort-img' src="images/s11.jpg">
+				<a href="javascript:;">居家家纺</a>
+				<a href="javascript:;">家装建材</a>
+				<div class="nav-sort-detail">
+				<span class="x1">×</span>
+				<div class="sort-channel">
+					<a style='background:#ff4545' href="#">红孩子母婴</a>
+					<a style='background:#ff4545' href="#">奶粉辅食</a>
+					<a style='background:#538cf5' href="#">母婴海外购</a>
+				</div>
+				<div class="cate-list">
+					<dl>
+						<dt><a href="#">孕婴奶粉</a></dt>
+						<dd><a href="#">pre段奶粉</a></dd>
+						<dd><a href="#">1段</a></dd>
+						<dd><a href="#">2段</a></dd>
+						<dd><a class='color' href="#">3段</a></dd>
+						<dd><a href="#">4段</a></dd>
+						<dd><a href="#">5段</a></dd>
+						<dd><a href="#">特配奶粉</a></dd>
+						<dd><a href="#">孕妈奶粉</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">营养/辅食</a></dt>
+						<dd><a class='color' href="#">米粉</a></dd>
+						<dd><a href="#">果汁/泥</a></dd>
+						<dd><a href="#">面食类</a></dd>
+						<dd><a href="#">宝宝零食</a></dd>
+						<dd><a href="#">DHA</a></dd>
+						<dd><a href="#">清火开胃</a></dd>
+						<dd><a href="#">钙铁锌</a></dd>
+						<dd><a href="#">益生菌</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">尿裤/湿巾</a></dt>
+						<dd><a href="#">新生儿尿裤</a></dd>
+						<dd><a href="#">S号尿裤</a></dd>
+						<dd><a href="#">M号尿裤</a></dd>
+						<dd><a href="#">L号尿裤</a></dd>
+						<dd><a href="#">XL/XXL号</a></dd>
+						<dd><a href="#">拉拉裤</a></dd>
+						<dd><a class='color' href="#">湿巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">童车/童床</a></dt>
+						<dd><a class='color' href="#">安全座椅</a></dd>
+						<dd><a href="#">婴儿推车</a></dd>
+						<dd><a href="#">婴儿床</a></dd>
+						<dd><a href="#">餐椅</a></dd>
+						<dd><a href="#">自行车</a></dd>
+						<dd><a href="#">电动车</a></dd>
+						<dd><a href="#">三轮车</a></dd>
+						<dd><a href="#">学步车</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">童装童鞋</a></dt>
+						<dd class="mr"><a href="#">T恤</a></dd>
+						<dd><a href="#">连衣裙</a></dd>
+						<dd class="mr"><a href="#">短裤</a></dd>
+						<dd><a href="#">婴童套装</a></dd>
+						<dd class="mr"><a class='color' href="#">婴儿哈衣</a></dd>
+						<dd><a href="#">亲子装</a></dd>
+						<dd class="mr"><a href="#">外套/卫衣</a></dd>
+						<dd><a href="#">凉鞋</a></dd>
+						<dd class="mr"><a href="#">学步鞋</a></dd>
+						<dd><a href="#">运动鞋</a></dd>
+						<dd class="mr"><a href="#">帆布鞋</a></dd>
+						<dd><a href="#">公主鞋</a></dd>
+						<dd class="mr"><a href="#">隔尿垫</a></dd>
+						<dd><a class='color' href="#">凉席/蚊帐</a></dd>
+						<dd class="mr"><a href="#">婴儿枕</a></dd>
+						<dd><a href="#">毛巾/浴巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">喂养用品</a></dt>
+						<dd><a href="#">奶瓶</a></dd>
+						<dd><a href="#">奶嘴</a></dd>
+						<dd><a href="#">吸乳器</a></dd>
+						<dd><a class="color" href="#">驱蚊用品</a></dd>
+						<dd><a href="#">理发器</a></dd>
+						<dd><a href="#">水杯/水壶</a></dd>
+						<dd><a href="#">安全防护</a></dd>
+						<dd><a href="#">消毒用品</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕婴洗护</a></dt>
+						<dd><a href="#">洗涤用品</a></dd>
+						<dd><a href="#">洗发沐浴</a></dd>
+						<dd><a class='color' href="#">婴儿护肤</a></dd>
+						<dd><a href="#">孕妈护肤</a></dd>
+						<dd><a href="#">防蚊/袪痱</a></dd>
+						<dd><a href="#">洗衣液</a></dd>
+						<dd><a href="#">婴童洗衣皂</a></dd>
+						<dd><a href="#">清洁剂</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕妈专区</a></dt>
+						<dd><a class='color' href="#">孕妇裙</a></dd>
+						<dd><a href="#">打底裤</a></dd>
+						<dd><a href="#">防辐射服</a></dd>
+						<dd><a href="#">腰凳</a></dd>
+						<dd><a href="#">妈咪包</a></dd>
+						<dd><a href="#">收腹带</a></dd>
+						<dd><a href="#">哺乳文胸</a></dd>
+						<dd><a href="#">孕妇内裤</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">儿童玩具</a></dt>
+						<dd class="mr"><a href="#">0-6个月</a></dd>
+						<dd><a href="#">6-12个月</a></dd>
+						<dd class="mr"><a href="#">1-3岁</a></dd>
+						<dd><a href="#">3-6岁</a></dd>
+						<dd class="mr"><a href="#">6岁以上</a></dd>
+						<dd><a class='color' href="#">爬行垫</a></dd>
+						<dd class="mr"><a href="#">模型玩具</a></dd>
+						<dd><a href="#">户外玩具</a></dd>
+						<dd class="mr"><a href="#">益智玩具</a></dd>
+						<dd><a href="#">遥控航模</a></dd>
+						<dd class="mr"><a href="#">积木拼插</a></dd>
+						<dd><a href="#">过家家</a></dd>
+						<dd class="mr"><a href="#">毛绒公仔</a></dd>
+						<dd><a href="#">DIY绘画</a></dd>
+						<dd class="mr"><a class='color' href="#">戏水/泳池</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">母婴海外购</a></dt>
+						<dd><a href="#">喜宝</a></dd>
+						<dd><a href="#">爱他美</a></dd>
+						<dd><a class='color' href="#">花王</a></dd>
+						<dd><a href="#">karicare</a></dd>
+						<dd><a href="#">嘉宝</a></dd>
+						<dd><a href="#">Moony</a></dd>
+						<dd><a href="#">大王</a></dd>
+					</dl>
+				</div>
+			</div>
+			</li>
+			<li class="ng-list">
+				<img class='sort-img' src="images/s12.jpg">
+				<a href="javascript:;">图书</a>
+				<a href="javascript:;">免费书城</a>
+				<div class="nav-sort-detail">
+				<span class="x1">×</span>
+				<div class="sort-channel">
+					<a style='background:#ff4545' href="#">红孩子母婴</a>
+					<a style='background:#ff4545' href="#">奶粉辅食</a>
+					<a style='background:#538cf5' href="#">母婴海外购</a>
+				</div>
+				<div class="cate-list">
+					<dl>
+						<dt><a href="#">孕婴奶粉</a></dt>
+						<dd><a href="#">pre段奶粉</a></dd>
+						<dd><a href="#">1段</a></dd>
+						<dd><a href="#">2段</a></dd>
+						<dd><a class='color' href="#">3段</a></dd>
+						<dd><a href="#">4段</a></dd>
+						<dd><a href="#">5段</a></dd>
+						<dd><a href="#">特配奶粉</a></dd>
+						<dd><a href="#">孕妈奶粉</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">营养/辅食</a></dt>
+						<dd><a class='color' href="#">米粉</a></dd>
+						<dd><a href="#">果汁/泥</a></dd>
+						<dd><a href="#">面食类</a></dd>
+						<dd><a href="#">宝宝零食</a></dd>
+						<dd><a href="#">DHA</a></dd>
+						<dd><a href="#">清火开胃</a></dd>
+						<dd><a href="#">钙铁锌</a></dd>
+						<dd><a href="#">益生菌</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">尿裤/湿巾</a></dt>
+						<dd><a href="#">新生儿尿裤</a></dd>
+						<dd><a href="#">S号尿裤</a></dd>
+						<dd><a href="#">M号尿裤</a></dd>
+						<dd><a href="#">L号尿裤</a></dd>
+						<dd><a href="#">XL/XXL号</a></dd>
+						<dd><a href="#">拉拉裤</a></dd>
+						<dd><a class='color' href="#">湿巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">童车/童床</a></dt>
+						<dd><a class='color' href="#">安全座椅</a></dd>
+						<dd><a href="#">婴儿推车</a></dd>
+						<dd><a href="#">婴儿床</a></dd>
+						<dd><a href="#">餐椅</a></dd>
+						<dd><a href="#">自行车</a></dd>
+						<dd><a href="#">电动车</a></dd>
+						<dd><a href="#">三轮车</a></dd>
+						<dd><a href="#">学步车</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">童装童鞋</a></dt>
+						<dd class="mr"><a href="#">T恤</a></dd>
+						<dd><a href="#">连衣裙</a></dd>
+						<dd class="mr"><a href="#">短裤</a></dd>
+						<dd><a href="#">婴童套装</a></dd>
+						<dd class="mr"><a class='color' href="#">婴儿哈衣</a></dd>
+						<dd><a href="#">亲子装</a></dd>
+						<dd class="mr"><a href="#">外套/卫衣</a></dd>
+						<dd><a href="#">凉鞋</a></dd>
+						<dd class="mr"><a href="#">学步鞋</a></dd>
+						<dd><a href="#">运动鞋</a></dd>
+						<dd class="mr"><a href="#">帆布鞋</a></dd>
+						<dd><a href="#">公主鞋</a></dd>
+						<dd class="mr"><a href="#">隔尿垫</a></dd>
+						<dd><a class='color' href="#">凉席/蚊帐</a></dd>
+						<dd class="mr"><a href="#">婴儿枕</a></dd>
+						<dd><a href="#">毛巾/浴巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">喂养用品</a></dt>
+						<dd><a href="#">奶瓶</a></dd>
+						<dd><a href="#">奶嘴</a></dd>
+						<dd><a href="#">吸乳器</a></dd>
+						<dd><a class="color" href="#">驱蚊用品</a></dd>
+						<dd><a href="#">理发器</a></dd>
+						<dd><a href="#">水杯/水壶</a></dd>
+						<dd><a href="#">安全防护</a></dd>
+						<dd><a href="#">消毒用品</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕婴洗护</a></dt>
+						<dd><a href="#">洗涤用品</a></dd>
+						<dd><a href="#">洗发沐浴</a></dd>
+						<dd><a class='color' href="#">婴儿护肤</a></dd>
+						<dd><a href="#">孕妈护肤</a></dd>
+						<dd><a href="#">防蚊/袪痱</a></dd>
+						<dd><a href="#">洗衣液</a></dd>
+						<dd><a href="#">婴童洗衣皂</a></dd>
+						<dd><a href="#">清洁剂</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕妈专区</a></dt>
+						<dd><a class='color' href="#">孕妇裙</a></dd>
+						<dd><a href="#">打底裤</a></dd>
+						<dd><a href="#">防辐射服</a></dd>
+						<dd><a href="#">腰凳</a></dd>
+						<dd><a href="#">妈咪包</a></dd>
+						<dd><a href="#">收腹带</a></dd>
+						<dd><a href="#">哺乳文胸</a></dd>
+						<dd><a href="#">孕妇内裤</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">儿童玩具</a></dt>
+						<dd class="mr"><a href="#">0-6个月</a></dd>
+						<dd><a href="#">6-12个月</a></dd>
+						<dd class="mr"><a href="#">1-3岁</a></dd>
+						<dd><a href="#">3-6岁</a></dd>
+						<dd class="mr"><a href="#">6岁以上</a></dd>
+						<dd><a class='color' href="#">爬行垫</a></dd>
+						<dd class="mr"><a href="#">模型玩具</a></dd>
+						<dd><a href="#">户外玩具</a></dd>
+						<dd class="mr"><a href="#">益智玩具</a></dd>
+						<dd><a href="#">遥控航模</a></dd>
+						<dd class="mr"><a href="#">积木拼插</a></dd>
+						<dd><a href="#">过家家</a></dd>
+						<dd class="mr"><a href="#">毛绒公仔</a></dd>
+						<dd><a href="#">DIY绘画</a></dd>
+						<dd class="mr"><a class='color' href="#">戏水/泳池</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">母婴海外购</a></dt>
+						<dd><a href="#">喜宝</a></dd>
+						<dd><a href="#">爱他美</a></dd>
+						<dd><a class='color' href="#">花王</a></dd>
+						<dd><a href="#">karicare</a></dd>
+						<dd><a href="#">嘉宝</a></dd>
+						<dd><a href="#">Moony</a></dd>
+						<dd><a href="#">大王</a></dd>
+					</dl>
+				</div>
+			</div>
+			</li>
+			<li class="ng-list">
+				<img class='sort-img' src="images/s13.jpg">
+				<a href="javascript:;">金融</a>
+				<a href="javascript:;">满座</a>
+				<a href="javascript:;">旅行</a>
+				<div class="nav-sort-detail">
+				<span class="x1">×</span>
+				<div class="sort-channel">
+					<a style='background:#ff4545' href="#">红孩子母婴</a>
+					<a style='background:#ff4545' href="#">奶粉辅食</a>
+					<a style='background:#538cf5' href="#">母婴海外购</a>
+				</div>
+				<div class="cate-list">
+					<dl>
+						<dt><a href="#">孕婴奶粉</a></dt>
+						<dd><a href="#">pre段奶粉</a></dd>
+						<dd><a href="#">1段</a></dd>
+						<dd><a href="#">2段</a></dd>
+						<dd><a class='color' href="#">3段</a></dd>
+						<dd><a href="#">4段</a></dd>
+						<dd><a href="#">5段</a></dd>
+						<dd><a href="#">特配奶粉</a></dd>
+						<dd><a href="#">孕妈奶粉</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">营养/辅食</a></dt>
+						<dd><a class='color' href="#">米粉</a></dd>
+						<dd><a href="#">果汁/泥</a></dd>
+						<dd><a href="#">面食类</a></dd>
+						<dd><a href="#">宝宝零食</a></dd>
+						<dd><a href="#">DHA</a></dd>
+						<dd><a href="#">清火开胃</a></dd>
+						<dd><a href="#">钙铁锌</a></dd>
+						<dd><a href="#">益生菌</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">尿裤/湿巾</a></dt>
+						<dd><a href="#">新生儿尿裤</a></dd>
+						<dd><a href="#">S号尿裤</a></dd>
+						<dd><a href="#">M号尿裤</a></dd>
+						<dd><a href="#">L号尿裤</a></dd>
+						<dd><a href="#">XL/XXL号</a></dd>
+						<dd><a href="#">拉拉裤</a></dd>
+						<dd><a class='color' href="#">湿巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">童车/童床</a></dt>
+						<dd><a class='color' href="#">安全座椅</a></dd>
+						<dd><a href="#">婴儿推车</a></dd>
+						<dd><a href="#">婴儿床</a></dd>
+						<dd><a href="#">餐椅</a></dd>
+						<dd><a href="#">自行车</a></dd>
+						<dd><a href="#">电动车</a></dd>
+						<dd><a href="#">三轮车</a></dd>
+						<dd><a href="#">学步车</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">童装童鞋</a></dt>
+						<dd class="mr"><a href="#">T恤</a></dd>
+						<dd><a href="#">连衣裙</a></dd>
+						<dd class="mr"><a href="#">短裤</a></dd>
+						<dd><a href="#">婴童套装</a></dd>
+						<dd class="mr"><a class='color' href="#">婴儿哈衣</a></dd>
+						<dd><a href="#">亲子装</a></dd>
+						<dd class="mr"><a href="#">外套/卫衣</a></dd>
+						<dd><a href="#">凉鞋</a></dd>
+						<dd class="mr"><a href="#">学步鞋</a></dd>
+						<dd><a href="#">运动鞋</a></dd>
+						<dd class="mr"><a href="#">帆布鞋</a></dd>
+						<dd><a href="#">公主鞋</a></dd>
+						<dd class="mr"><a href="#">隔尿垫</a></dd>
+						<dd><a class='color' href="#">凉席/蚊帐</a></dd>
+						<dd class="mr"><a href="#">婴儿枕</a></dd>
+						<dd><a href="#">毛巾/浴巾</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">喂养用品</a></dt>
+						<dd><a href="#">奶瓶</a></dd>
+						<dd><a href="#">奶嘴</a></dd>
+						<dd><a href="#">吸乳器</a></dd>
+						<dd><a class="color" href="#">驱蚊用品</a></dd>
+						<dd><a href="#">理发器</a></dd>
+						<dd><a href="#">水杯/水壶</a></dd>
+						<dd><a href="#">安全防护</a></dd>
+						<dd><a href="#">消毒用品</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕婴洗护</a></dt>
+						<dd><a href="#">洗涤用品</a></dd>
+						<dd><a href="#">洗发沐浴</a></dd>
+						<dd><a class='color' href="#">婴儿护肤</a></dd>
+						<dd><a href="#">孕妈护肤</a></dd>
+						<dd><a href="#">防蚊/袪痱</a></dd>
+						<dd><a href="#">洗衣液</a></dd>
+						<dd><a href="#">婴童洗衣皂</a></dd>
+						<dd><a href="#">清洁剂</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">孕妈专区</a></dt>
+						<dd><a class='color' href="#">孕妇裙</a></dd>
+						<dd><a href="#">打底裤</a></dd>
+						<dd><a href="#">防辐射服</a></dd>
+						<dd><a href="#">腰凳</a></dd>
+						<dd><a href="#">妈咪包</a></dd>
+						<dd><a href="#">收腹带</a></dd>
+						<dd><a href="#">哺乳文胸</a></dd>
+						<dd><a href="#">孕妇内裤</a></dd>
+					</dl>
+					<dl class="wide">
+						<dt><a href="#">儿童玩具</a></dt>
+						<dd class="mr"><a href="#">0-6个月</a></dd>
+						<dd><a href="#">6-12个月</a></dd>
+						<dd class="mr"><a href="#">1-3岁</a></dd>
+						<dd><a href="#">3-6岁</a></dd>
+						<dd class="mr"><a href="#">6岁以上</a></dd>
+						<dd><a class='color' href="#">爬行垫</a></dd>
+						<dd class="mr"><a href="#">模型玩具</a></dd>
+						<dd><a href="#">户外玩具</a></dd>
+						<dd class="mr"><a href="#">益智玩具</a></dd>
+						<dd><a href="#">遥控航模</a></dd>
+						<dd class="mr"><a href="#">积木拼插</a></dd>
+						<dd><a href="#">过家家</a></dd>
+						<dd class="mr"><a href="#">毛绒公仔</a></dd>
+						<dd><a href="#">DIY绘画</a></dd>
+						<dd class="mr"><a class='color' href="#">戏水/泳池</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">母婴海外购</a></dt>
+						<dd><a href="#">喜宝</a></dd>
+						<dd><a href="#">爱他美</a></dd>
+						<dd><a class='color' href="#">花王</a></dd>
+						<dd><a href="#">karicare</a></dd>
+						<dd><a href="#">嘉宝</a></dd>
+						<dd><a href="#">Moony</a></dd>
+						<dd><a href="#">大王</a></dd>
+					</dl>
+				</div>
+			</div>
+			</li>
+		</ul>
+	</div>
+
+
+
+
+	<div class='ng-fix-bar'>
+		<div class="ng-fix-bar-center">
+			<a class='top-img' href="javascript:;"><img src="images/index-hook.png"></a>
+			<div class='ng-search ng-search-fixed'>
+				<img class='fdj' src='images/fdj.jpg'>
+				<input class='search-inner search-keyword-box' type='text' value='红孩子11周年 亿元红包抢先领'>
+				<input class='search-submit' type='submit' value='搜索'>
+				<div class="hide"></div>
+			</div>
+			<!-- <div class="reg-bar-node-fixed">
+				<a class='denglu' href="javascript:;">登录</a>
+				<a class='zhuce' href="javascript:;">注册</a>
+			</div>
+			<div class='car link-list gwc-box' hide="hide6">
+				<img src='images/car.jpg'>
+				<a class='gwc' href='javascript:void(0)'>
+					购物车
+				</a>
+				<div class='num-box'>
+					0
+				</div>
+				<div id='hide6' class="yincang mycar-box">
+					<div id="mycar-box-top">
+						<h4>购物车</h4>
+						<a class='mycar-btn' href="javascript:;">
+							去购物车结算
+						</a>
+						<span class="x">×</span>
+					</div>
+					<div id="mycar-box-bottom">
+						<i></i>
+						<h5>您的购物车是空的，赶紧选购吧</h5>
+						<div class="decs">
+							如您已添加过商品，可登录后查看
+							<a class='btn' href="javascript:;">登录</a>
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</div>
+</body>
+</html>

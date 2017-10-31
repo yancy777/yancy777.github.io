@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale
+=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>Title</title>
+    <style>
+        * { margin: 0; padding: 0;box-sizing: border-box}
+        html,body { height: 100%; overflow: hidden}
+        .page { display: none; position: absolute; top: 0; left: 0;
+            height: 100%; width: 100%}
+        .show { display: block;}
+        .page1 { background-color: indianred}
+        .page2 { background-color: grey}
+        .page3 { background-color: blueviolet}
+        ul { padding: 20px;}
+        li { color: #000;  line-height: 50px;}
+
+    </style>
+    <script src="zepto.min.js"></script>
+
+</head>
+<body>
+
+<div class="page page1" >
+    <h1>第一个页面</h1>
+    <ul>
+        <li><a href="#1">第一页</a></li>
+        <li><a href="#2">第二页</a></li>
+        <li><a href="#3">第三页</a></li>
+    </ul>
+</div>
+<div class="page page2">
+    <h1>第二个页面</h1>
+    <ul>
+        <li><a href="#1">第一页</a></li>
+        <li><a href="#2">第二页</a></li>
+        <li><a href="#3">第三页</a></li>
+    </ul>
+</div>
+<div class="page page3">
+    <h1>第三个页面</h1>
+    <ul>
+        <li><a href="#1">第一页</a></li>
+        <li><a href="#2">第二页</a></li>
+        <li><a href="#3">第三页</a></li>
+    </ul>
+</div>
+<script>
+
+    /*页面刷新，或重载获取hash*/
+    var local = window.location.hash;
+    if(local==""){
+        /*如果没有hash，给一个，默认的hash值，默认是第一个页面*/
+        local = "#1";
+        window.location.hash=local;
+    }
+    /*给当前hash对应的page 模块添加showclass*/
+    $(".page"+local.substr(1)).show().addClass("show");
+    console.log(local);
+
+    /*当hashchange的时候*/
+    window.onhashchange=function(){
+        var newLocal = window.location.hash;
+        console.log(newLocal)
+        /*获取hash*/
+
+        /*如果hashchange的时候的hash值不等于 默认的hash值 */
+
+        if(local!=newLocal){
+            /*让默认值=""*/
+            local = "";
+            newLocal = newLocal.substr(1);
+            // console.log(newLocal)
+
+            /*通过当前页面的标示.show 和newLocal获取 oldPage和newPage*/
+            var oldPage = document.querySelector(".show");
+            var newPage = document.querySelector(".page"+newLocal);
+
+
+            /*让即将运动进来的页面newPage在可视区的右边，等待入场*/
+            setCss(newPage,{"display":"block",
+                "left":"100%",
+                "zIndex":3
+            });
+            setCss(oldPage,{
+                "zIndex":2
+            });
+
+
+            /*延时50ms执行动画，避开display:block ，不会过渡其他动画的bug*/
+            setTimeout(function(){
+                /*改变当前页面标示，添加删除show*/
+                newPage.classList.add("show");
+                oldPage.classList.remove("show");
+
+                /*新的页面进来，老的页面出去*/
+                $(newPage).animate({"left":0},500,"easing")
+                $(oldPage).animate({"left":"-100%"},500,"easing",function(){
+                    /*老的页面oldPage出去以后隐藏*/
+                    setCss(oldPage,{
+                        "display":"none",
+                        "left":"0"
+                    });
+                })
+
+            },50)
+        }
+    };
+
+    /*设置css*/
+    function setCss(obj,json){
+        for(var attr in json){
+            obj.style[attr] = json[attr]
+        }
+    }
+</script>
+</body>
+</html>

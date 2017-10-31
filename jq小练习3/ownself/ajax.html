@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+
+<body>
+   <div id = 'ni'></div>
+    <script type="text/javascript" src="../../javascript/jquery-1.7.2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //获取json格式的数据
+            //       $.ajax({
+            //          type:"get",
+            //          url:"../../data/data.json",
+            //          dataType:"json",//确定获取文件格式
+            //          data :'name=adsa&age=23',//键值对传送数据
+            //          async:true,
+            //          success:function(msg){
+            //          console.log(msg.name)
+            //       }
+            //获取html的数据
+            //          $.ajax({
+            //          type:"get",
+            //          url:"../../data/data.html",
+            //          dataType:"html",
+            //          data :'name=adsa&age=23',//键值对传送数据
+            //          async:true,
+            //          success:function(msg){
+            //          console.log(msg)
+            //              $('body').append(msg);
+            //       }
+            //       });
+            //获取txt文件
+//            $.ajax({
+//                type: "get",
+//                url: "../../data/data.txt",
+//                dataType: "text",
+//                //data :'name=adsa&age=23',//键值对传送数据
+//                async: true,
+//                success: function (msg) {
+//                    console.log(msg)
+//
+//                }
+//            });
+                  //此时div自动添加到body里面,不需要用append
+//                     $('body').load('../../data/data.html',function(){
+//                         console.log(2222);
+//                         });
+//               
+//                     $('#ni').load('../../data/data.html',function(){
+//                         console.log(2222);
+//                         });
+//                         
+            
+//            $.get('../../data/data.html',function(msg,status,obj){
+//                console.log(msg);
+//                console.log(status);
+//                console.log(obj);
+//            });
+//            $.psot('../../data/data.html',function(msg,status,obj){
+//                console.log(msg);
+//                console.log(status);
+//                console.log(obj);
+//                
+//            });
+//        })
+    </script>
+</body>
+
+</html>

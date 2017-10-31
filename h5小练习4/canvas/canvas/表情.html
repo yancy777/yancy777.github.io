@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0 ;padding: 0;}
+			canvas{
+				border:1px solid skyblue
+			}
+		</style>
+	</head>
+	<body>	
+		<canvas id="face1" width="400" height="400"></canvas>	
+		<canvas id="face2" width="400" height="400"></canvas>	
+		<canvas id="face4" width="400" height="400"></canvas>
+		<canvas id="face3" width="400" height="400"></canvas>	
+		<canvas id="heart" width="400" height="400"></canvas>
+		<script>
+		//======心===============
+		var oCanvas = document.getElementById("heart");
+		var oContext = oCanvas.getContext("2d");	
+		oContext.strokeStyle="red";
+		oContext.lineWidth=2;
+
+		oContext.beginPath();
+		oContext.bezierCurveTo(200,150,50,50,200,300);
+		oContext.stroke()
+		oContext.beginPath();
+		oContext.bezierCurveTo(200,150,350,50,200,300);
+		oContext.stroke()  
+		//======表情1==============
+		var oCanvas = document.getElementById("face1");
+		var oContext = oCanvas.getContext("2d");	
+
+		oContext.beginPath();
+		oContext.strokeStyle="red";
+		oContext.lineWidth=2;
+		oContext.arc(200,200,200,0,2*Math.PI);
+		oContext.stroke()
+		
+		oContext.beginPath();
+		oContext.arc(100,100,10,0,2*Math.PI);
+		oContext.stroke()
+		
+		oContext.beginPath();
+		oContext.arc(300,100,10,0,2*Math.PI);
+		oContext.stroke()	
+		
+		oContext.strokeRect(100, 250, 200, 100)  
+
+		//======表情2==============	
+		var oCanvas = document.getElementById("face2");
+		var oContext = oCanvas.getContext("2d");	
+
+		oContext.beginPath();
+		oContext.strokeStyle="red";
+		oContext.lineWidth=2;
+		oContext.arc(200,200,200,0,2*Math.PI);
+		oContext.stroke()
+		
+		oContext.beginPath();
+		oContext.moveTo(100,100);
+  		oContext.lineTo(150,150);
+		oContext.stroke()
+		
+		oContext.beginPath();
+		oContext.arc(140,160,10,0,2*Math.PI);
+		oContext.stroke()
+		
+		oContext.beginPath();
+		oContext.moveTo(300,100);
+  		oContext.lineTo(250,150);
+		oContext.stroke()
+				
+		oContext.beginPath();
+		oContext.arc(260,160,10,0,2*Math.PI);
+		oContext.stroke()
+	
+		oContext.beginPath();
+		oContext.arc(200,300,10,0,2*Math.PI);
+		oContext.stroke()
+		//======表情4==============	
+		
+		var oCanvas = document.getElementById("face4");
+		var oContext = oCanvas.getContext("2d");	
+
+		oContext.beginPath();
+		oContext.strokeStyle="red";
+		oContext.lineWidth=2;
+		oContext.arc(200,200,200,0,2*Math.PI);
+		oContext.stroke()
+		oContext.beginPath();
+		oContext.arc(200,200,200,Math.PI,0);
+		oContext.fill()
+		
+		oContext.beginPath();
+		oContext.moveTo(70,100);
+		oContext.lineTo(150,120);
+		oContext.stroke()
+
+		
+		oContext.beginPath();
+		oContext.bezierCurveTo(70,100,110,130,150,120);
+		oContext.stroke()
+		
+		//////右/////////////////////////
+		oContext.beginPath();
+		oContext.moveTo(330,100);
+		oContext.lineTo(250,120);
+		oContext.stroke()
+
+		
+		oContext.beginPath();
+		oContext.bezierCurveTo(330,100,290,130,250,120);
+		oContext.stroke()
+		
+		
+		oContext.beginPath();
+		oContext.bezierCurveTo(50,280,200,300,350,280);
+		oContext.stroke()
+		oContext.beginPath();
+		oContext.bezierCurveTo(50,280,200,500,350,280);
+		oContext.stroke()
+		
+		
+		//=========================
+		var oCanvas = document.getElementById("face3");
+    	var ctx = oCanvas.getContext("2d");
+		ctx.font="bold 50px 微软雅黑";
+		ctx.fillStyle = "red";
+		ctx.textBaseline = "center";
+		ctx.fillText("下期更精彩！",100,300);
+		//========================
+		</script>
+	</body>
+</html>

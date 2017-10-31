@@ -1,0 +1,87 @@
+*{margin: 0;padding: 0;}
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {margin: 0; padding: 0; border: 0; font-size: 100%; vertical-align: baseline} 
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block}
+body {line-height: 1}
+ol, ul {list-style: none}
+body,p,ul{margin:0;}
+body{font:12px Arial,"微软雅黑"; }
+ol,dl,dd,h1,h2,h3,h4,h5,h6{margin:0;}
+ul,ol,li{padding-left:0;list-style:none;}
+input{padding:0;}
+img{border:0;}
+a{text-decoration:none;}
+/*===================base==================================*/
+/*===================mian==================================*/
+/*.main { position: absolute; left: 0; top: 0;width: 100%; height: 100%; background-color: #ccc;
+    color: #fff; overflow: hidden;
+}*/
+.main{
+	width: 350px;
+	height:590px;
+	background: darkturquoise;
+	margin: 0 auto ;
+	border: 2px solid #00CED1;
+}
+.top{
+	width: 350px;
+	height:90px;
+	border-bottom:solid #FFFFFF ;
+	color: white;
+}
+.top  span{
+	font-size: 50px;	
+}
+.top a{
+	font-size: 15px;
+	float: right;	
+	color: white;
+}
+.top a:hover{
+	color: black;
+	height: 30px;
+}
+.middle{
+	width: 350px;
+	height:380px;
+}
+.middle img{
+	display: block;
+	width: 260px;
+	margin: auto;
+	padding-top: 70px;
+}
+.foot{
+	width: 350px;
+	height:120px;
+	border-top: solid #FFFFFF;
+}
+audio{
+	display: block;
+	margin: 0 auto;
+	margin-top: 5px;
+	margin-bottom: 20px;                                        
+}
+input{
+	line-height: 25px;
+	width: 50px;
+	height:25px;
+	margin-left: 10px;		
+}
+#play-btn{	
+	margin: 0  80px;
+}
+/*==========收藏==================*/
+#liShop, #shop{
+	width: 350px;
+	height:380px;
+	background:#00CED1;
+	display: none;
+	position: absolute;
+	z-index: 2;
+	line-height: 30px;
+}
+ #shop li, #liShop  li{
+	color:white;
+	font-size: 20px;
+	border-bottom: 1px solid #FFFFFF;
+}

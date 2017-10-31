@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>请叫我百度</title>
+<style>
+	* {margin:0}
+	li { list-style-type:none;}
+.warp { width:520px; margin:0 auto; padding:50px 0 0 0}
+.title { font-size:30px; color:#06F; font-family:"Microsoft Yahei"; display:block;
+	text-align:center; height:40px;
+	line-height:40px; letter-spacing:10px; padding-bottom:20px;}
+#text {width: 500px; height: 30px; padding: 10px; border:1px solid #ccc; font-size: 18px; }
+#list {border:1px solid #29f; width: 520px; margin: 0;padding: 0; display: none;}
+
+li a { line-height: 24px; padding: 5px; text-decoration: none; color: black; display: block;}
+li a:hover{ background: #29f; color: white; }
+</style>
+
+<script>
+function fnBaiDu(data) {
+	
+	var oUl = document.getElementById('list');
+	var str = '';
+	if (data.s.length) {
+		oUl.style.display = 'block';
+		for (var i=0; i<data.s.length; i++) {
+			str += '<li><a  href="http://www.baidu.com/s?wd='+data.s[i]+'">'+ data.s[i] +'</a></li>';
+		}
+		oUl.innerHTML = str;
+	} else {
+		oUl.style.display = 'none';
+		
+	}
+	
+}
+
+
+window.onload = function() {
+	
+	var oText = document.getElementById('text');
+	var oUl = document.getElementById('list');
+
+	oText.onkeyup = function() {
+		if ( this.value != '' ) {
+			var oScript = document.createElement('script');
+			oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+this.value+'&cb=fnBaiDu';
+			document.body.appendChild(oScript);
+		} else {
+			oUl.style.display = 'none';
+		}	
+	}
+	
+}
+</script>
+</head>
+
+<body>
+	<div class="warp">
+		<span class="title">请叫我百度</span>
+		<input type="text" id="text" />
+		<ul id="list"></ul>
+    </div>
+</body>
+</html>

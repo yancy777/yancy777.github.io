@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script>
+		//document.cookie="username=ycy";
+		//document.cookie="username=张三宝;expires="+new Date(0);
+		//alert(document.cookie);
+		document.cookie = "username1=ycy|章|啊；";
+		document.cookie = "username2=ycy|章|啊；";
+		document.cookie = "username3=ycy|章|啊；";
+		alert(getCookie("username1"));
+
+		//创建cookie：
+		function setCookie(key,value,expires){
+		    //expires: 有效期
+			var cValue = key+ "=" + value;
+			if(expires){//如果有expires,否则为无undefined
+				cValue = "cValue" + ";expires=" + expire;
+				//cValue += ";expires="+expires
+			}
+			document.cookie=cValue;
+		}
+		//删除cookie:
+		function delCooke(key){
+			document.cookie=key+"="+ ";expires="+new Date(0);
+		}
+		//读取cookie:
+		function getCookie(key){
+			var cValue=document.cookie.split("; ");
+			var result="";
+			for(var i=0;i<cValue.length;i++){
+				var cItem=cValue[i].slipt("=")
+				if(cItem[0]==key){
+					result=cItem[1];
+					break;
+				}
+			}
+			return result;
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

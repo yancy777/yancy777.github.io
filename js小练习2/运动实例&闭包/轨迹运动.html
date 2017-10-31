@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="startMove.js"></script>
+	<style>
+		*{margin:0; padding:0;}
+		#people{
+			width:48px;
+			height:40px;
+			background: url(img/1.gif);
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div id="people"></div>
+	<script>
+		//当鼠标左键按下的时候进行移动轨迹记录
+		//当鼠标左键弹起的时候开始将对象进行运动，并且运动的轨迹救赎鼠标移动的轨迹
+		window.onload = function(){
+			var arr = [];
+			var p = document.getElementById("people");
+			document.onmousedown = function(e){
+				e = e || event;
+				if(e.button == 0 || e.button == 1){
+					p.style.background = "url(img/2.gif)";
+					p.style.width = "66px";
+					p.style.height = "45px";
+					var oDIV = createDIV(e);
+					var obj = {x:e.clientX,y:e.clientY,o:oDIV};
+					arr.push(obj);
+					document.onmousemove = function(e){
+						e = e || event;
+						var oDIV = createDIV(e);
+						var obj = {x:e.clientX,y:e.clientY,o:oDIV};
+						arr.push(obj);
+					}
+
+					document.onmouseup = function(){
+						document.onmousemove = null;
+						var timer = setInterval(function(){
+							if(arr.length == 0){
+								clearInterval(timer);
+								p.style.background = "url(img/1.gif)";
+								p.style.width = "48px";
+								p.style.height = "40px";
+							}
+							else{
+								p.style.left = arr[0].x + "px";
+								p.style.top = arr[0].y + "px";
+								document.body.removeChild(arr[0].o);
+								arr.shift();
+							}
+						},20);
+					}
+				}
+			}
+		}
+		
+		function createDIV(e){
+			var div = document.createElement("div");
+			div.style.position = "absolute";
+			div.style.left = e.clientX + "px";
+			div.style.top = e.clientY + "px";
+			div.style.width = "4px";
+			div.style.height = "4px";
+			div.style.background = "#ff0000";
+			document.body.appendChild(div);
+			return div;
+		}
+	</script>
+</body>
+</html>

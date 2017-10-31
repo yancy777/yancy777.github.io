@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html class="ui-viewport-640 mobile ks-webkit600 ks-webkit" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cleartype" content="on">
+    <title>易到用车 - 让美好更易到！</title>
+    <meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">
+    <script src="script/jquery-1.8.2.js"></script>
+    <link href="style/aio.min.css" rel="stylesheet" type="text/css">
+    <link href="style/animate.min.css" rel="stylesheet" type="text/css">
+    <script src="style/aio.min.js"></script>
+    <link href="style/yongche.css" rel="stylesheet" type="text/css">
+
+    <script>
+        //获取浏览器页面可见高度和宽度
+        var _PageHeight = document.documentElement.clientHeight,
+                _PageWidth = document.documentElement.clientWidth;
+        //计算loading框距离顶部和左部的距离（loading框的宽度为215px，高度为61px）
+        var _LoadingTop = _PageHeight > 61 ? (_PageHeight - 61) / 2 : 0,
+                _LoadingLeft = _PageWidth > 215 ? (_PageWidth - 215) / 2 : 0;
+        //在页面未加载完毕之前显示的loading Html自定义内容
+        var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:100%;height:100%;px;top:0;background:#fff;z-index:10000;"><div class="login_inner" style=" top:' + _LoadingTop + 'px;"></div></div>';
+        //呈现loading效果
+        document.write(_LoadingHtml);
+
+        window.onload = function () {
+            var loadingMask = document.getElementById('loadingDiv');
+            loadingMask.parentNode.removeChild(loadingMask);
+        };
+
+        //监听加载状态改变
+        document.onreadystatechange = completeLoading;
+
+        //加载状态为complete时移除loading效果
+        function completeLoading() {
+//            if (document.readyState == "complete") {
+//                var loadingMask = document.getElementById('loadingDiv');
+//                loadingMask.parentNode.removeChild(loadingMask);
+//            }
+        }
+    </script>
+</head>
+<body>
+<img src="images/avatar.jpg" alt="" style="opacity: 0;position:absolute;"/>
+<!-- container -->
+
+<div class="container">
+    <div class="content">
+        <div class="content-body">
+            <div class="ui-loading js-loading" style="display: none;">
+                <i class="fa fa-circle-o-notch fa-spin- fa-3x">
+                </i>
+            </div>
+            <div class="music_btn active"></div>
+            <div class="power-scroll-container js-power-scroll-container" style="">
+                <div class="guider-mask">
+                    <div class="index-top index-mask abs">
+                        <div class="logos">
+                            <h1 class="logo cn"><img src="images/indexTxtCn.png" alt="" /></h1>
+                            <span class="logo en">
+                                Simple life，Easy go！
+                            </span>
+                        </div>
+                        <div class="index-btn">
+                            <img src="images/logo.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="index-bottom index-mask abs">
+                        <div class="finger qqflash animated infinite">
+                            <img src="images/finger.png" alt="" />
+                        </div>
+                        <div class="guide">
+                            <img src="images/clickGuideTxt.png" alt="" />
+                        </div>
+                        <div class="corner"></div>
+                    </div>
+                </div>
+                <div class="swiper-container js-power-scroll" data-options="{&quot;hashNav&quot;:false,&quot;mode&quot;:&quot;vertical&quot;,&quot;loop&quot;:false,&quot;shadow&quot;:true}">
+                    <div class="swiper-wrapper slide_index">
+                        <div class="swiper-slide page-company" data-hash="company">
+                            <div class="slide-wrapper " style="display:none;">
+                                <div class="company-title">
+                                    <img src="images/p2-titleBg.png" alt="" />
+                                    <div class="abs inner">
+                                        <img src="images/p2-logo.png" alt="" class="fadeIn animated" />
+                                    </div>
+                                    <h4 class="title fadeIn animated delay_100ms">公司介绍</h4>
+                                </div>
+                                <div class="p2-txt-right abs fadeIn animated delay_200ms">
+                                    <img src="images/p2-txt-rm.png" alt="" />
+                                    <div class="txt abs">
+                                        易到用车网（北京东方车云信息技术有限公司）创立于2010年，是智能交通和汽车分享理念的引领者。
+                                    </div>
+                                </div>
+                                <div class="p2-txt-lt abs fadeIn animated delay_300ms">
+                                    <img src="images/p2-txt-lt.png" alt="" />
+                                </div>
+                                <div class="p2-car abs zoomIn animated delay_400ms">
+                                    <img src="images/p2-car.png" alt="" />
+                                </div>
+                                <div class="p2-txt-br abs zoomIn animated delay_500ms">
+                                    <img src="images/p2-txt-rb.png" alt="" />
+                                </div>
+                                <div class="p2-photo abs fadeIn animated delay_600ms">
+                                    <img src="images/p2-photoBg.png" alt="" class="fadeIn animated delay_800ms" />
+                                    <div class="txt abs">
+                                        我们相信通过 <br />
+                                        移动互联网新技 <br />
+                                        术和Car Sharing<br />
+                                        新理念，不但能够有<br />
+                                        效提高汽车使用效率。
+                                    </div>
+                                    <div class="photo abs">
+                                        <img src="images/p2-photo.png" alt="" />
+                                    </div>
+                                </div>
+                                <div class="ui-up-arrow" style="display:block;padding:0 0 5%;">
+                                    <a href="javascript:">
+                                        <img src="images/arrow-up.png" alt="滑动提示">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide page-world" data-hash="world">
+                            <div class="slide-wrapper">
+                                <div class="world-top abs fadeIn animated ">
+                                    <img src="images/p3-guideBg.png" alt="" />
+                                    <span class="icon abs zoomIn animated delay_400ms"><img src="images/p3-icon.png" alt="" /></span>
+                                    <span class="txt abs zoomIn animated delay_300ms">
+                                        我们已经覆盖北京、上海、广州、深圳等全国75大城市，纽约、东京、悉尼、伦敦、温哥华等26座海外城市，更多城市陆续开启。
+                                    </span>
+                                </div>
+                                <div class="world-map abs zoomIn animated">
+                                    <img src="images/p3-map.png" alt="" class="fadeIn delay_200ms" />
+                                    <div class="countries fadeIn animated delay_400ms">
+                                        <div class="canada abs country">
+                                            <img src="images/p3-canada.png" alt="" class="qqflash animated infinite delay_100ms" />
+                                        </div>
+                                        <div class="english abs country fadeIn animated delay_600ms">
+                                            <img src="images/p3-english.png" alt="" class="qqflash animated infinite delay_300ms" />
+                                        </div>
+                                        <div class="china abs country fadeIn animated delay_800ms">
+                                            <img src="images/p3-china.png" alt="" class="qqflash animated infinite delay_500ms" />
+                                        </div>
+                                        <div class="australia abs country fadeIn animated delay_1s">
+                                            <img src="images/p3-australia.png" alt="" class="qqflash animated infinite delay_700ms" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="world-bottom abs fadeIn animated delay_300ms">
+                                    <img src="images/p3-bottom.png" alt="" />
+                                </div>
+                                <div class="ui-up-arrow" style="display:block;padding:0 0 5%;">
+                                    <a href="javascript:">
+                                        <img src="images/arrow-up.png" alt="滑动提示">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide page-culture" data-hash="culture">
+                            <div class="slide-wrapper">
+                                <div class="page-title-normal fadeIn animated"> 企业文化</div>
+                                <div class="culture-car abs fadeIn animated">
+                                    <img src="images/p4-car.png" alt="" />
+                                    <span class="txt t1 abs fadeIn animated delay_600ms">易到的使命</span>
+                                    <span class="txt t2 abs fadeIn animated delay_1s">易到的愿景</span>
+                                </div>
+                                <div class="culture-total abs fadeIn animated delay_1300ms">
+                                    <img src="images/total.png" alt="" />
+                                </div>
+                                <div class="culture-makebetter abs fadeIn animated delay_900ms">
+                                    <img src="images/p4-makeBetter.png" alt="" />
+                                </div>
+                                <div class="culture-photo abs fadeIn animated delay_1100ms">
+                                    <img src="images/p4-photo.png" alt="" />
+                                </div>
+                                <div class="ui-up-arrow" style="display:block;padding:0 0 5%;">
+                                    <a href="javascript:">
+                                        <img src="images/arrow-up.png" alt="滑动提示">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide page-value" data-hash="value">
+                            <div class="slide-wrapper">
+                                <div class="p5-photo abs fadeIn animated delay_400ms">
+                                    <img src="images/p5-photo.png" alt="" />
+                                </div>
+                                <div class="p5-line abs fadeIn animated delay_200ms">
+                                    <img src="images/p5-line.png" alt="" />
+                                </div>
+                                <div class="p5-title abs fadeIn animated"> 易到的价值观</div>
+                                <div class="p5-line-1 abs fadeIn animated delay_200ms"> <img src="images/p5-line-1.png" alt="" /> </div>
+                                <div class="p5-line-2 abs fadeIn animated delay_700ms"> <img src="images/p5-line-2.png" alt="" /> </div>
+                                <div class="p5-line-3 abs fadeIn animated delay_1200ms"> <img src="images/p5-line-3.png" alt="" /> </div>
+                                <div class="p5-line-4 abs fadeIn animated delay_1500ms"> <img src="images/p5-line4.png" alt="" /> </div>
+                                <div class="p5-car abs  ">
+                                    <img src="images/p5-car.png" alt="" class="car bounceInRight animated delay_200ms" />
+                                    <img src="images/p5-bottom.png" alt="" class="bottom abs fadeIn animated" />
+                                </div>
+                                <div class="p5-block01 abs fadeIn animated delay_300ms">
+                                    <img src="images/p5-btn-1.png" alt="" />
+                                    <img src="images/p5-txt-1.png" alt="" class="txt abs" />
+                                </div>
+                                <div class="p5-block02 abs fadeIn animated delay_800ms">
+                                    <img src="images/p5-btn-2.png" alt="" />
+                                    <img src="images/p5-txt-2.png" alt="" class="txt abs" />
+                                </div>
+                                <div class="p5-block03 abs fadeIn animated delay_1300ms">
+                                    <img src="images/p5-btn-3.png" alt="" />
+                                    <img src="images/p5-txt-3.png" alt="" class="txt abs" />
+                                </div>
+                                <div class="ui-up-arrow" style="display:block;padding:0 0 5%;">
+                                    <a href="javascript:">
+                                        <img src="images/arrow-up.png" alt="滑动提示">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide page-history" data-hash="history">
+                            <div class="slide-wrapper">
+                                <div class="page-title-normal fadeIn animated">发展历程</div>
+                                <div class="history-show fadeIn animated delay_300ms">
+                                    <span class="arrow arrow-right abs">
+                                        <img src="images/arrowRightGray.png" alt="" />
+                                    </span>
+                                    <span class="arrow arrow-left abs">
+                                        <img src="images/arrowLeftGray.png" alt="" />
+                                    </span>
+                                    <div class="photo">
+                                        <img src="images/history2015.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="history-thumb fadeIn animated delay_700ms">
+                                    <ul class="clearfix">
+                                        <li class="current">2015</li>
+                                        <li>2014</li>
+                                        <li>2013</li>
+                                        <li>2012</li>
+                                        <li>2011</li>
+                                        <li>2010</li>
+                                    </ul>
+                                </div>
+                                <div class="history-desc fadeIn animated delay_500ms">
+                                    <div class="history-info" data-target="2015" style="display:block;">
+                                        <dl class="item">
+                                            <dt class="month">02月</dt>
+                                            <dd class="desc">易到用车开通包括伦敦、悉尼、东京在内的海外<span class="ipt">26</span>座城市，服务覆盖四大洲</dd>
+                                        </dl>
+                                    </div>
+                                    <div class="history-info" data-target="2014">
+                                        <dl class="item">
+                                            <dt class="month">12月</dt>
+                                            <dd class="desc">易到用车App <span class="ipt">6.0</span>版本发布，完美适配iOS 8，订车流程则更加简洁凝练</dd>
+                                        </dl>
+                                    </div>
+                                    <div class="history-info" data-target="2013">
+                                        <dl class="item">
+                                            <dt class="month">12月</dt>
+                                            <dd class="desc">全国<span class="ipt">58</span>城开通易到用车服务</dd>
+                                        </dl>
+                                    </div>
+                                    <div class="history-info" data-target="2012">
+                                        <dl class="item">
+                                            <dt class="month">07月</dt>
+                                            <dd class="desc">易到用车APP荣登苹果App Store旅行类排名第 <span class="ipt">1</span>，总榜第25</dd>
+                                        </dl>
+                                    </div>
+                                    <div class="history-info" data-target="2011">
+                                        <dl class="item">
+                                            <dt class="month">02月</dt>
+                                            <dd class="desc">易到用车网新版网站正式<span class="ipt">上线</span></dd>
+                                        </dl>
+                                    </div>
+                                    <div class="history-info" data-target="2010">
+                                        <dl class="item">
+                                            <dt class="month">05月</dt>
+                                            <dd class="desc">易到用车在北京<span class="ipt"></span></dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                                <div class="ui-up-arrow" style="display:block;padding:0 0 5%;">
+                                    <a href="javascript:">
+                                        <img src="images/arrow-up.png" alt="滑动提示">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide page-workin" data-hash="workin">
+                            <div class="slide-wrapper">
+                                <div class="work-photo bounceInDown animated">
+                                    <div class="photo xy_c ">
+                                        <img src="images/workPic01.jpg" alt=""  />
+                                    </div>
+                                </div>
+                                <div class="titlebox bounceInUp animated">
+                                    <div class="page-title-normal">
+                                        工作在易到
+                                    </div>
+                                </div>
+                                <div class="work-title bounceInUp animated delay_200ms">
+                                    激烈的研讨中
+                                </div>
+                                <div class="work-btns bounceInUp animated delay_300ms">
+                                    <ul>
+                                        <li class="current">1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li>5</li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="swiper-slide paage-live" data-hash="live">
+                            <div class="slide-wrapper">
+                                <div class="page-title-normal fadeIn animated delay_300ms">
+                                    生活在易到
+                                </div>
+                                <div class="live-photo fadeIn animated delay_400ms">
+                                    <img src="images/livePic01.jpg" alt="" />
+                                </div>
+                                <div class="live-title-box fadeIn animated ">
+                                    <div class="live-title ">
+                                        我们的生日派对
+                                    </div>
+                                </div>
+
+                                <div class="live-btns bounceInRight animated delay_200ms">
+                                    <ul>
+                                        <li class="p1 current"><span class="s">1</span></li>
+                                        <li class="p2"><span class="s">2</span></li>
+                                        <li class="p3"><span class="s">3</span></li>
+                                        <li class="p4"><span class="s">4</span></li>
+                                    </ul>
+                                </div>
+                                <div class="ui-up-arrow" style="display:block;padding:0 0 5%;">
+                                    <a href="javascript:">
+                                        <img src="images/arrow-up.png" alt="滑动提示">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide page-end" data-hash="end">
+                            <div class="slide-wrapper">
+                                <div class="end-bottom abs fadeIn animated delay_500ms">
+                                    <img src="images/endBottom.png" alt="" />
+                                </div>
+
+                                <div class="logo bounceInDown animated">
+                                    <img src="images/logoWithTxt.png" alt="" />
+                                </div>
+                                <div class="end-guide">
+                                    <div class="txt cn bounceInDown animated delay_100ms">
+                                        <img src="images/endTxtMakeBetter.png" alt="" />
+                                    </div>
+                                    <div class="txt en bounceInDown animated delay_200ms">
+                                        Simple life，Easy go！
+                                    </div>
+                                </div>
+                                <div class="end-click-guide">
+                                    <div class="click-here fadeIn animated delay_500ms">猛戳这里</div>
+                                    <div class="fadeIn animated delay_700ms"><a class="join-us " href="http://mp.weixin.qq.com/s?__biz=MzAwMDQ5OTcwMA==&mid=219820127&idx=1&sn=2f47b078017ff1786e34c8a61f1385ad#rd">关注我们</a></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="landscape_notice">
+    <div class="text-center font-size-28 c-white">
+        <i class="fa fa-4x fa-mobile"></i><br><span>请将屏幕竖向浏览</span>
+    </div>
+</div>
+<script>
+    (new MobileSlider()).init();
+</script>
+<script src="style/wei-user.js"></script>
+</body>
+</html>

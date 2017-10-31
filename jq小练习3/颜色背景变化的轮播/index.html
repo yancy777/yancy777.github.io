@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>slide</title>
+	<style>
+		*{
+			margin: 0;padding: 0
+		}
+		li{
+			list-style: none;
+		}
+		#banner{
+			width: 100%;
+			height: 480px;
+			background: #FE6C33;
+
+			/*border: 1px solid red;*/
+		}
+		#banner .box{
+			width: 810px;
+			height: 480px;
+			margin: 0 auto;
+			position: relative;
+			overflow: hidden;
+		}
+		.tupianjihe{
+			width: 4050px;
+			height:480px;
+			overflow: hidden; 
+			/*float: left;*/
+			position: absolute;
+		}
+		.tupian{
+			width: 810px;
+			height: 480px;
+			float: left;
+			overflow: hidden;
+		}
+		.dianjihe{
+			display: block;
+			position: absolute;
+			bottom: 25px;
+			left: 320px;
+			z-index:10000;
+		}
+		.shichuang{
+			width: 810px;
+			height: 480px;
+			position: relative;
+			overflow: hidden;
+		}
+		.dian{
+			width: 20px;
+			height: 20px;
+			color: #fff;
+			border-radius: 50%;
+			float: left;
+			margin-left: 15px;
+			background: #000;
+			line-height:20px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="banner">
+		<div class="box">
+			<div class="tupianjihe">
+				<div class="tupian">
+					<img class="img-item" src="images/tianmao1.jpg">
+				</div>
+				<div class="tupian">
+					<img class="img-item" src="images/tianmao2.jpg">
+				</div>
+				<div class="tupian">
+					<img class="img-item" src="images/tianmao3.jpg">
+				</div>
+				<div class="tupian">
+					<img class="img-item" src="images/tianmao4.jpg">
+				</div>
+				<div class="tupian">
+					<img class="img-item" src="images/tianmao5.jpg">
+				</div>
+				<!-- <div class="tupian">
+					<img class="img-item" src="images/tianmao6.jpg">
+				</div> -->
+			</div>
+			<ul class="dianjihe" id="dian">
+				<li class="dian" style="background:red;color:#fff" id="first">1</li>
+				<li class="dian">2</li>
+				<li class="dian">3</li>
+				<li class="dian">4</li>
+				<li class="dian">5</li>
+				<!-- <li class="dian">6</li> -->
+			</ul>
+		</div>
+
+	</div>
+
+
+	<script src="jquery-1.11.2.js"></script>
+	<script>
+		var yanse1=['#FE6C33','#E2E2E2','#DDDDDD','#AFAEAF','#E2E2E2'];
+		var a= 0;
+		var	num= 0;
+		var tupianjihes=$('.tupianjihe');
+		var xiaodians=$('.dian');
+		var imgItems=$('.img-item');
+		var bs=$('#banner');
+		var lunbo=function(){
+			//imgItems.stop();
+			tupianjihes.css('-webkit-transform','translatex('+a+'px)');
+			a=a-810;
+			if(a<-3240){
+				a=0;
+			}
+			console.log(yanse1[num])
+			bs.css('background',yanse1[num]);
+			xiaodians.css('background','black');
+			$(xiaodians[num]).css('background','red');
+			num++;
+			if(num>4){
+				num=0;
+			}
+		}
+		var lb=setInterval(lunbo,2000);
+		//一一对应num
+		xiaodians.hover(function(){
+			imgItems.stop();
+			xiaodians.stop();
+			clearInterval(lb);
+			xiaodians.css('background','black')
+			$(this).css('background','red');
+			tupianjihes.css('-webkit-transform','translatex('+($(this).index())*(-810)+'px)');
+			bs.css('background',yanse1[$(this).index()]);
+			if($(this).index()==4){
+				a=0;num=0;
+			}else{
+				a=(-810)*($(this).index());num=$(this).index();
+			}
+		},function(){
+			imgItems.stop();
+			xiaodians.stop();
+			clearInterval(lb);
+			lb=setInterval(lunbo,2000);
+		})
+	</script>
+</body>
+</html>

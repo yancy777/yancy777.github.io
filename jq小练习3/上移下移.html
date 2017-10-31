@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo3</title>
+	<script src="js/jquery-1.11.3.js"></script>
+</head>
+<body>
+	<ul>
+		<li>1.<input type="button" value="上移" /><input type="button" value="下移" /></li>
+	    <li>2.<input type="button" value="上移" /><input type="button" value="下移" /></li>
+	    <li>3.<input type="button" value="上移" /><input type="button" value="下移" /></li>
+	    <li>4.<input type="button" value="上移" /><input type="button" value="下移" /></li>
+	    <li>5.<input type="button" value="上移" /><input type="button" value="下移" /></li>
+	</ul>
+	<script>
+		$('input[value="上移"]').click(function(){
+			var $nowLi=$(this).closest('li');//先找到当前的li
+			var $prevLi=$nowLi.prev();//再找到当前li的前一个
+			if($prevLi.length==0){
+				alert('到头了');
+			}else{
+				$prevLi.before($nowLi);  //再把当前找到的插入到前一个之前
+			}
+
+		})
+		$('input[value="下移"]').click(function(){
+			var $nowLi=$(this).closest('li');
+			var $nextLi=$nowLi.next();
+			if($nextLi.length==0){
+				alert('到尾了');
+			}else{
+				$nextLi.after($nowLi);
+			}
+
+		})
+	</script>
+</body>
+</html>

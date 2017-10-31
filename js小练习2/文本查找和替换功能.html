@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<style type="text/css">
+span{background:red;width:12px; height:12px;}
+</style>
+<script type="text/javascript">
+
+	window.onload = function(){
+		var find = "";
+		btn1.onclick = function(){
+			var cz=prompt("请输入查找的内容","");
+			find = cz;
+
+			if(cz != ""){
+				var content = title.innerHTML;
+				content = content.replace(/<span>|<\/span>/gi,"");
+				title.innerHTML = content.replace(eval("/"+cz+"/gi"),"<span>"+cz+"</span>");
+
+			}
+		}
+
+		btn2.onclick = function(){
+			var th = prompt("请输入要替换的内容","");
+			if(th != "" && find !=""){
+				var content = title.innerHTML;
+				title.innerHTML = content.replace(eval("/"+find+"/gi"),"<span>"+th+"</span>");
+				find = th;
+			}
+		}
+	}
+
+</script>
+</head>
+<body>
+<P id="title">
+	每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。<br>
+	每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。<br>
+	每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。每一个人都有自己的故事。<br>
+
+</P>
+<input type="button" value="查找" id="btn1">
+<input type="button" value="替换" id="btn2">
+</body>
+</html>

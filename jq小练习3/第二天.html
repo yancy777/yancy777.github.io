@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo5</title>
+	<style>
+		#div1 div{
+			width: 200px;height: 200px;border: 1px solid #456;display: none;
+		}
+		.active{
+			background: red;
+		}
+	</style>
+	<script src="js/jquery-1.11.3.js"></script>
+</head>
+<body>
+	<div id="div1">
+		<input type="button" value="1">
+		<input type="button" value="2">
+		<input type="button" value="3">
+		<div style="display:block;">001</div>
+		<div>002</div>
+		<div>003</div>
+	</div>
+
+
+
+	<ul>
+	  <li id="foo">foo</li>
+	  <li id="bar">bar</li>
+	  <li id="baz">baz</li>
+	</ul>
+	<ul>
+	  <li id="foo">foo</li>
+	  <li id="bar">bar</li>
+	  <li id="baz">baz</li>
+	</ul>
+
+	<script>
+	$('#div1').find('input').click(function(){
+		$(this).addClass('active').siblings().removeClass('active');
+		$('#div1').find('div').hide();
+		$('#div1').find('div').eq($(this).index()).show();
+	})
+
+
+	console.log($('#bar').index('li')); //1，传递一个选择器，返回#bar在所有li中的做引位置
+	//alert($('#bar').index()); //1，不传递参数，返回这个元素在同辈中的索引位置。  
+	</script>
+</body>
+</html>

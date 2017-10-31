@@ -1,0 +1,61 @@
+<html> 
+<head> 
+<meta charset="utf-8"/> 
+
+        <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+
+<script> 
+$(function(){ 
+$(":input.required").each(function(){ 
+var $required = $("<strong>*</strong>"); 
+$(this).parent().append($required); 
+}); 
+$(":input.required").blur(function(){ 
+//判断一下鼠标离开谁了 
+if($(this).is("#username")){ 
+$(".formtip").remove(); 
+//按照用户名的规则去验证 
+if(this.value==""||this.value.length<6){ 
+var errMsg = "<span class='formtip'>用户名至少是6个字母</span>"; 
+$(this).parent().append(errMsg); 
+}else{ 
+var msg = "<span class='formtip'>用户名可以使用</span>"; 
+$(this).parent().append(msg); 
+} 
+} 
+//判断一下如果是email的话,应该按照email的规则去验证 
+if($(this).is("#email")){ 
+$(".emailtip").remove(); 
+//按照email的规则去验证 
+var reg = /^\w{1,}@\w+\.\w+$/; 
+var $email = $("#email").val(); 
+if(!reg.test($email)){ 
+var errMsg = "<span class='emailtip'>邮箱不合法</span>"; 
+$(this).parent().append(errMsg); 
+}else{ 
+var Msg = "<span class='emailtip'>邮箱可以使用</span>"; 
+$(this).parent().append(Msg); 
+} 
+} 
+}); 
+
+
+}) 
+</script> 
+</head> 
+
+<body> 
+<form action="#" method="post"> 
+<div class="int"> 
+用户名:<input type="text" name="username" id="username" class="required"/> 
+</div> 
+<div class="int"> 
+邮箱:<input type="text" id="email" class="required"/> 
+</div> 
+<div class="int"> 
+个人资料:<input type="text" id="personInfo" class="required"/> 
+</div> 
+<input type="submit" value="提交" id="send"/><input type="reset" id="res"/> 
+</form> 
+</body> 
+</html> 

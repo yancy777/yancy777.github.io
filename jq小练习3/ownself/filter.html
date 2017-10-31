@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul{list-style: none;}
+        div{width:50px;height:50px;border: 1px solid red;}
+        p{width: 50px;height:50px;border:1px solid red;}
+    </style>
+</head>
+<body>  
+    <div id='tag1' class='wo'>1</div>
+    <div id='tag2' class='wo'>1</div>
+    <div id='tag3' class='ta'>1</div>
+    <div id='tag4' class='women'><ol>2</ol></div>
+    <Br></Br>
+    <div id ='tag5'>1</div>
+    <div id ='tag6'>2</div>
+    <div id ='tag7'>3</div>
+    <Br></Br>
+    <Br></Br>
+    <div id = 'btm'>
+        <div>0</div>
+        <div>0</div>
+        <p id = 'p1' class = 'pw'>1</p>
+        <p id = 'p2' class = 'pw'>2</p>
+        <p id = 'p3'>3</p>
+        <p id = 'p4'>4</p>
+        <p id = 'p5'>5</p>
+    </div>
+
+    <div id = 'ctn'>
+         <div id = 'ctnone'></div>
+         <div id = 'ctnwz'></div>
+    </div>
+
+    <script type="text/javascript" src =../../javascript/jquery-1.7.2.min.js></script>
+    <script>
+//       表达式过滤器 filter(expr)/(fn)：筛选出与指定表达式/函数匹配的元素集合。
+//		               expr:选择器表达式
+//		                fn：函数
+//       功能最强大的表达式过滤器，可接收函数参数，也可以是简单的选择器表达式
+        
+    $('div').filter('.wo').css('background','pink');//p标签里面不能加入ol标签
+    $('div').filter(function(index){
+      return  $('ol',this).length ==1;//如果不加this，所有div 都会被选中
+    }).css('background','red');   //获取有ol的那个div，将其背景色设置为红色
+      
+        
+//     映射 map(callback)：将一组元素转换成其他数组
+//	   清洗 not(expr)：删除与指定表达式匹配的元素
+//	   截取 slice(start,end)：选取一个匹配的子集
+    var d = $('#tag5,#tag6,#tag7');
+        console.log(d); //把三个标签存储在d数组里面
+        console.log(d[0]);//打印第一个标签
+    var c = $('#tag5,#tag6,#tag7').map(function(){
+                                          return $(this).html();
+                                                  });//括号里面的匿名函数会自动执行，
+        console.log(c);//存储的是标签内容，而不是标签。
+        console.log(c[0]);//打印第一个标签的内容。
+        console.log(c[1]);
+        $('p').not('.pw').css('background','blue');//去掉所有class为.pw的p标签的剩下的所有标签，改成蓝色。
+        $('div').slice(2,5).css('color','pink');//将所有的div编序号，从0开始，获取2到5，即第三个到第六个。
+        $('#btm>p').slice(0,1).css('background','green');//slice 不包括右边元素,btm里面的第一个p标签从0 开始编序号，而不是从btm下面的第一个div 开始编序号。
+        
+//      children():取得元素的所有子元素集合（子元素）
+//      find():搜索所有与指定表达式匹配的元素(所有后代元素中查找)
+//      查找兄弟元素 siblings()查找当前元素的兄弟
+        console.log($('#ctn').children());
+        console.log($('#ctn').children('#ctnone'));
+          
+    </script>
+</body>
+</html>

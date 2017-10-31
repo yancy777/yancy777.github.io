@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>瀑布流</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		background: #EBEBE8;
+	}
+	#container{
+		position: relative;
+	}	
+	#container li{
+		list-style: none;
+		background: #fff;
+		box-shadow: 3px 3px 5px #888888;
+		position: absolute;
+		left: 0;
+	}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<ul>
+			<li><img src="img/1.jpg"></li>
+			<li><img src="img/2.jpg"></li>
+			<li><img src="img/3.jpg"></li>
+			<li><img src="img/4.jpg"></li>
+			<li><img src="img/5.jpg"></li>
+			<li><img src="img/6.jpg"></li>
+			<li><img src="img/7.jpg"></li>
+			<li><img src="img/8.jpg"></li>
+			<li><img src="img/9.jpg"></li>
+			<li><img src="img/10.jpg"></li>
+			<li><img src="img/11.jpg"></li>
+			<li><img src="img/12.jpg"></li>
+			<li><img src="img/13.jpg"></li>
+			<li><img src="img/14.jpg"></li>
+			<li><img src="img/15.jpg"></li>
+			<li><img src="img/16.jpg"></li>
+			<li><img src="img/17.jpg"></li>
+			<li><img src="img/18.jpg"></li>
+			<li><img src="img/19.jpg"></li>
+			<li><img src="img/20.jpg"></li>
+			<li><img src="img/21.jpg"></li>
+			<li><img src="img/22.jpg"></li>
+			<li><img src="img/23.jpg"></li>
+			<li><img src="img/24.jpg"></li>
+			<li><img src="img/25.jpg"></li>
+			<li><img src="img/26.jpg"></li>
+			<li><img src="img/27.jpg"></li>
+			<li><img src="img/28.jpg"></li>
+			<li><img src="img/29.jpg"></li>
+			<li><img src="img/30.jpg"></li>
+		</ul>
+	</div>
+	<script>
+		window.onload = function(){
+			pbl();
+		}
+
+		window.onresize = function(){
+			pbl();
+		}
+
+		function pbl(){
+			var container = document.getElementById("container");
+			var cW = document.documentElement.clientWidth;
+			var oLI = document.getElementsByTagName("li");
+			var liWidth = oLI[0].offsetWidth;
+			var cols = Math.floor(cW / (liWidth+20));
+
+			container.style.marginLeft = (cW - ((liWidth+20)*cols - 20)) / 2 + "px";
+
+			var arr = [];
+			for(var i =0;i<oLI.length;i++){
+				var minIndex;
+				if(i < cols){
+					minIndex = i;
+					oLI[i].style.top = 20 + "px";
+					arr[i] = oLI[i].offsetHeight + 20;
+				}
+				else{
+					minIndex = getMin(arr);
+					oLI[i].style.top = arr[minIndex] + 20 + "px";
+					arr[minIndex] += oLI[i].offsetHeight + 20;
+				}
+				oLI[i].style.left = minIndex * ( liWidth + 20) + "px";
+			}
+		}
+
+		function getMin(arr){
+			var first = arr[0]; 
+			var index = 0;
+			for(var i =1 ;i<arr.length;i++){
+				if(first > arr[i]){   
+					first = arr[i];
+					index = i;
+				}
+			}
+			return index;
+		}
+	</script>
+</body>
+</html>

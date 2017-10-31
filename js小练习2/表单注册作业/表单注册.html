@@ -1,0 +1,153 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>注册表单验证</title>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<style type="text/css">
+    table{background-color:pink;width:80%;height:300px;}
+    td{text-align:center;}
+</style>
+<script language="javascript">
+    $("document").ready(function(){
+        $("#form1").submit(function(){
+            var user=$("#user").val();
+            var username=/^[a-z]{6,10}/i;
+            if(user.length==0){
+                $("#error1").html("账号不可以为空");
+                return false;
+            }else if(!username.test(user)){
+                $("#error1").html("请输入6-10的字母");
+                return false;
+            }else{
+                $("#error1").html("输入正确");
+            }
+            
+            var password=$("#pw").val();
+            var password1=/^[0-9]{6,10}/;
+            if(password.length==0){
+                $("#error2").html("密码不可以为空");
+                return false;
+            }else if(!password1.test(password)){
+                    $("#error2").html("请输入6-10位的数字密码");
+                    return false;
+                }else{
+                    $("#error2").html("输入正确");
+                }
+            
+            var name=$("#name").val();
+            var name1=/^[a-z]{6,10}/i;
+            if(name.length==0){
+                $("#error3").html("姓名不可以为空");
+                return false;
+            }else if(!name1.test(name)){
+                $("#error3").html("请输入6-10位字母");
+                return false;
+            }else{
+                $("#error3").html("输入正确");
+            }
+            
+            
+            var age=$("#ag").val();
+            var age1=/^[1-9]{1}[0-9]{0,1}$/;
+            if(age.length==0){
+                $("#error4").html("年龄不可以为空");
+                return false;
+            }else if(!age1.test(age)){
+                $("#error4").html("请输入合法年龄");
+                return false;
+            }else{
+                $("#error4").html("输入正确");
+            }
+            
+            var email=$("#em").val();
+            var email1=/^[\w]+(\.[\w]+)*@[\w]+(\.[\w]+)+$/;
+            if(email.length==0){
+                $("#error5").html("email不可以为空");
+                return false;
+            }else if(!email1.test(email)){
+                $("#error5").html("请输入合法电子邮件");
+                return false;
+            }else{
+                $("#error5").html("输入正确");
+            }
+            
+            var telephone=$("#tel").val();
+            var telephone1=/^[1]{1}[0-9]{10}/;
+            if(telephone.length==0){
+                $("#error6").html("电话不可以为空");
+                return false;
+            }else if(!telephone1.test(telephone)){
+                $("#error6").html("请输入合法电话");
+                return false;
+            }else{
+                $("#error6").html("输入正确");
+            }
+            
+        });
+    });
+</script>
+</head>
+<body>
+<center>
+<form action="" method="post" id="form1" name="form1">
+    <h1>注册页面</h1>
+    <table border="1px">
+        <tr>
+            <td>
+                账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：
+                <input type="text" name="admin" id="user"/>
+                <div id="error1" style="display:inline;color:red;"></div>
+            </td>
+        </tr>
+        <tr>    
+            <td>
+                密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：
+                <input type="password" name="password" id="pw"/>
+                <div id="error2" style="display:inline;color:red;"></div>
+            </td>
+        </tr>
+        <tr>        
+            <td>
+                姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：
+                <input type="text" name="name1" id="name"/>
+                <div id="error3" style="display:inline;color:red;"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：
+                <input type="text" name="age" id="ag"/>
+                <div id="error4" style="display:inline;color:red;"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                性别：
+                <input type="radio" name="sex" value="boy"/>男
+                <input type="radio" name="sex" value="girl"/>女    
+            </td>
+        </tr>
+        <tr>
+            <td>
+                电子邮件：<input type="text" name="email" id="em"/>
+                <div id="error5" style="display:inline;color:red;"></div>
+            </td>
+        </tr>
+        <tr>        
+            <td>
+                电话号码：<input type="text" name="telephone" id="tel"/>
+                <div id="error6" style="display:inline;color:red;"></div>
+            </td>
+        </tr>
+        <tr>    
+            <td align="center">
+                    <input type="submit" value="注册"/>
+                    
+            </td>
+            
+        </tr>
+    </table>
+</form>    
+</center>
+</body>
+</html>

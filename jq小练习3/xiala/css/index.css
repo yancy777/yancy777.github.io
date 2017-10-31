@@ -1,0 +1,87 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.headers{
+	width: 100%;
+	height: 30px;
+	background: #f1f1f1;
+}
+.header{
+	width: 1210px;
+	height: 30px;
+	margin: 0 auto;
+	/*background: red;*/
+	line-height: 30px;
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+.header .left{
+	width: 88px;
+	height: 30px;
+	float: left;
+	position: relative;
+}
+.left .didian{
+	width: 86px;
+	height: 30px;
+	border-left: 1px solid #f1f1f1;
+	border-right: 1px solid #f1f1f1;
+}
+.header .left:hover .didian{
+	background: #fff;
+	border-color: #ddd;
+	margin-bottom: -1px;
+	height: 31px;
+	position: relative;
+	z-index: 100;
+}
+.left .didian .szbj{
+	float: left;
+	margin-left: 4px;
+}
+.left .didian i{
+	float: left;
+	font-size: 14px;
+	margin: 0 4px;
+	transition:all 0.4s ease;
+}
+.header .left:hover .didian i{
+	transform:rotate(180deg);
+}
+.left .yc{
+	width: 301px;
+	padding: 10px 0 10px 10px;
+	border: 1px solid #ddd;
+	overflow: hidden;
+	position: absolute;
+	top: 30px;
+	left: 0;
+	/*display: none;*/
+	/*opacity: 0;*/
+}
+.header .left:hover .yc{
+	display: block;
+	position: relative;
+	top: 0;
+	z-index: 1;
+}
+a{
+	color: #6a6a6a;
+	text-decoration: none;
+	font-size: 14px;
+}
+.left .yc .item{
+	width: 60px;
+	/*background: red;*/
+	padding: 2px 0;
+	float: left;
+}
+
+.left .yc .item .bj{
+	padding: 0 8px;
+	background: blue;
+}
+.left .yc .item a{
+	padding: 0 8px;
+}

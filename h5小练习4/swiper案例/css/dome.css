@@ -1,0 +1,51 @@
+.page { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden}
+
+
+/*头部*/
+header { position: absolute; top: 0; left: 0; height: 44px; width: 100%; background-color: #0cc440; color: #a7e1bb;text-align:center ; padding: 10px 0;}
+header ul { height: 24px; display: inline-block; width: 118px; border-radius: 12px; overflow: hidden;}
+header li { float: left; width: 50%; height: 24px; line-height: 24px; background-color: #3ecf66;}
+header .active { background-color: #63d985; color: #fff}
+
+    /*选项卡*/
+nav { position: absolute; z-index:5;top: 44px; left: 0; height: 35px; width: 100%; background-color: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(0,0,0,.3)}
+nav ul { height: 100%; text-align: center;}
+nav li { float: left; width: 33%; height:35px; line-height: 33px; }
+nav .active { color: #0ec044; border-bottom: 2px solid #0ec044;}
+
+/*内容*/
+.main { position: absolute;top: 44px; left: 0; width: 100%; bottom:44px;}
+/*刷新的箭头*/
+.updata-icon { position: absolute; left: 0; top: 20px; height: 50px; width: 100%; text-align: center; line-height: 50px; font-size: 16px;}
+.updata-icon img { height: 80%; width: auto;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+.updata-icon .rotate {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+    /*iscroll*/
+#wrapper { position: relative; height: 100%; width: 100%; overflow: hidden}
+#scroller { position: absolute; background-color: #fff; top: 0; left: 0; width: 100%; }
+
+
+/*轮播*/
+.swiper-container { width: 100%;}
+.swiper-container img { width: 6.4rem; height: 5.68rem;}
+
+.show-list { overflow: hidden}
+.show-list li { float: left; width: 3.15rem; margin-top: 6px; border:1px solid #e5e5e5;}
+.show-list .pic { width:3.13rem;height:3.13rem; }
+.show-list img { width: 100%; height: auto; /*height:3.13rem;*/ }
+.show-list p { line-height: 28px; border-top:1px solid #e5e5e5}
+.show-list li:nth-child(2n) { float: right}
+
+    /*底部*/
+footer { position: absolute; border-top:1px solid #e5e5e5;left: 0; bottom: 0; height: 44px; width: 100%; background-color: #fff}
+footer ul { height: 44px;}
+footer li { float: left; width: 20%; height: 100%; line-height:44px; text-align: center }
+footer li:nth-child(3) .icon { height: 52px; width: 52px; display: inline-block; position: relative; top: -8px; line-height: 52px; border-radius: 50%; background-color: #fff; border: 1px solid #e5e5e5;}

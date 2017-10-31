@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" >
+	<title></title>
+	<script src="time.js"></script>
+	<script>
+	//window.onload = function(){
+		/*function fn01(){
+			var d =new Date();
+			var time=toFormat(d,"-");
+			//document.write(time);
+			div1.innerHTML=time;
+		}
+		setInterval(fn01,1000);*/
+			/*var h=0;
+			var m=0;
+			var s=0;
+			setInterval(function(){
+				s++;
+				if(s==60){
+					s=0;
+					m++;
+				}
+				if(m==60){
+					m=0;
+					h++;
+				}
+			div1.innerHTML="停留时间："+h+"小时"+m+"分钟"+s+"秒"
+			},1);
+	}*/
+
+	window.onload= function(){
+		var h=0;
+		var m=0;
+		var s=10;
+		setInterval(function(){
+			s--;
+			div1.innerHTML="倒计时:"+h+"小时"+m+"分"+s+"秒";
+		},1000);
+
+		
+	}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

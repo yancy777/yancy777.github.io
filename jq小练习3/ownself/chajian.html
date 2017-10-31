@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>1</div>
+</body>
+</html>
+<script type="text/javascript" src =../../javascript/jquery-1.7.2.min.js></script>
+<script>
+//$相当于JQuery,
+//$.extend(obj1,obj2);//obj1继承obj2;obj为被修改的对象;obj2为待合并到第一个对象的对象。
+//$.extend(obj1);在Jquery大对象上面加入新的函数;
+//$.fn.extend(obj1);给对象添加函数;
+//通过return this;进行链试调用;
+//   var obj1 = {
+//    name:'wo',
+//    age:'20',
+//    color:'red'
+//}
+//    var obj2 ={
+//    name:'ni',
+//    age:'23',
+//    color:'green',
+//        dkdk:'n9i'
+//}
+//$.extend(obj1,obj2);
+//    console.log(obj1);
+//    console.log(obj2);   
+//
+    
+    
+// $.extend({
+//     number:function(){
+//         alert('number');
+//     },
+//     name:'ta'//好像只能添加函数
+//     
+// });
+//    $.number();
+//    alert($.name);
+//  
+//   
+//    $.fg={
+//        number:'2',
+//        bor:function(){
+//            alert('1');
+//        }
+//    };
+//    $.fg.bor();
+    
+// $.fg = function(){
+//     var set = {
+//         name:'yuning'
+//     }
+//     return set;
+// }   
+//console.log($.fg().name)
+//用匿名函数包起来
+//   (function($){
+//给所有对象添加bg函数
+//    $.fn.bg=function(opt){
+//        var settings={
+//        width:300,
+//        height:300,
+//        color:'red'
+//    };
+//                $.fn.extend(settings,opt);
+//                $(this).css({'width':settings.width+'px',
+//                             'height':settings.height+'px',
+//                             'background':settings.color
+//                            });
+//        return this;//指向了当前对象
+//    }
+//    $('div').bg({
+//        color:'blue'
+//    }).html('2');
+//    })(jQuery)
+//  
+    
+    $.each([1,2,3,4,5,6],function(a,b){
+        console.log(a);
+        console.log(b);
+        console.log(1);
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

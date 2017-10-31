@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul{list-style: none;}
+        #ula li{width:100px;height:50px;border:1px solid red;}
+        #tag1{width:30px;height:30px;}
+        #tag5{width:50px;height:50px;display: none;}
+        #tag6{width: 50px;height: 50px;display: block;}
+    </style>
+</head>
+<body>
+   <div id = "tag1"></div>
+   <ul id ="ula">
+       <li>aa</li>
+       <li>bb</li>
+       <li><span>a</span></li>
+       <li>dd</li>
+       <li>ee</li>
+   </ul>
+   <div id = 'tag5'>1</div>
+   <div id='tag6'>2</div>
+   <input type="text" enabled value='可用的'/>
+   <input type="text" disabled='true' value='不可用的'/>
+   <select>
+       <option>1</option>
+       <option>2</option>
+       <option selected ='slected'>3</option>
+       <option selected>4</option>
+   </select>
+   
+    <script type="text/javascript" src =../../javascript/jquery-1.7.2.min.js></script>
+    <script>
+//      ##content filters 
+//      $('li:contains(所包含的内容)')
+//      $(':empty')//获取没有文本的没有子节点的标签，
+//      $('li:has(a)')//获取含有选择器所匹配的元素的元素
+//      $('p:parent') 选取含有子元素或者文本的元素//$('p:not(:empty)')
+//      content filters 事例
+        $('ula>li:contains(a)').css('background','green');//如果孙子节点中也包含这个内容，则整个节点都会被选中。
+        $(':empty').css('background','red');
+        
+        
+//      
+//      ##visibility filters 可见性过滤选择器
+//      $(':hidden')
+//      $(':visible')
+//      visibility 事例
+        console.log($('div:hidden').text()); //在所有div中挑选隐藏的元素。 
+        console.log($('div:hidden').length);
+                    
+//      ##Atrribute filters
+//      $('li[class]') 选取拥有class属性的li标签
+//      $("a[rel='self']") 选取属性值为self的a标签
+//      $('a[rel!="nofollow"]') 选取属性值不等于nofollow的标签
+//      $('[class^="my"]')    选取属性值为my开头的标签
+//      $('[class$="my"]')    选取属性值以my结束的标签
+//      $('a[href*="zip"]')   选取含有zip的标签
+//      $('a[href][rel][title]') 选取满足多个条件的标签
+//      Atrribute 事例
+//      
+//      ##Child filters
+//      $('li:nth-child(even)')
+//      $('li:nth-child(odd)')
+//      $('li:nth-child(2)')
+//      $('li:nth-child(2n)')
+//      $('li:first-child')
+//      $('li:last-child')
+//      $('code:only-child')
+//      
+//      Child 事例
+//      
+//      
+//      ##Forms
+//      $(':input')
+//      $(':text')
+//      $(':password')
+//      $(':radio')
+//      $(':checkbox')
+//      $(':submit')
+//      $(':image')
+//      $(':reset')
+//      $(':button')
+//      $(':file')
+//      $(':hidden')
+//      
+//      
+//      form 事例
+//      
+//      
+//      
+//      ##Form filters
+//      $('input:enabled') 选取所有可用元素，
+//      $(':disabled')     选取所有不可用元素
+//      $(':checked')     选取所有被选中的元素（单选框，父选框）
+//      $(':selected')    选取所有被选中的选项元素（下拉列表）
+//      Form filters 事例
+     $(':text:enabled')
+     console.log($('select :enabled'));//select后面加入空格，表示select下的元素
+     console.log($('select '));//打印的是select对象。
+      
+    </script>
+</body>
+</html>

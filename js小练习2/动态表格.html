@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态表格去</title>
+	<!--<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script type="text/javascript" src="js/mymodule.js"></script>-->
+	<script type="text/javascript">
+	window.onload=function(){
+		var createBtn=document.getElementById("createbtn");
+		var container=document.getElementById("container");
+		createBtn.onclick=function(){
+			container.innerHTML="";
+			var rowValue=document.getElementById("rowtext").value;
+			var cellValue=document.getElementById("celltext").value;
+			var tb=document.createElement("table");
+			tb.border="1";
+			var tbody=document.createElement("tbody");
+			tb.appendChild(tbody);
+			for(var i=0;i<rowValue;i++){
+				var tr=document.createElement("tr");
+				for(var j=0;j<cellValue;j++){
+					var td=document.createElement("td");
+					td.innerHTML ="123";
+					tr.appendChild(td);
+				}
+				tbody.appendChild(tr);
+			}
+			container.appendChild(tb);
+		}
+	}
+	</script>
+</head>
+<body>
+	<div>
+		行：<input type="text" id="rowtext" />
+		列：<input type="text" id="celltext" />
+		<input type="button" id="createbtn" value="生 成" />
+	</div>
+	<div id="container" style="margin: 20px;">
+		
+	</div>
+</body>
+</html>

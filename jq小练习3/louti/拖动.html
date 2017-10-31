@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo5拖拽</title>
+	<script src="js/jquery-1.11.3.js"></script>
+	<style>
+		div{width: 200px;height: 200px;background: lightgreen;position: absolute;}
+	</style>
+</head>
+<body>
+	<div>ssssddd</div>
+	<script>
+		var disX=0;var disY=0;
+		$('div').on('mousedown',function(ev){
+			disX=ev.pageX-$(this).offset().left;
+			disY=ev.pageY-$(this).offset().top;
+
+			$(document).on('mousemove',function(ev){
+				$('div').css('left',ev.pageX-disX)
+				$('div').css('top',ev.pageY-disY)
+			})
+			$(document).on('mouseup',function(){
+				$(this).off('mousemove');
+			})
+
+			return false;
+
+			//ev.stopPropagation()  阻止冒泡事件
+
+			//ev.preventDefault()  阻止浏览器的默认行为
+
+			//alert(ev.type)   获取事件类型
+			// ev.target  获取事件源或者操作对象  也就是说谁在执行这个事件
+		})
+	</script>
+</body>
+</html>

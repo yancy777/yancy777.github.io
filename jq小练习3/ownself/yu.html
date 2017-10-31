@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{width:50px;height: 50px;background: red;}
+    </style>
+</head>
+<body>
+<div></div>
+<ul id = 'ctn'>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<div></div>
+<ul id ="btn">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+ <script type="text/javascript" src="../../javascript/jquery-1.7.2.min.js"></script>
+  <script>
+      //三维数组
+    var a = [[1,2.3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],'f'];
+      $('div').hover(function(){
+          console.log(1);
+      },function(){
+          console.log(-1)
+      });
+      //关于.index()所传的参数。
+      $('#ctn>li').click(function(){
+          console.log($(this).index('#ctn>li'));
+      });
+       $('#btn>li').click(function(){
+         //console.log($(this).index('#btn>li'));
+         console.log($(this).index('li'));
+
+      });
+    </script>
+   
+</body>
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             

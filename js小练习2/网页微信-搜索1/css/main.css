@@ -1,0 +1,186 @@
+*{margin:0; padding: 0; font-size: 14px; font-family: 微软雅黑;}
+ul,li{list-style:none;}
+.clear{clear: both;}
+.container{
+	width: 1000px;
+	margin: 0 auto;
+}
+#sidebar{
+	width:280px;
+	background: #2E3238;
+	float: left;
+}
+#chat{
+	width:720px;
+	background: #EEEEEE;
+	float: left;
+}
+.myinfo{
+	position: relative;
+}
+.myinfo span,p{
+	display: block;
+	float: left;
+	margin: 18px 0 0 18px;
+}
+.myinfo p{
+	color: #fff;
+	font-family: Arial;
+	font-size: 18px;
+	padding-top: 10px;
+}
+.myinfo a{
+	display: block;
+	float: right;
+	margin: 25px 18px 0 0;
+}
+.search{
+	width:88%;
+	margin: 18px auto;
+}
+.search input{
+	width: 98%;
+	height: 28px;
+	line-height: 28px;
+	color:#fff;
+	background: #26292E;
+	border: 0;
+	padding-left: 2%;
+}
+.tab {
+	width:246px;
+	height: 40px;
+	margin: 0 auto;
+	border-bottom: solid 1px #24272C;
+}
+.tab li{
+	width: 82px;
+	height: 28px;
+	display: block;
+	text-decoration: none;
+	float: left;
+	cursor: pointer;
+}
+.tab li span{
+	background: url(../img/tab.png);
+	width: 28px;
+	height: 28px;
+	display: block;
+	margin: 0 auto;
+}
+.tab li span.tab1{
+	background-position: 0 0;
+}
+.tab li span.on{
+	background-position: 0 -28px;
+}
+.tab li span.tab2{
+	background-position: -28px 0;
+}
+.tab li span.tab3{
+	background-position: -56px 0;
+}
+.userlist li{
+	height: 62px;
+	border-bottom: solid 1px #24272C;
+	cursor: pointer;
+}
+.userlist li.on{
+	background: #3A3F45;
+}
+.userlist li span{
+	display: block;
+	float: left;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+.userlist li span img{
+	width: 40px;
+	height: 40px;
+}
+.userlist li label{
+	display: block;
+	float: left;
+	color: #fff;
+	margin-top: 10px;
+	margin-left:10px;
+}
+.username{
+	width: 90%;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: solid 1px #D6D6D6;
+	margin: 0 auto;
+	text-align: center;
+}
+#propmtinfo{
+	display: block;
+	width:117px;
+	height: 109px;
+	line-height: 109px;
+	margin: 0 auto;
+	margin-top: 100px;
+	color:#CCCCCC;
+}
+#requestInfo{
+	height: 420px;
+	border-bottom: solid 1px #D6D6D6;
+	overflow-y:scroll;
+}
+#sendInfo{
+	position: relative;
+	height: 136px;
+	display: none;
+}
+#sendInfo textarea{
+	width: 99%;
+	height: 75px;
+	border: 0;
+	background: #EEEEEE;
+	padding-left: 1%;
+	resize: none;
+	outline: none;
+	padding-top: 5px;
+}
+#sendInfo a{
+	display: block;
+	width: 90px;
+	height: 28px;
+	line-height: 28px;
+	border: solid 1px #C1C1C1;
+	border-radius: 3px;
+	text-align: center;
+	color:#222222;
+	background: #FFF;
+	text-decoration: none;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+#sendInfo a:hover{
+	background: #F8F8F8;
+}
+.infolist{
+	margin:15px 20px 0 0;
+	float: right;
+}
+.infolist label{
+	display: block;
+	padding:10px 10px 10px 10px;
+	background: #B2E281;
+	border-radius: 3px;
+	height: 20px;
+	line-height: 20px;
+	float: left;
+}
+.infolist span{
+	display: block;
+	float: left;
+	margin-left: 10px;
+}
+#myinfopic{
+	position:absolute;
+	top:50px; 
+	left: 30px;
+	display: none;
+}

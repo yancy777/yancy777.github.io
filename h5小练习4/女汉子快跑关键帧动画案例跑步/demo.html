@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .person { background: url("img/charector1.png");
+            -webkit-animation: girlRun 1s infinite steps(7,start);
+            animation: girlRun .5s infinite steps(7,start);
+            -webkit-animation-play-state: paused;
+
+            height: 300px; width: 180px}
+        .person:hover  {animation-play-state: running;}
+        @keyframes girlRun {
+            0% { background-position: 0 0;}
+            100% { background-position: -1260px 0;}
+        }
+        @-webkit-keyframes girlRun {
+            0% { background-position: 0 0;}
+            100% { background-position: -1260px 0;}
+        }
+    </style>
+</head>
+<body>
+
+<div class="person"></div>
+</body>
+</html>

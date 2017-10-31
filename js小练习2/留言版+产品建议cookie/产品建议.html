@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>完美拖拽</title>
+	<style type="text/css">
+		body{margin:0; padding:0;}
+		#top{width:800px; heigth:30px; line-height:30px; background:#30cfff; margin-bottom:10px;}
+		#text{height:150px; width:300px;}
+		span{color:red;}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var titleObj=document.getElementById("title");
+			var textObj=document.getElementById("text");
+			var btn=document.getElementsByTagName("input")[1];
+			var spanObj=document.getElementsByTagName("span");
+			var table=document.getElementById("tab");
+			var tbody=table.children[0];
+			document.addEventListener("click",function(evt){
+				var e=evt||event;
+				if(e.target.tagName == "A") {
+					tbody.removeChild(e.target.parentNode.parentNode);
+				}		
+			},true);
+			btn.onclick=function(){
+				if(titleObj.value.length<4 || titleObj.value.length>30){
+					spanObj[0].innerHTML="请输入4~30个字符的标题";	
+					return;
+				}else{
+					spanObj[0].innerHTML="";	
+				}
+				if(textObj.value.length<4 || textObj.value.length>30){
+					spanObj[1].innerHTML="请输入10~10000个字符的内容";	
+					return;
+				}else{
+					spanObj[1].innerHTML="";	
+				}
+				var tr=document.createElement("tr");
+				var td1=document.createElement("td");
+				td1.innerHTML=titleObj.value;				
+				var td2=document.createElement("td");
+				td2.innerHTML=textObj.value;
+				var td3=document.createElement("td");
+				var a=document.createElement("a");
+				a.href="#";
+				a.innerHTML="删除";
+				td3.appendChild(a);
+				tr.appendChild(td1);
+				tr.appendChild(td2);
+				tr.appendChild(td3);
+				tbody.appendChild(tr);			
+			}		
+		}
+	</script>
+</head>
+<body>
+	<div id="top">您好，欢迎您给我们提产品使用的感受和建议</div>
+	标题：<input id="title" type="text"/><span></span><br/>
+	内容：<textarea  id="text"></textarea><span></span><br/>
+	<input type="button" value="提交"/><br/>
+	<table id="tab" border="1">
+		<tr>
+			<td>标题</td>
+			<td>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</td>
+			<td>操作</td>		
+		</tr>
+		<tr>
+			<td>标题111111</td>
+			<td>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</td>
+			<td><a href="#">删除</a></td>		
+		</tr>
+		<tr>
+			<td>标题111111</td>
+			<td>内容内容内容内容内容内容内容内容内容内容内容内容</td>
+			<td><a href="#">删除</a></td>			
+		</tr>
+		<tr>
+			<td>标题111111</td>
+			<td>内容内容内容内容内容内容内内容内容内容</td>
+			<td><a href="#">删除</a></td>			
+		</tr>
+		<tr>
+			<td>标题111111</td>
+			<td>内容内容内容内容内容内容内容内容内容内容内容容内容内容内容内容</td>
+			<td><a href="#">删除</a></td>			
+		</tr>
+	</table>
+</body>
+</html>

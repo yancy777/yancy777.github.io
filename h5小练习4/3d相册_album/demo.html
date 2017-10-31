@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			@charset "utf-8";
+			*{padding: 0;margin: 0;}
+			body{background-color: #000;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+
+				-webkit-perspective: 1200px;
+				perspective: 1200px;
+				-webkit-perspective-origin: center -100px;
+				perspective-origin: center -100px;
+				transform-style: preserve-3d;
+			}
+			#wrap {  width: 133px; height: 200px; margin: 200px auto;
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+			.stage { width: 133px; height: 200px;  position: relative;
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+				-webkit-transform: rotateY(1deg) rotateX(-15deg);
+				border: 1px solid red;
+				-webkit-animation: run 15s infinite linear;
+				animation: run 15s infinite linear;
+			}
+			.stage:hover {
+				-webkit-animation-play-state: paused;
+				animation-play-state: paused;
+			}
+
+			.stage img {
+				position: absolute; top: 0; left: 0;
+				-webkit-box-reflect:below 10px -webkit-linear-gradient(top,rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%);
+			}
+
+			@keyframes run {
+				0% {
+					-webkit-transform: rotateY(0deg) ;
+					transform: rotateY(0deg) ;
+				}
+				100% {
+					-webkit-transform: rotateY(360deg) ;
+					transform: rotateY(360deg);
+				}
+			}
+
+
+		</style>
+	</head>
+	<body>
+	<div id="wrap">
+		<div class="stage" id="stage">
+			<img src="img/1.jpg" alt="" />
+			<img src="img/2.jpg" alt="" />
+			<img src="img/3.jpg" alt="" />
+			<img src="img/4.jpg" alt="" />
+			<img src="img/5.jpg" alt="" />
+			<img src="img/6.jpg" alt="" />
+			<img src="img/7.jpg" alt="" />
+			<img src="img/8.jpg" alt="" />
+			<img src="img/9.jpg" alt="" />
+			<img src="img/10.jpg" alt="" />
+			<img src="img/11.jpg" alt="" />
+
+
+		</div>
+	</div>
+	</body>
+	<script type="text/javascript">
+		var oWrap = document.getElementById("wrap")
+		var aImg = document.getElementsByTagName("img");
+		var timer = null;
+
+
+		var oStage = document.getElementById("stage")
+		var oldX,oldY; /*鼠标移动时，上次的坐标*/
+		var rotateY  = 0; /*用来保存旋转Y的角度*/
+		var rotateX = 0;/*用来保存旋转X的角度*/
+
+
+		var iDeg = 360/aImg.length;//最小的刻度
+		for(var i=0;i<aImg.length;i++){
+			//i*iDeg 旋转的角度 = 下标* 最小的刻度
+			var str  = "rotateY("+i*iDeg+"deg)  translateZ(300px)";
+			setCSS3(aImg[i],{"Transform":str});
+		}
+
+		document.onmousedown=function(ev){
+			clearInterval(timer);
+			oldX = ev.clientX;
+			oldY = ev.clientY;
+			document.onmousemove=function(ev){
+				var mX = ev.clientX;
+				var mY = ev.clientY;
+				var disX =mX-oldX;
+				var disY =mY-oldY;
+				console.log(disX)
+
+				//1+5 = 6
+				//6+3 = 9
+				rotateY+=disX/5;
+				rotateX+=-disY/5;
+
+				var str  = "rotateX("+rotateX+"deg) rotateY("+rotateY+"deg) ";
+				setCSS3(oWrap,{"Transform":str});
+				/*把所有的事都干完了*/
+				oldX = mX;
+				oldY = mY;
+				return false
+			};
+
+			document.onmouseup=function(){
+				//autoPlay()
+				document.onmouseup = null;
+				document.onmousemove = null;
+			};
+			return false
+		};
+
+		//autoPlay()
+		function autoPlay(){
+			timer = setInterval(function(){
+				rotateY+=0.2;
+				var str  = " rotateX("+rotateX+"deg) rotateY("+rotateY+"deg)";
+				setCSS3(oStage,{"Transform":str});
+			},30)
+		}
+
+
+		function setTransform(obj,str){
+			var arr = ["webkit","o","ms","moz",""];
+			for(var i=0;i<arr.length;i++){
+				obj.style[arr[i]+"Transform"]=str;
+			}
+		}
+
+		function setCSS3(obj,json){
+			var arr = ["webkit","o","ms","moz",""];
+			for(var attr in json){
+
+				for(var i=0;i<arr.length;i++){
+					var css3Attr ="attr";
+					if(arr[i]==""){
+						css3Attr = attr.substring(0,1).toLowerCase()+attr.substring(1)
+						//"T"=>"t"+"ransform"
+					}
+					console.log(arr[i]+css3Attr)
+					console.log(json[attr])
+					obj.style[arr[i]+css3Attr]=json[attr];
+				}
+			}
+		}
+	</script>
+</html>

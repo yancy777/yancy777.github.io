@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+        * { margin: 0; padding: 0;}
+        li { list-style: none; }
+        #wrap { width: 560px; height: 300px;overflow:hidden; margin: 0 auto; position: relative; border: 1px solid #ccc;    }
+        #list{  float: left; width: 560px;height: 100%;  position: absolute; }
+		#list li {  float: left; width:560px;height:300px;  }
+        img { width: 100%; height: 100%}
+        #btn{ position: absolute; left: 0; bottom: 0;  background-color: rgba(0,0,0,.2) ;  width: 100%;}
+        #btn li { float: left; margin: 10px; width: 80px; height: 50px; cursor: pointer; border: 2px solid #fff}
+        #btn li.active { border:2px dashed #ff4a11}
+        #wrap:hover a{ display: block}
+        a { position: absolute; display: none; -webkit-user-select: none; cursor: pointer; top: 40%; width: 60px; line-height: 50px;
+            text-align: center; color: #aaa; font-weight: bold; font-size: 30px; background-color: rgba(0,0,0,.4)}
+        #next { right: 0;}
+        a:hover { color: #eee;background-color: rgba(0,0,0,.5)}
+    </style>
+</head>
+
+<body>
+<div id="wrap">
+
+    <ul id="list">
+        <li><img src="img/1a.jpg"/></li>
+        <li><img src="img/2a.jpg"/></li>
+        <li><img src="img/3a.jpg"/></li>
+        <li><img src="img/4a.jpg"/></li>
+        <li><img src="img/5a.jpg"/></li>
+    </ul>
+
+    <ul id="btn">
+        <li class="active"><img src="img/1a.jpg"/></li>
+        <li><img src="img/2a.jpg"/></li>
+        <li><img src="img/3a.jpg"/></li>
+        <li><img src="img/4a.jpg"/></li>
+        <li><img src="img/5a.jpg"/></li>
+    </ul>
+    <a id="prev"><</a>
+    <a id="next"> > </a>
+
+
+</div>
+<script type="text/javascript">
+	var oWrap=document.getElementById("wrap");
+	var oBtn=document.getElementById("btn");
+	var aBtn=oBtn.getElementsByTagName("li");
+	var oPic=document.getElementById("list");
+	var aPic=oPic.getElementsByTagName("li");
+	var oprev=document.getElementById("prev");
+	var onext=document.getElementById("next");
+	var len=aBtn.length;
+	var iNow=0;
+	var ulW=aPic[0].offsetWidth*aPic.length;//设置ul的宽度，让li横着排
+	var timer="";
+	oPic.style.width=ulW+"px"
+	
+	//alert(oPic.offsetWidth)
+	for(var i=0;i<len;i++){//循环添加点击事件
+		aBtn[i].index=i;//将被点击的小图的索引值存储起来
+		aBtn[i].onclick=function(){
+			iNow=this.index;//将被点击的小图的索引赋给iNow
+			reMove()
+			//aPic[this.index].style.display="block";
+			//oPic.style.left=-iNow*aPic[0].offsetWidth+"px"//通过改变left的值直接跳转变换图片	
+		}
+			
+			//alert(oPic.style.left)
+	}
+	oprev.onclick=function(){
+			iNow--;
+		if(iNow<0){
+			iNow=len-1;
+		}
+			reMove()
+	}
+	onext.onclick=function(){
+			iNow++;
+			iNow%=5//除五取余，解决大于五以后无法找到点击的图片
+		/*if(iNow>len-1){
+			iNow=0;
+		}*/
+			reMove();
+	}
+	//自动播放
+	function autoPlay(){
+		clearInterval(timer);
+		timer=setInterval(function(){
+			iNow++;
+			iNow%=5;
+			reMove();
+		},1000)	
+	}
+	autoPlay()
+	//鼠标移上停止自动播放
+	oWrap.onmouseover=function(){
+		clearInterval(timer);
+	}
+	
+	oWrap.onmouseout=function(){
+		clearInterval(timer);
+		timer=setInterval(function(){
+			iNow++;
+			iNow%=5;
+			reMove();
+		},1000)	
+	}
+	
+	
+	
+	
+	//封装的运动函数
+	var timer=null;
+	function startMove(iTaget){
+			clearInterval(timer);
+			timer=setInterval(function(){
+				var speed=(iTaget-oPic.offsetLeft)/5;
+				speed=speed>0?Math.ceil(speed):Math.floor(speed);//根据速度判断取整，纠正图片位置
+					oPic.style.left=oPic.offsetLeft+speed+"px";		
+			},30)
+	}
+	
+	
+	
+	
+	
+	//封装的重复进行的操作：清除全部样式，给点击的小图添加样式，调用运动函数
+	function reMove(){
+			for(var j=0;j<len;j++){
+				aBtn[j].className="";
+				//aPic[j].style.display="none";
+			} 
+			aBtn[iNow].className="active";
+			//aPic[iNow].style.display="block";	
+			startMove(-iNow*560)	
+	}
+	
+
+</script>
+</body>
+</html>

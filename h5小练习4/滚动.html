@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * { margin: 0 auto}
+        body { background-image: url("../image/bg.jpg");
+            background-attachment:fixed;
+            line-height: 40px; font-family: "Microsoft Yahei"}
+        .bg2 {background-image: url("../image/bg2.jpg");}
+        article {   text-align: center; height: 600px;}
+        article:nth-child(2) { background-color: rgba(255,255,255,1)}
+        article:nth-child(3) { color: #fff}
+    </style>
+</head>
+<body >
+<article>
+    <h3>说给自己听</h3>
+    <p><span>--------三毛</span></p>
+    <p><span>如果</span><em>有来生，</em></p>
+    <p>要做一棵树，</p>
+    <p>站成永恒，</p>
+    <p class="item">没有悲欢的姿势。</p>
+    <p>一半在尘土里安详，</p>
+    <p>一半在风里飞扬，</p>
+    <p>一半洒落阴凉，</p>
+    <p>一半沐浴阳光。</p>
+    <p>非常沉默非常骄傲</p>
+    <p>从不依靠</p>
+    <p></p>
+    <p>从不寻找</p>
+
+</article>
+<article>
+    <h3>说给自己听</h3>
+    <p><span>--------三毛</span></p>
+    <p><span>如果</span><em>有来生，</em></p>
+    <p>要做一棵树，</p>
+    <p>站成永恒，</p>
+    <p class="item">没有悲欢的姿势。</p>
+    <p>一半在尘土里安详，</p>
+    <p>一半在风里飞扬，</p>
+    <p>一半洒落阴凉，</p>
+    <p>一半沐浴阳光。</p>
+    <p>非常沉默非常骄傲</p>
+    <p>从不依靠</p>
+    <p></p>
+    <p>从不寻找</p>
+
+</article>
+
+<article>
+    <h3>说给自己听</h3>
+    <p><span>--------三毛</span></p>
+    <p><span>如果</span><em>有来生，</em></p>
+    <p>要做一棵树，</p>
+    <p>站成永恒，</p>
+    <p class="item">没有悲欢的姿势。</p>
+    <p>一半在尘土里安详，</p>
+    <p>一半在风里飞扬，</p>
+    <p>一半洒落阴凉，</p>
+    <p>一半沐浴阳光。</p>
+    <p>非常沉默非常骄傲</p>
+    <p>从不依靠</p>
+    <p></p>
+    <p>从不寻找</p>
+</article>
+<script src="../js/jquery-1.7.2.min.js"></script>
+<script>
+    $(window).scroll(function(){
+        if($(this).scrollTop()>600){
+            $("body").addClass("bg2")
+        }else {
+            $("body").removeClass("bg2")
+        }
+
+
+    })
+</script>
+</body>
+</html>

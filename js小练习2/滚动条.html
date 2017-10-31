@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动条事件</title>
+	<style type="text/css">
+		div{
+			position: fixed;
+			right: 0;
+			bottom: 40px;
+			display: none;
+		}
+	</style>
+	<script>
+		function getClientHeight(){
+				var result = 0;
+				if(window.innerHeight){
+					result = window.innerHeight;
+				}
+				else{
+					//检查一下当前浏览器的模式
+					//标准模式：CSS1Compat    怪癖模式："BackCompat"
+					if(document.compatMode == "CSS1Compat"){
+						//标准模式
+						result = document.documentElement.clientHeight;
+					}
+					else{
+						result = document.body.clientHeight;
+					}
+				}
+				return result;
+			}
+
+		window.onload=function(){
+			window.onscroll = function(){
+				var sTop = document.documentElement.scrollTop + document.body.scrollTop;
+				if(sTop>getClientHeight()){
+					document.getElementById("topBtn").style.display = "block";
+				}
+				else{
+					document.getElementById("topBtn").style.display = "none";
+				}
+				
+			}
+
+			document.getElementById("topBtn").onclick=function(){
+				var sTop = document.documentElement.scrollTop + document.body.scrollTop;
+				var timerid = setInterval(function(){
+					sTop -= 10;
+					console.log(sTop);
+					document.body.scrollTop = document.documentElement.scrollTop = sTop;
+					if(sTop<=0){
+						clearInterval(timerid);
+					}
+				},2);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="topBtn"><img src="top.png" /></div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+</body>
+</html>

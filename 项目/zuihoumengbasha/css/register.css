@@ -1,0 +1,162 @@
+@import url("base.css");
+a:hover {
+	color: #f00;
+	border-bottom: 1px solid #FF0000;
+}
+
+.error {
+	color: #f00;
+	margin-left: 6px;
+}
+
+body {
+	background: #cecccf;
+}
+
+.top,
+.main,
+.foot {
+	margin: 0 auto;
+}
+
+.top {
+	width: 1016px;
+	background: #FFFFFF;
+}
+
+.main {
+	width: 1016px;
+	height: 520px;
+	background: #fff;
+}
+
+.main .mleft {
+	float: left;
+}
+
+.main .mleft .mlimg {
+	display: block;
+	padding-top: 30px;
+	padding-left: 84px;
+}
+
+.main .mright {
+	float: left;
+	width: 340px;
+	margin-left: 125px;
+	margin-top: 40px;
+}
+
+.main .mright .mrtop {
+	width: 308px;
+	height: 18px;
+	margin: 0 auto;
+	padding-bottom: 15px;
+	;
+}
+
+.main .mright .mrtop a {
+	float: right;
+	color: #df025f;
+}
+
+.main .mright input {
+	display: block;
+	width: 300px;
+	height: 43px;
+	margin: 0 auto;
+	border: 1px solid #a9a9a9;
+	color: #a9a9a9;
+}
+
+.main .mright .mrtext {
+	background: url(../img/fromtext.jpg) no-repeat left center;
+	padding-left: 20px;
+	margin-bottom: 15px;
+}
+
+.main .mright .mrpassw {
+	margin-bottom: 25px;
+}
+
+.main .mright .mrpassw,
+.mrpassw2 {
+	background: url(../img/frompassw.jpg) no-repeat left center;
+	padding-left: 20px;
+}
+
+.texting {
+	width: 320px;
+	height: 43px;
+	margin-top: 24px;
+	margin-left: 8px;
+	border: 1px solid #a9a9a9;
+}
+
+.main .mright .texting .texting2 {
+	width: 160px;
+	height: 40px;
+	float: left;
+	border: none;
+}
+
+.main .mright span {
+	height: 16px;
+	float: right;
+	color: #A9A9A9;
+	font-size: 15px;
+	margin: 6px 0;
+}
+
+.main .mright .button {
+	width: 330px;
+	height: 45px;
+	margin: 0 auto;
+	display: block;
+	background: #DF025F;
+	border: 0px;
+	font-size: 15px;
+	color: #fff;
+	margin: 20px auto;
+	line-height: 45px;
+	text-align: center;
+}
+
+.main .mright .button a {
+	color: white;
+	border: none;
+}
+
+.main .mright .checkbox {
+	width: 13px;
+	height: 13px;
+	float: left;
+}
+
+.main .mright .xieyi {
+	font-size: 12px;
+	float: none;
+}
+
+.main .mright .xieyi a {
+	color: #f00
+}
+
+.foot {
+	padding-top: 82px;
+	width: 1016px;
+	height: 40px;
+	text-align: center;
+	line-height: 20px;
+	color: #888888;
+	font-size: 12px;
+}
+
+.foot a {
+	text-decoration: none;
+	color: #888888
+}
+
+.foot a:hover {
+	color: #f00
+}

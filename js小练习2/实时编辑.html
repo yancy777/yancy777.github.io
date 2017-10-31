@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格实时编辑</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var tds = document.getElementsByTagName("td");
+			for(var i = 0; i<tds.length; i++){
+				tds[i].onclick = function(){
+					var inputNode = document.createElement("input");
+					inputNode.type = "text";
+					inputNode.value = this.innerHTML;
+					this.innerHTML = "";
+					this.appendChild(inputNode);
+					inputNode.focus();  //选中某个文本框的焦点
+					inputNode.onclick = function(e){
+						e = e || event;
+						e.stopPropagation();
+						//e.cancelBubble = true;
+					}
+					var obj = this;
+					inputNode.onblur = function(){
+						obj.innerHTML = this.value;
+					}
+				}
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<td>我是大数据1</td>
+			<td>我是大数据2</td>
+			<td>我是大数据3</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>隔行变色</title>
+	<style type="text/css">
+		.odd{
+			background: red;
+		}
+		.even{
+			background: green;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var container = document.getElementById("container");
+			var divList = container.getElementsByTagName("div");
+			for(var i = 0; i<divList.length; i++){
+				if((i+1)%2==0){
+					divList[i].className = "even";
+				}
+				else{
+					divList[i].className = "odd";
+				}
+			}
+		}
+
+		function getChildNodes(element){
+			var e = element.childNodes;
+			var arr = [];
+			for(var i = 0; i<e.length; i++){
+				if(e[i].nodeType == 1){
+					arr.push(e[i]);
+				}
+			}
+			return arr;
+		}
+	</script>
+</head>
+<body>
+	<div id="container">
+		<div>数据1</div>
+		<div>数据2</div>
+		<div>数据3</div>
+		<div>数据4</div>
+		<div>数据5</div>
+		<div>数据6</div>
+		<div>数据7</div>
+		<div>数据8</div>
+		<div>数据9</div>
+		<div>数据10</div>
+	</div>
+</body>
+</html>

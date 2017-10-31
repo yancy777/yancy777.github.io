@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * { margin:0; padding: 0;}
+        .main {width: 500px; margin: 20px auto}
+        li { list-style: none; line-height: 30px; padding: 5px; border-bottom: 1px dashed #ccc}
+        ul { border: 1px solid #ccc; padding: 20px;  }
+        .pro-list {  top: 0; left: 50px;}
+        .cart-list { top: 0; right: 50px;}
+        .name { font-weight: bold}
+
+        li { overflow: hidden}
+        img { float: left; width: 100px; height: 100px;}
+        .info { float: left; width: 200px; margin: 0 10px;}
+        button { float: left; margin-top: 20px; cursor: pointer}
+    </style>
+
+
+    <script src="jquery-1.11.1.min.js" ></script>
+
+    <script>
+
+        $(document).on("click",".add",function(ev){
+            /*添加到购物车*/
+
+            /*1获取购物车的数据*/
+            var  cartList = localStorage.getItem("cartInfo");
+           // console.log(cartList);
+            var aCartInfo = JSON.parse(cartList)||[];
+            console.log(aCartInfo);
+
+            /*2要添加的数据*/
+            var oPro = $(this).parents(".pro-item")
+            var id = oPro.attr("data-pid");
+            var name = oPro.find(".name").html()
+            var price = oPro.find(".price").html()
+            var img = oPro.find("img").attr("src")
+
+            /*3判断是不是已经添加过这个商品*/
+            for(var i=0; i<aCartInfo.length;i++){
+                if(aCartInfo[i].pID==id){
+                    /*4如果这个商品已经添加过了，让他的数量加1*/
+                    aCartInfo[i].num = parseInt(aCartInfo[i].num)+1;
+                    //5更新本地存储
+                    localStorage.setItem("cartInfo",JSON.stringify(aCartInfo))
+                    /*跳出函数，不执行后面添加商品的 操作*/
+                    return
+                }
+            }
+            /*4把要添加的商品添加到，购物车数组里面*/
+            aCartInfo.push({
+                "pID":id,
+                "name":name,
+                "price":price,
+                "num":1,
+                "img":img
+            });
+
+            //5更新本地存储
+            localStorage.setItem("cartInfo",JSON.stringify(aCartInfo))
+
+
+        });
+
+
+
+
+    </script>
+</head>
+<body>
+
+
+
+<div class="main">
+    <h3>商品列表</h3>
+    <ul class="pro-list">
+        <li class="pro-item"  data-pid="1">
+            <img src="1.jpg" />
+            <div class="info">
+                <p class="name" >西瓜</p>
+                <p>价格:￥<em class="price">200</em></p>
+            </div>
+
+            <button class="add">添加到购物车</button>
+        </li>
+
+        <li class="pro-item"  data-pid="2">
+            <img src="2.jpg" />
+            <div class="info">
+                <p class="name" >东瓜</p>
+                <p>价格:￥<em class="price">200</em></p>
+            </div>
+
+            <button class="add">添加到购物车</button>
+        </li>
+
+        <li class="pro-item"  data-pid="3">
+            <img src="1.jpg" />
+            <div class="info">
+                <p class="name">南瓜</p>
+                <p>价格:￥<em class="price">200</em></p>
+            </div>
+
+            <button class="add" >添加到购物车</button>
+        </li>
+
+    </ul>
+</div>
+
+
+
+</body>
+</html>

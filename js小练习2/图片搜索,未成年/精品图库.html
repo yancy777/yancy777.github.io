@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="keyword" />
+		<meta name="" />
+		<meta name="" />
+		<title>It's My</title>
+		<style>
+			*{margin:0px;padding:0px;border:0px;font:14px "微软雅黑";}
+			p{width:900px;font-size:60px;text-align:center;margin:0 auto;margin-top:15px;border:2px solid #ccc;border-radius:30px;box-shadow:7px 7px 17px #ff318c;background:rgba(180,0,50,0.7); font-weight:900;}
+			img{height:550px; width:900px;}
+			#box{height:550px;width:900px;border:2px solid #ccc;border-radius:30px;overflow:hidden;box-shadow:7px 7px 17px #ff318c;margin:0 auto;margin-top:45px}
+			#btm{width:800px;margin:0 auto;height:37px;background:rgba(180,0,50,0.7);border-radius:20px;box-shadow:3px 3px 10px #ff318c;padding-top:13px;
+			padding-left:100px;}
+			input{border-radius:10px;height:25px;width:90px;color:#90f;}
+			input.ipt{cursor:pointer;}
+			input.ipt:hover{background:#ab2efe;color:#fff;}
+			span{color:#fff;}
+		</style
+		<link rel="stylesheet" type="text/css" href="" />
+		<script type="text/javascript">
+			var z=0;
+			
+			function q1(n)
+			{
+				
+				var x=document.getElementById("img1");
+				var y=new Array("m/1.jpg","m/2.jpg","m/3.jpg","m/4.jpg","m/5.jpg","m/6.jpg","m/7.jpg","m/8.jpg","m/9.jpg","m/10.jpg","m/11.jpg","m/12.jpg","m/13.jpg","m/14.jpg","m/15.jpg","m/16.jpg","m/17.jpg","m/18.jpg","m/19.jpg","m/20.jpg","m/21.jpg","m/22.jpg","m/23.jpg","m/24.jpg","m/25.jpg","m/26.jpg","m/27.jpg","m/28.jpg","m/29.jpg","m/30.jpg","m/31.jpg","m/32.jpg","m/33.jpg","m/34.jpg","m/35.jpg")
+				var m=document.getElementById("text1").value;
+				var f=Math.floor(Math.random()*1000)
+				
+				if(n==1)
+				{
+					x.src=y[0];
+					z=0;
+				}
+				if(n==2)
+				{
+					z--;
+					if(z==-1)
+					{
+						z=y.length-1;
+					}
+					x.src=y[z];
+				}
+				if(n==3)
+				{
+					z++;
+					if(z==y.length-1)
+					{
+						z=0;
+					}
+					x.src=y[z];
+				}
+				
+				if(n==4)
+				{
+					
+					x.src=y[y.length-1];
+					z=y.length-2;
+				
+				}
+				if(n==5)
+				{
+					
+					
+					if(m>0&&m<=y.length)
+					{
+						x.src=y[m-1];
+						z=m-1;
+					}
+					
+					else if(m<0)
+					{
+					  alert("亲，不能输入负数哦");
+					  
+					}
+					else if(m=0)
+					{
+					  alert("亲，不能输入零哦");
+					  
+					}
+					else
+					{
+					  alert("亲，只有34张图哦");
+					}
+				}
+				if(n==6)
+				{
+				
+					x.src=y[f%35];
+					z=f%35;
+				}
+				
+				
+			
+			}
+				window.onload=function()
+				{
+					setInterval('q1(3)',3000);
+				}
+		</script>
+	</head>
+	<body>
+	<p>精品图库</p>
+	<div id="box">
+		<img id="img1" src="m/1.jpg"/><br/></div>
+	<div id="btm">
+		<input class="ipt" type="button" value="第一张" onclick="q1(1)"/>
+		<input class="ipt" type="button" value="上一张" onclick="q1(2)"/>
+		<input class="ipt" type="button" value="下一张" onclick="q1(3)"/>
+		<input class="ipt" type="button" value="最后一张" onclick="q1(4)"/>
+		<span>搜索图片第 </span><input id="text1" value="" type="text"/><span>&nbsp;张</span>
+		<input class="ipt" type="button" value="搜索" onclick="q1(5)"/>	
+		<input class="ipt" type="button" value="随机一张" onclick="q1(6)"/>
+	</div>
+	</body>
+
+</html>

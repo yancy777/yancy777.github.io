@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" >
+	<title></title>
+	<script src="time.js"></script>
+	<script>
+	window.onload = function(){
+		function fn01(){
+			var d =new Date();
+			var time=toFormat(d,"-");
+			//document.write(time);
+			div1.innerHTML=time;
+		}
+		setInterval(fn01,1000);
+	}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

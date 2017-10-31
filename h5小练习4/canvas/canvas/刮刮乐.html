@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		 <style>
+        * { margin: 0; padding: 0;}
+      	canvas {background-size: 600px 400px; border: 1px solid red;}
+    </style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="600" height="400"></canvas>
+		橡皮擦会擦掉所有！
+	</body>
+	<script>
+		var oCanvas = document.getElementById("myCanvas");
+    	var ctx = oCanvas.getContext("2d");
+		ctx.font="bold 100px 微软雅黑";
+		ctx.fillStyle = "red";
+		ctx.textBaseline = "center";
+		ctx.fillText("恭喜发财!",100,100);
+		ctx.fillText("\\(>o<)/",140,220);
+		
+		ctx.globalAlpha=0.9;
+   	 	ctx.fillStyle="#989898";
+  		ctx.fillRect(0,0,600,400);
+  		oCanvas.onmousedown=function(ev){
+  			 ctx.globalCompositeOperation = "destination-out";//原有图像非交际
+  			 oCanvas.onmousemove=function(ev){
+  			 ctx.beginPath();
+  			 var mouseX=ev.offsetX;
+  			 var mouseY=ev.offsetY;
+  			 ctx.fillRect(mouseX,mouseY,50,50);
+  			
+  			 }
+  			 oCanvas.onmouseup=function(){
+	             oCanvas.onmousemove = null;
+	             oCanvas.onmouseup = null;
+           }
+  		}
+	</script>
+</html>

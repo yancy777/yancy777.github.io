@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="mycookie.js"></script>
+</head>	
+<boby>
+	<input type ="text" id="t1">
+	<input type="checkbox" id="c1"><label for="c1">记住密码</label>
+	<input type="submit" id="s1" value="登 录">
+	<script >
+		window.onload=function(){
+			var s1=document.getElementById("s1");
+			s1.onclick=function(){
+				var t1=document.getElementById("t1");
+				var c1=document.getElementById("c1");
+				var date=new Date();
+				date.setDate(date.getDate()+3);
+				if(c1.checked){
+					setCookie("usename",t1.value,date);
+				}
+			}
+			document.getElementById("t1").value=getCookie("usename");
+		}
+	</script>
+</boby>
+</html>

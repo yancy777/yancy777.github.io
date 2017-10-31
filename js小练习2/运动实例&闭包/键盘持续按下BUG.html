@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>键盘持续按下BUG</title>
+</head>
+<body>
+	<div id="div1" style="width:100px;height:100px; background:red; position:absolute; left:0; top:0;"></div>
+	<script>
+		var isRight = false;
+		var div1 = document.getElementById("div1");
+		document.onkeydown = function(e){
+			e = e || event;
+			if(e.keyCode == 39){
+				isRight = true;
+			}
+			console.log(isRight);
+		}
+		document.onkeyup = function(e){
+			e = e || event;
+			if(e.keyCode == 39){
+				isRight = false;
+			}
+			console.log(isRight);
+		}
+		setInterval(function(){
+			if(isRight){
+				div1.style.left = div1.offsetLeft + 3 + "px";
+			}
+		},1);
+	</script>
+</body>
+</html>

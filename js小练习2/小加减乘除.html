@@ -1,0 +1,53 @@
+﻿<input type="text" id="text1" >
+<input type="text" id="text2">
+<input type="button" onclick="calculation('1')"  value="+">
+<input type="button" onclick="calculation('2')"  value="-">
+<input type="button" onclick="calculation('3')"  value="*">
+<input type="button" onclick="calculation('4')"  value="/">
+<script>
+	function calculation(option){
+		var t1=Number(text1.value)
+		var t2=Number(text2.value)
+		switch(option){
+			case "1":
+			     add(t1,t2)
+				 break;
+			case "2":
+				subtract(t1,t2)
+				break;
+			case "3":
+				times(t1,t2)
+				break;
+			case "4":
+				divide(t1,t2)
+				break;
+		}
+		
+	}
+	function add(num1,num2){
+		alert(num1+num2)			
+	}
+	function subtract(num1,num2){
+		alert(num1-num2)			
+	}
+	function times(num1,num2){
+		alert(num1*num2)			
+	}
+	function divide(num1,num2){
+		alert(num1/num2)			
+	}
+
+	
+	
+</script>
+
+
+
+
+
+
+
+
+
+
+

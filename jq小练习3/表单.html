@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo3</title>
+	<script src="js/jquery-1.11.3.js"></script>
+</head>
+<body>
+	<form>
+	    <p>
+	        <label for="username">用户名</label>
+	        <input type="text" id="username" placeholder="请输入用户名">
+	    </p>
+	    <p>
+	        <label for="nickname">昵称</label>
+	        <input type="text" id="nickname" placeholder="输入一个昵称">
+	    </p>
+	    <p>
+	        <label for="password">密码</label>
+	        <input type="password" id="password">
+	    </p>
+	    <p>
+	        <label for="passwordchecked">确认密码</label>
+	        <input type="password" id="passwordchecked">
+	    </p>
+	    <p>
+	        <label for="sex">性别</label>
+	        <select id="sex">
+	            <option value="male">男</option>
+	            <option value="female">女</option>
+	        </select>
+	    </p>
+	    <p>
+	        <label for="">爱好</label>
+	        <label>
+	            <input type="checkbox" value="1">旅游</label>
+	        <label>
+	            <input type="checkbox" value="2">睡觉</label>
+	        <label>
+	            <input type="checkbox" value="3">上网</label>
+	            <label>
+	            <input type="checkbox" value="4">看电影</label>
+	    </p>
+	    <p>
+	        <label for="">是否已婚</label>
+	        <label>
+	            <input type="radio" value="1" name="married">是</label>
+	        <label>
+	            <input type="radio" value="0" name="married">否</label>
+	    </p>
+	    <div class="center">
+	        <input type="hidden" value="注册表单">
+	        <input type="button" value="返回" />
+	        <button type="submit">提交</button>
+	        <button type="reset">重置</button>
+	    </div>
+	    <textarea name="" id="" cols="30" rows="10"></textarea>
+	</form>
+	<div class="msg"></div>
+
+
+	<table>
+	  <tr style="display:none"><td>Value 1</td></tr>
+	  <tr><td>Value 2</td></tr>
+	</table>
+
+
+
+	<ul>
+	  <li>John</li>
+	  <li>Karl</li>
+	  <li>Brandon</li>
+	</ul>
+	<ul>
+	  <li>Glen</li>
+	</ul>
+	<script>
+	// :input      比较特殊 同时可以选出  input标签  select标签  textarea标签 button标签
+	// $(':input').css('background','red');
+
+	// :text
+
+	// $(':text').css('background','red');
+
+	// $(':password').css('background','red');
+
+
+	// :button   button 标签 和type=button
+
+	// $(':button').css('background','red');
+
+
+	// $('tr:hidden').css('background','red');
+
+	// 子元素选择器  注意nth-child（）后边的参数  传的是位置 不是下标
+	// $('ul>li:nth-child(1)').css('background','red');
+
+
+	// $('ul>li:first-child').css('background','red');
+
+	// $('ul>li:last-child').css('background','red');
+
+	// :only-child  匹配的是父元素下只有一个子元素的子元素
+	// $('ul>li:only-child').css('background','red');
+	</script>
+</body>
+</html>

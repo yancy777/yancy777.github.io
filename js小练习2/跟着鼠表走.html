@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标走</title>
+</head>
+<body>
+<div id=d1 style="width:100px;height:100px; background:#f00;position:absolute"></div>
+	<script >
+		var d1=document.getElementById("d1")
+		document.onmousemove=function(e){
+			e=e||event;
+			d1.style.left=e.clientX+10+"PX"
+			d1.style.top=e.clientY+10+"PX"
+			d1.innerHTML="X:"+e.clientX+"Y:"+e.clientY
+		}
+	</script>
+</body>
+</html>

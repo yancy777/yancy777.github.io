@@ -1,0 +1,25 @@
+* { padding: 0; margin: 0; box-sizing: border-box}
+img { vertical-align: top;}
+html,body { height: 100%; overflow: hidden}
+
+%position { position: absolute;top: 0; left: 0; width: 100%;}
+
+.box{@extend %position; bottom:0;}
+.swiper-container { width: 100%; height: 100%;}
+
+
+.pageone {
+  background-color: #3e88f1;
+  .indexFlight {
+    @extend %position; top: 50%; margin-top:-1.6rem; text-align: center;
+    img {  width: 5.4rem; height: auto;}
+  }
+  .indexBuilding{
+    @extend %position; top: auto; bottom: 0;
+    img { width: 100%; height: auto;}
+  }
+}
+
+.pagetwo {
+  background-color: #fff;
+}

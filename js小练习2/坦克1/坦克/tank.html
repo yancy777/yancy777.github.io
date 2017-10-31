@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>坦克大战网页版</title>
+    <style>
+        *{margin:0;padding:0;}
+        #box{position: fixed;left:100px;top:100px; }
+        .tank{position: fixed;left:100px;top:100px;}
+        .missile{position:absolute;background-color:pink;width: 20px;height:20px;border-radius: 10px;}
+        body{overflow-x: hidden;overflow-y: hidden;}
+
+    </style>
+    <script type="text/javascript" src="js/mini.js"></script>
+</head>
+<body>
+    <div id="box">
+        <div></div>
+        <img id="tankPic" src="" />
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function(){
+
+            var tankPic = document.getElementById('tankPic');
+            var isL = false;
+            var isU = false;
+            var isR = false;
+            var isD = false;
+            var dirs = ['L','LU','U','RU','R','RD','D','LD','STOP'];
+            var misArr = [];
+            var misI = 0;
+            var tankArr = [];
+            var tankI = 0;
+            function checkKeyDown(code){
+                switch (code){
+                    case 37:
+                        isL = true;
+                        isR = false;
+                        break;
+                    case 38:
+                        isU = true;
+                        isD = false;
+                        break;
+                    case 39:
+                        isR = true;
+                        isL = false;
+                        break;
+                    case 40:
+                        isD = true;
+                        isU = false;
+                        break;
+
+                }
+            }
+            function checkKeyUp(code){
+                switch (code){
+                    case 37:
+                        isL = false;
+                        break;
+                    case 38:
+                        isU = false;
+                        break;
+                    case 39:
+                        isR = false;
+                        break;
+                    case 40:
+                        isD = false;
+                        break;
+                }
+            }
+            function checkDir(obj){
+                if(isL==false && isU==false && isR==false && isD==false){
+                    return obj.dir;
+                }else{
+                    if(isL==true && isU==false && isR==false && isD==false){
+                        return dirs[0];
+                    }
+                    if(isL==true && isU==true && isR==false && isD==false){
+                        return dirs[1];
+                    }
+                    if(isL==false && isU==true && isR==false && isD==false){
+                        return dirs[2];
+                    }
+                    if(isL==false && isU==true && isR==true && isD==false){
+                        return dirs[3];
+                    }
+                    if(isL==false && isU==false && isR==true && isD==false){
+                        return dirs[4];
+                    }
+                    if(isL==false && isU==false && isR==true && isD==true){
+                        return dirs[5];
+                    }
+                    if(isL==false && isU==false && isR==false && isD==true){
+                        return dirs[6];
+                    }
+                    if(isL==true && isU==false && isR==false && isD==true){
+                        return dirs[7];
+                    }
+                    if(isL==true && isU==true && isR==true && isD==false){
+                        return obj.dir;
+                    }
+                    if(isL==false && isU==true && isR==true && isD==true){
+                        return obj.dir;
+                    }
+                    if(isL==true && isU==false && isR==true && isD==true){
+                        return obj.dir;
+                    }
+                    if(isL==true && isU==true && isR==false && isD==true){
+                        return obj.dir;
+                    }
+                }
+            }
+            var Tank = function(x,y,isGood){
+                this.dir = 'STOP';
+                this.body = document.createElement('img');
+                this.body.className = 'tank';
+                this.body.style.left = x + 'px';
+                this.body.style.top = y + 'px';
+                this.isGood = isGood;
+                this.id = tankI;
+                this.giveDir = function(obj) {
+                    obj.dir = dirs[Math.floor(Math.random()*10)];
+                };
+                if (this.isGood != 'good'){
+                    eval("var dirTimer" + this.id + "= setInterval("+this.giveDir+",3000)")
+                }
+                this.delSelf = function () {
+                    if(this.isGood != 'good'){
+                        clearInterval(eval("dirTimer" + this.id));
+                    }
+                    this.body.parentNode.removeChild(this.body);
+                };
+                document.documentElement.appendChild(this.body);
+                fixTankWidth(this);
+                if(isGood == 'good'){
+                    this.body.src = 'img/' + this.dir + '.gif';
+                }else if(isGood == 'bad'){
+                    this.body.src = 'img/bad' + this.dir + '.gif';
+                }
+            };
+            var Missile = function(objTank){
+                this.dir = objTank.dir;
+                this.body = document.createElement('div');
+                this.body.className = "missile";
+                this.body.style.left = parseInt(toolkit.getStyle(objTank.body).left) + objTank.body.offsetWidth/2 - 10 + 'px';
+                this.body.style.top = parseInt(toolkit.getStyle(objTank.body).top) + objTank.body.offsetHeight/2 - 10 + 'px';
+                this.dir = objTank.dir;
+                this.isGood = objTank.isGood;
+                this.id = misI;
+                this.delSelf = function(){
+                    this.body.parentNode.removeChild(this.body);
+                };
+                document.documentElement.appendChild(this.body);
+            };
+            function drawTank(x,y,isGood){
+                var tank = new Tank(x,y,isGood);
+                tankArr.push(tank);
+            }
+            function drawMis(objTank){
+                var missile = new Missile(objTank);
+                misArr.push(missile);
+            }
+            function fixPos(obj){
+                var maxX = document.documentElement.clientWidth  - obj.body.offsetWidth;
+                var maxY = document.documentElement.clientHeight  - obj.body.offsetHeight;
+                if(parseInt(toolkit.getStyle(obj.body).left)<0){
+                    obj.body.style.left = 0;
+                }
+                if(parseInt(toolkit.getStyle(obj.body).left)>maxX){
+                    obj.body.style.left = maxX + 'px';
+                }
+                if(parseInt(toolkit.getStyle(obj.body).top)<0){
+                    obj.body.style.top = 0;
+                }
+                if(parseInt(toolkit.getStyle(obj.body).top)>maxY){
+                    obj.body.style.top = maxY + 'px';
+                }
+            }
+            function deleteMis(objMis){
+                if(objMis.body.parentNode){
+                    if(parseInt(toolkit.getStyle(objMis.body).left)<=0||parseInt(toolkit.getStyle(objMis.body).left)>=document.documentElement.clientWidth||parseInt(toolkit.getStyle(objMis.body).top)<=0||parseInt(toolkit.getStyle(objMis.body).top)>=document.documentElement.clientHeight){
+                        objMis.delSelf();
+//                        console.log(document.documentElement.children.length);
+                    }
+                }
+            }
+            function fixTankWidth(objTank){
+                if(objTank.dir == 'RU'||objTank.dir == 'RD'||objTank.dir == 'LU'||objTank.dir == 'LD'){
+                    objTank.body.width = 70.75;
+                }else{
+                    objTank.body.width = 50;
+                }
+            }
+            function move(obj,speed){
+                var objDir = obj.dir;
+                obj.X = obj.body.offsetLeft;
+                obj.Y = obj.body.offsetTop;
+                var crtLeft = parseInt(toolkit.getStyle(obj.body).left);
+                var crtTop = parseInt(toolkit.getStyle(obj.body).top);
+
+                switch (objDir){
+                    case 'L':
+                        obj.body.style.left = (crtLeft - speed) + 'px';
+                        break;
+                    case 'LU':
+                        obj.body.style.left =(crtLeft - Math.sqrt(Math.pow(speed,2)/2)) + 'px';
+                        obj.body.style.top = (crtTop - Math.sqrt(Math.pow(speed,2)/2)) + 'px';
+                        break;
+                    case 'U':
+                        obj.body.style.top = (crtTop - speed) +'px';
+                        break;
+                    case 'RU':
+                        obj.body.style.left = (crtLeft + Math.sqrt(Math.pow(speed,2)/2)) +'px';
+                        obj.body.style.top = (crtTop - Math.sqrt(Math.pow(speed,2)/2)) + 'px';
+                        break;
+                    case 'R':
+                        obj.body.style.left = (crtLeft + speed) + 'px';
+                        break;
+                    case 'RD':
+                        obj.body.style.left = (crtLeft + Math.sqrt(Math.pow(speed,2)/2)) + 'px';
+                        obj.body.style.top = (crtTop + Math.sqrt(Math.pow(speed,2)/2)) + 'px';
+                        break;
+                    case 'D':
+                        obj.body.style.top =(crtTop + speed) + 'px';
+                        break;
+                    case 'LD':
+                        obj.body.style.left = (crtLeft - Math.sqrt(Math.pow(speed,2)/2)) + 'px';
+                        obj.body.style.top = (crtTop + Math.sqrt(Math.pow(speed,2)/2)) + 'px';
+                        break;
+                }
+            }
+            function actTank(objTank){
+                if (objTank.isGood == 'good'){
+                    objTank.dir = checkDir(objTank);
+                    objTank.body.src = 'img/'+objTank.dir+'.gif';
+                }else if(objTank.isGood == 'bad'){
+                    objTank.body.src = 'img/bad'+objTank.dir+'.gif';
+
+
+                }
+                fixTankWidth(objTank);
+                move(objTank,4);
+                fixPos(objTank);
+            }
+            function actMis(){
+                for(var i=0;i<misI;i++){
+                    move(misArr[i],10);
+                }
+                for(var i=0;i<misI;i++){
+                    deleteMis(misArr[i]);
+                }
+            }
+            function boom(obj){
+                var bang = document.createElement('div');
+                var r = 50;
+                bang.style.position = 'absolute';
+                bang.style.width = r + 'px';
+                bang.style.height = r + 'px';
+                bang.style.borderRadius = 25 + 'px';
+                bang.style.background = 'red';
+                bang.style.left = parseInt(obj.X) + parseInt(obj.body.offsetWidth/2) - r/2 + 'px';
+                bang.style.top = parseInt(obj.Y) + parseInt(obj.body.offsetHeight/2) - r/2 + 'px';
+                document.documentElement.appendChild(bang);
+                setTimeout(function(){
+                    document.documentElement.removeChild(bang);
+                },500);
+
+            }
+            function beat(){
+                for(var i=0;i<tankI;i++){
+                    for(var j=0;j<misI;j++){
+                        if (Math.sqrt(Math.pow(((tankArr[i].X+tankArr[i].body.offsetWidth/2)-(misArr[j].X+misArr[j].body.offsetWidth/2)),2)+Math.pow(((tankArr[i].Y+tankArr[i].body.offsetHeight/2)-(misArr[j].Y)+misArr[j].body.offsetHeight/2),2))<40&&tankArr[i].isGood!=misArr[j].isGood){
+                            boom(tankArr[i]);
+                            tankArr[i].delSelf();
+                            tankArr.splice(i,1);
+                            i--;
+                            tankI--;
+                            clearInterval()
+                            misArr[j].delSelf();
+                            misArr.splice(i,1);
+                            j--;
+                            misI--;
+                        }
+                    }
+                }
+            }
+            function actAll(){
+                for(var i=0;i<tankI;i++) {
+                    actTank(tankArr[i]);
+                }
+                actMis();
+                beat();
+            }
+            toolkit.addEvent(document,'keydown',function (event) {
+                event = event || window.event;
+                var key = event.keyCode || event.which;
+//                alert(key);
+                checkKeyDown(key);
+                if(key == 17){
+                    drawMis(tankArr[0]);
+                    misI++;
+                }
+//                console.log(misArr[0]);
+//                alert(isL +','+isU+','+isR+','+isD);
+//                alert(checkDir(tankArr[0]))
+            });
+            toolkit.addEvent(document,'keyup',function (event) {
+                event = event || window.event;
+                var key = event.keyCode || event.which;
+                checkKeyUp(key);
+            });
+            drawTank(100,100,'good');
+            tankI++;
+            for(var i=0;i<5;i++) {
+                drawTank(800 + i * 100, 100, 'bad');
+                tankI++;
+            }
+            setInterval(actAll,20);
+        }
+    </script>
+
+</body>
+</html>
