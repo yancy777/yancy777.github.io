@@ -1,5 +1,8 @@
 # Web前端程序员简历模板
 
+本简历模板由国内首家互联网人才拍卖网站「 [JobDeer.com](http://www.jobdeer.com) 」提供。
+
+（括号里的是我们的顾问编写的说明，建议在简历书写完成后统一删除）
 
 ## 先讲讲怎样才是一份好的技术简历
 
@@ -133,10 +136,12 @@
 - w3c(168)
 - div(156)
 - php(134)
+- xhtml(106)
 - java(92)
 - ui(78)
 - photoshop(75)
 - dom(63)
+- xml(56)
 - json(54)
 - yui(51)
 - flash(45)
@@ -144,6 +149,10 @@
 - python(43)
 - http(38)
 - dreamweaver(38)
+- ext(33)
+- linux(33)
+- seo(32)
+- prototype(29)
 - chrome(28)
 - pc(28)
 - nodejs(28)
@@ -161,9 +170,15 @@
 - node(21)
 - ruby(20)
 - github(19)
+- ios(18)
 - ie6(18)
+- android(18)
+- asp(18)
 - sass(17)
 - wap(16)
+- mootools(16)
+- ie(16)
+- mysql(15)
 - flex(14)
 - firebug(13)
 - bom(13)
@@ -174,9 +189,20 @@
 - git(10)
 - dw(10)
 - as(10)
+- mac(10)
+- psd(8)
+- o2o(7)
+- dojo(7)
+- actionscript3(6)
 - grunt(5)
+- ue(5)
 - zepto(5)
+- actionscript(5)
 - ie8(5)
+- coffeescript(5)
+- django(4)
+
+
 
 
 ---
