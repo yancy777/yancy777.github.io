@@ -1,86 +1,668 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html>
-<head>
-<title>My Resume a Personal Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
-<!--mobile apps-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="My Resume Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+
+	<head>
+		<title>My Resume a Personal Category Flat Bootstrap Responsive Website Template</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="My Resume Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!--mobile apps-->
-<!--Custom Theme files-->
-<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-<link href="css/style.css" type="text/css" rel="stylesheet" media="all">
-<link rel="stylesheet" href="css/swipebox.css">
-<!--//Custom Theme files-->
-<!--js-->
-<script src="js/jquery-1.11.1.min.js"></script> 
-<!-- //js -->
-<!--web-fonts-->
-<link href='//fonts.googleapis.com/css?family=Overlock:400,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
-<!--//web-fonts-->
-<!--start-smooth-scrolling-->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>	
-<script type="text/javascript">
-		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event){		
-				event.preventDefault();
-				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		<script type="application/x-javascript">
+			addEventListener("load", function() {
+				setTimeout(hideURLbar, 0);
+			}, false);
+
+			function hideURLbar() {
+				window.scrollTo(0, 1);
+			}
+		</script>
+
+		<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+		<link href="css/style.css" type="text/css" rel="stylesheet" media="all">
+		<link rel="stylesheet" href="css/swipebox.css">
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<link href='//fonts.googleapis.com/css?family=Overlock:400,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="js/move-top.js"></script>
+		<script type="text/javascript" src="js/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event) {
+					event.preventDefault();
+					$('html,body').animate({
+						scrollTop: $(this.hash).offset().top
+					}, 1000);
+				});
 			});
-		});
-</script>
-<!--//end-smooth-scrolling-->
-</head>
-<body>
-	<!--banner-->
+		</script>
+	</head>
+	<!--zh-CN-->
+
+	<body>
+		<div id="home" class="banner">
+			<div class="banner-info">
+				<div class="container">
+					<div class="col-md-4 header-left">
+						<img src="images/img.jpg" alt="" />
+					</div>
+					<div class="col-md-8 header-right">
+						<h2>你好</h2>
+						<h1>我是闫聪洋</h1>
+						<h6>前端Web开发/架构师</h6>
+						<ul class="address">
+							<li>
+								<ul class="address-text">
+									<li><b>生日</b></li>
+									<li>09-09-1991</li>
+								</ul>
+							</li>
+							<li>
+								<ul class="address-text">
+									<li><b>电话 </b></li>
+									<li>18141907330</li>
+								</ul>
+							</li>
+							<li>
+								<ul class="address-text">
+									<li><b>地址 </b></li>
+									<li>Zhoukou, Henan</li>
+								</ul>
+							</li>
+							<li>
+								<ul class="address-text">
+									<li><b>邮箱</b></li>
+									<li>18141907330@163.com</li>
+								</ul>
+							</li>
+							<li>
+								<ul class="address-text">
+									<li><b>博客 </b></li>
+									<li>
+										<a href="https://github.com/yancy777"><img src="images/bolggit.jpg"> </a>
+										<a href="http://blog.csdn.net/Y_anCy"><img src="images/bolgcsdn.jpg"> </a>
+										<a href="http://www.cnblogs.com/yancongyang/"><img src="images/bolgyuan.jpg"> </a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+		<div class="top-nav wow">
+			<div class="container">
+				<div class="navbar-header logo">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					Menu
+				</button>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<div class="menu">
+						<ul class="nav navbar">
+							<li>
+								<a href="#about" class="scroll">关于</a>
+							</li>
+							<li>
+								<a href="#work" class="scroll">经验</a>
+							</li>
+							<li>
+								<a href="#education" class="scroll">教育</a>
+							</li>
+							<li>
+								<a href="#skills" class="scroll">技能</a>
+							</li>
+							<li>
+								<a href="#projects" class="scroll">项目</a>
+							</li>
+							<!--<li><a href="#contact" class="scroll">联系</a></li>-->
+						</ul>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="about" class="about">
+			<div class="container">
+				<h3 class="title">关于</h3>
+				<div class="col-md-8 about-left">
+					<p style="text-indent: 2rem;">我是一名代码整洁开发者，整洁代码对自己负责，更是对团队负责！
+						<p style="text-indent: 2rem;">我是一名健身爱好者，我一直坚信：“只有拥有强壮的体魄，才能支撑自己多加班多改Bug”!</p>
+						<!--每次新框架都特别好奇他的优势什么？它是怎么工作的，原理是什么？ 如果不用它的话我还可以用什么？-->
+					</p>
+					<p style="text-indent: 2rem;">从页面开发——前端开发——前端架构成长经历：慕课网学习时长320小时，博客园105篇（大多都是备忘录），CSDN博客11篇（比较认真）；Github有自己项目代码和收藏的学习资料；有个人简历网站；个人的开发网站（yacy.top）；少许团队管理经验；渴望成为一名前端行业大神。
+					</p>
+				</div>
+				<div class="col-md-4 about-right">
+					<ul>
+						<h5>荣誉</h5>
+						<li><span class="glyphicon glyphicon-menu-right"></span>优秀员工奖</li>
+						<li><span class="glyphicon glyphicon-menu-right"></span>卓越业绩团队奖</li>
+						<li><span class="glyphicon glyphicon-menu-right"></span>最佳新人奖</li>
+						<li><span class="glyphicon glyphicon-menu-right"></span>优秀毕业生</li>
+						<li><span class="glyphicon glyphicon-menu-right"></span>励志奖学金 </li>
+					</ul>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<div id="work" class="work">
+			<div class="container">
+				<h3 class="title">经历</h3>
+				<div class="work-info">
+					<div class="col-md-6 work-left">
+						<h4>2016 - 至今 </h4>
+					</div>
+					<div class="col-md-6 work-right">
+						<h5><span class="glyphicon glyphicon-briefcase"> </span>北京睿莱教育科技有限公司</h5>
+						<p>睿莱（RELIABLE）科技主要为中国幼儿园提供3-6岁幼儿的国民体质检测服务以及于此相关的信息化产品。
+							<br>职位：前端开发/架构师</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="work-info">
+					<div class="col-md-6 work-right work-right2">
+						<h4>2015 - 2016 </h4>
+					</div>
+					<div class="col-md-6 work-left work-left2">
+						<h5>郑州威邦科技有限公司 <span class="glyphicon glyphicon-briefcase"> </span></h5>
+						<p>威邦科技主要针对中小型企业，提供网站策划，网站设计制作建设，网络推广营销于一体的专业服务<br>职位：页面开发</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+
+			</div>
+		</div>
+		<div id="education" class="education">
+			<div class="container">
+				<h3 class="title">教育</h3>
+				<div class="work-info">
+					<div class="col-md-6 work-left">
+						<h4>成人本科 - 2016</h4>
+					</div>
+					<div class="col-md-6 work-right">
+						<h5><span class="glyphicon glyphicon-education"> </span>洛阳师范学院</h5>
+						<p>洛阳师范学院继续教育学院 ，计算机科学与技术专业</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="work-info">
+					<div class="col-md-6 work-right work-right2">
+						<h4>页面开发 - 2014</h4>
+					</div>
+					<div class="col-md-6 work-left work-left2">
+						<h5>新华电脑教育 <span class="glyphicon glyphicon-education"></span></h5>
+						<p>郑州新华电脑教育，郑州市IT教育培训机构。</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="work-info">
+					<div class="col-md-6 work-left">
+						<h4>大学专科 - 2012</h4>
+					</div>
+					<div class="col-md-6 work-right">
+						<h5><span class="glyphicon glyphicon-education"> </span>安阳工学院</h5>
+						<p>
+							电子信息与自动化学院 ，电气自动化技术专业
+						</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+		<div id="skills" class="skills">
+			<div class="container">
+				<h3 class="title">技能</h3>
+				<div class="skills-info">
+					<div class="col-md-6 bar-grids">
+						<h6>HTML5<span>95% </span></h6>
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped active" style="width: 95%">
+							</div>
+						</div>
+						<h6>CSS3<span>90% </span></h6>
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped active" style="width: 90%">
+							</div>
+						</div>
+						<h6>JAVASCRIPT<span>90% </span></h6>
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped active" style="width: 90%">
+							</div>
+						</div>
+						<h6>JQUERY<span>90% </span></h6>
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped active" style="width: 90%">
+							</div>
+						</div>
+						<h6>BOOTSTRAP<span>90% </span></h6>
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped active" style="width: 90%">
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 bar-grids">
+						<h6>VUE<span>90% </span></h6>
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped active" style="width: 90%">
+							</div>
+						</div>
+						<h6>HIGHTCHARTS<span>95% </span></h6>
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped active" style="width: 95%">
+							</div>
+						</div>
+						<h6>REACT<span>60% </span></h6>
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped active" style="width: 70%">
+							</div>
+						</div>
+						<h6>PYTHON<span>60% </span></h6>
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped active" style="width: 60%">
+							</div>
+						</div>
+						<h6>MYSQL<span>60% </span></h6>
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped active" style="width: 50%">
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+		<div id="projects" class="portfolio">
+			<div class="container">
+				<h3 class="title wow zoomInLeft animated" data-wow-delay=".5s">项目</h3>
+				<div class="sap_tabs">
+					<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+						<ul class="resp-tabs-list wow fadeInUp animated" data-wow-delay=".7s">
+							<li class="resp-tab-item"><span>全部</span></li>
+							<li class="resp-tab-item"><span>网站</span></li>
+							<li class="resp-tab-item"><span>公众号</span></li>
+							<li class="resp-tab-item"><span>报告打印</span></li>
+						</ul>
+						<div class="clearfix"> </div>
+						<div class="resp-tabs-container">
+							<div class="tab-1 resp-tab-content">
+								<div class="tab_img">
+									<!--网站6-->
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid">
+											<a href="images/project/g1.png" class="swipebox" title=" ">
+												<img src="images/project/g1.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<!--<p><a href="http://www.mreliable.com/pages/index.html" >公司官网:Bootstrapjs框架</a></p>-->
+													<p>公司官网：Bootstrapjs框架;<br>http://www.mreliable.com</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid effect-sarah">
+											<a href="images/project/g2.png" class="swipebox" title=" ">
+												<img src="images/project/g2.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>A后台管理系统：Bootstrapjs框架,Handlebarsjs模板引擎;<br>http://www.imreliable.com.cn</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid">
+											<a href="images/project/g3.png" class="swipebox" title=" ">
+												<img src="images/project/g3.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>B后台管理系统：Element UI(VUE.JS)框架;<br>http://bi.imreliable.com</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid effect-sarah">
+											<a href="images/project/g4.png" class="swipebox" title=" ">
+												<img src="images/project/g4.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>A后台管理系统2.0：Element UI(VUE.JS)框架;<br>http://admin.imreliable.com</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid effect-sarah">
+											<a href="images/project/g5.png" class="swipebox" title=" ">
+												<img src="images/project/g5.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>C后台管理系统：Element UI(VUE.JS)框架;<br>http://rc.imreliable.com</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid effect-sarah">
+											<a href="images/project/g6.png" class="swipebox" title=" ">
+												<img src="images/project/g6.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>BI大数据系统：Element UI(VUE.JS)框架;<br>http://stats.imreliable.com</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<!--公众号3-->
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid">
+											<a href="images/project/w1.png" class="swipebox" title=" ">
+												<img src="images/project/w1.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>A产品微信公众号：Mint UI(VUE.JS)框架;</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid">
+											<a href="images/project/w2.png" class="swipebox" title=" ">
+												<img src="images/project/w2.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>B产品微信公众号：Mint UI(VUE.JS)框架;</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid">
+											<a href="images/project/w3.png" class="swipebox" title=" ">
+												<img src="images/project/w3.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>C产品微信公众号：Mint UI(VUE.JS)框架;</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<!--打印3-->
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid">
+											<a href="images/project/p1.png" class="swipebox" title=" ">
+												<img src="images/project/p1.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>A产品家长报告：Handlebarsjs模板引擎，Highcharts.js数据显示图表库;</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid">
+											<a href="images/project/p2.png" class="swipebox" title=" ">
+												<img src="images/project/p2.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>B产品家长报告：Handlebarsjs模板引擎，JsBarcodejs;</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid">
+											<a href="images/project/p3.png" class="swipebox" title=" ">
+												<img src="images/project/p3.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>园所报告：Handlebarsjs模板引擎，Highcharts.js数据显示图表库;</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<!---->
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+							<div class="tab-1 resp-tab-content">
+								<div class="tab_img">
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid">
+											<a href="images/project/g1.png" class="swipebox" title=" ">
+												<img src="images/project/g1.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<!--<p><a href="http://www.mreliable.com/pages/index.html" >公司官网:Bootstrapjs框架</a></p>-->
+													<p>公司官网：Bootstrapjs框架;<br>http://www.mreliable.com</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid effect-sarah">
+											<a href="images/project/g2.png" class="swipebox" title=" ">
+												<img src="images/project/g2.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>A后台管理系统：Bootstrapjs框架,Handlebarsjs模板引擎;<br>http://www.imreliable.com.cn</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid">
+											<a href="images/project/g3.png" class="swipebox" title=" ">
+												<img src="images/project/g3.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>B后台管理系统：Element UI(VUE.JS)框架;<br>http://bi.imreliable.com</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid effect-sarah">
+											<a href="images/project/g4.png" class="swipebox" title=" ">
+												<img src="images/project/g4.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>A后台管理系统2.0：Element UI(VUE.JS)框架;<br>http://admin.imreliable.com</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid effect-sarah">
+											<a href="images/project/g5.png" class="swipebox" title=" ">
+												<img src="images/project/g5.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>C后台管理系统：Element UI(VUE.JS)框架;<br>http://rc.imreliable.com</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid effect-sarah">
+											<a href="images/project/g6.png" class="swipebox" title=" ">
+												<img src="images/project/g6.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>BI大数据系统：Element UI(VUE.JS)框架;<br>http://stats.imreliable.com</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+							<div class="tab-1 resp-tab-content">
+								<div class="tab_img">
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid">
+											<a href="images/project/w1.png" class="swipebox" title=" ">
+												<img src="images/project/w1.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>A产品微信公众号：Mint UI(VUE.JS)框架;</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid">
+											<a href="images/project/w2.png" class="swipebox" title=" ">
+												<img src="images/project/w2.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>B产品微信公众号：Mint UI(VUE.JS)框架;</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid">
+											<a href="images/project/w3.png" class="swipebox" title=" ">
+												<img src="images/project/w3.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>C产品微信公众号：Mint UI(VUE.JS)框架;</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+							<div class="tab-1 resp-tab-content">
+								<div class="tab_img">
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid">
+											<a href="images/project/p1.png" class="swipebox" title=" ">
+												<img src="images/project/p1.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>A产品家长报告：Handlebarsjs模板引擎，Highcharts.js数据显示图表库;</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid">
+											<a href="images/project/p2.png" class="swipebox" title=" ">
+												<img src="images/project/p2.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>B产品家长报告：Handlebarsjs模板引擎，JsBarcodejs;</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-4 portfolio-grids">
+										<div class="grid">
+											<a href="images/project/p3.png" class="swipebox" title=" ">
+												<img src="images/project/p3.png" alt="" class="img-responsive" />
+												<div class="figcaption">
+													<h3>My<span> Project</span></h3>
+													<p>园所报告：Handlebarsjs模板引擎，Highcharts.js数据显示图表库;</p>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+				<script type="text/javascript">
+					$(document).ready(function() {
+						$('#horizontalTab').easyResponsiveTabs({
+							type: 'default',
+							width: 'auto',
+							fit: true
+						});
+					});
+				</script>
+				<script src="js/jquery.swipebox.min.js"></script>
+				<script type="text/javascript">
+					jQuery(function($) {
+						$(".swipebox").swipebox();
+					});
+				</script>
+			</div>
+		</div>
+
+		<div class="footer">
+			<div class="container">
+				<p>© 2016 Yancy. All rights reserved | Design by
+					<a href="http://w3layouts.com">W3layouts</a>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var defaults = {
+					containerID: 'toTop',
+					containerHoverID: 'toTopHover',
+					scrollSpeed: 1200,
+					easingType: 'linear'
+				};
+
+				$().UItoTop({
+					easingType: 'easeOutQuart'
+				});
+
+			});
+		</script>
+		<script src="js/bootstrap.js"></script>
+	</body>
+	<!--en-US-->
+	<!--<body>
 	<div id="home" class="banner">
 		<div class="banner-info">
 			<div class="container">
 				<div class="col-md-4 header-left">
-					<img src="images/img1.jpg" alt=""/>
+					<img src="images/img.jpg" alt=""/>
 				</div>
 				<div class="col-md-8 header-right">
 					<h2>Hello</h2>
-					<h1>I'm Christopher Doe</h1>
-					<h6>Web Designer and Developer</h6>
+					<h1>I'm Yan Congyang</h1>
+					<h6>Front-end Web Developer</h6>
 					<ul class="address">
 						<li>
 							<ul class="address-text">
 								<li><b>D.O.B</b></li>
-								<li>23-06-1980</li>
+								<li>09-09-1991</li>
 							</ul>
 						</li>
 						<li>
 							<ul class="address-text">
 								<li><b>PHONE </b></li>
-								<li>+00 111 222 3333</li>
+								<li>18141907330</li>
 							</ul>
 						</li>
 						<li>
 							<ul class="address-text">
 								<li><b>ADDRESS </b></li>
-								<li>756 global Place, North Sydney, Canada.</li>
+								<li>Zhoukou, Henan</li>
 							</ul>
 						</li>
 						<li>
 							<ul class="address-text">
 								<li><b>E-MAIL </b></li>
-								<li><a href="mailto:example@mail.com"> mail@example.com</a></li>
+								<li><a href="mailto:example@mail.com">1021600964@qq.com</a></li>
 							</ul>
 						</li>
 						<li>
 							<ul class="address-text">
-								<li><b>WEBSITE </b></li>
-								<li><a href="http://w3layouts.com">www.myresume.com</a></li>
+								<li><b>Blog </b></li>
+								<li><a href="http://www.cnblogs.com/yancongyang">www.cnblogs.com/yancongyang</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -89,8 +671,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 		</div>
 	</div>
-	<!--//banner-->
-	<!--top-nav-->
 	<div class="top-nav wow">
 		<div class="container">
 			<div class="navbar-header logo">
@@ -98,7 +678,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					Menu
 				</button>
 			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<div class="menu">
 					<ul class="nav navbar">
@@ -114,8 +693,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 		</div>
 	</div>	
-	<!--//top-nav-->
-	<!--about-->
 	<div id="about" class="about">
 		<div class="container">
 			<h3 class="title"> About Me</h3>
@@ -138,8 +715,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-	<!--//about-->
-	<!--work-experience-->
 	<div id="work" class="work">
 		<div class="container">
 			<h3 class="title">Work Experience</h3>
@@ -185,8 +760,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 		</div>
 	</div>
-	<!--//work-experience-->
-	<!--education-->
 	<div id="education" class="education">
 		<div class="container">
 			<h3 class="title">Education</h3>
@@ -222,8 +795,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 		</div>
 	</div>
-	<!--//education-->
-	<!--skills-->
 	<div id="skills" class="skills">
 		<div class="container">
 			<h3 class="title">Skills</h3>
@@ -276,8 +847,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 		</div>
 	</div>
-	<!--//education-->
-	<!--portfolio-->
 	<div id="projects" class="portfolio">
 		<div class="container">
 			<h3 class="title wow zoomInLeft animated" data-wow-delay=".5s">My Projects</h3>
@@ -295,7 +864,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<div class="tab_img">
 								<div class="col-md-4 portfolio-grids">
 									<div class="grid">
-										<a href="images/g1.jpg" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
+										<a href="images/g1.jpg" class="swipebox" title=" ">
 											<img src="images/g1.jpg" alt="" class="img-responsive" />
 											<div class="figcaption">
 												<h3>My<span> Project</span></h3>
@@ -306,7 +875,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</div>
 								<div class="col-md-4 portfolio-grids">
 									<div class="grid effect-sarah">
-										<a href="images/g2.jpg" class="swipebox" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus tortor diam, ac lobortis justo rutrum quis. Praesent non purus fermentum, eleifend velit non">
+										<a href="images/g2.jpg" class="swipebox" title=" ">
 											<img src="images/g2.jpg" alt="" class="img-responsive" />
 											<div class="figcaption">
 												<h3>My<span> Project</span></h3>
@@ -512,30 +1081,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 				</div>
 			</div>
-			<!--ResponsiveTabs-->
 			<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
 			<script type="text/javascript">
 				$(document).ready(function () {
 					$('#horizontalTab').easyResponsiveTabs({
-						type: 'default', //Types: default, vertical, accordion           
-						width: 'auto', //auto or any width like 600px
-						fit: true   // 100% fit in a container
+						type: 'default',            
+						width: 'auto', 
+						fit: true   
 					});
 				});		
 			</script>
-			<!--//ResponsiveTabs-->
-			<!-- swipe box js -->
 			<script src="js/jquery.swipebox.min.js"></script> 
 				<script type="text/javascript">
 					jQuery(function($) {
 						$(".swipebox").swipebox();
 					});
 			</script>
-			<!-- //swipe box js -->
 		</div>
 	</div>
-	<!--//portfolio-->
-	<!--contact -->
 	<div class="welcome contact" id="contact">
 		<div class="container">
 			<h3 class="title">Contact Us</h3>
@@ -566,21 +1129,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 		</div>
 	</div>
-	<!--//contact -->
-	<!--footer-->
 	<div class="footer">
 		<div class="container">
 			<p>© 2016 My Resume. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
 		</div>
 	</div>
-	<!--//footer-->
-	<!--smooth-scrolling-of-move-up-->
 	<script type="text/javascript">
 		$(document).ready(function() {
-		
 			var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
+				containerID: 'toTop', 
+				containerHoverID: 'toTopHover', 
 				scrollSpeed: 1200,
 				easingType: 'linear' 
 			};
@@ -589,10 +1147,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			
 		});
 	</script>
-	<!--//smooth-scrolling-of-move-up-->
-	<!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/bootstrap.js"></script>
-</body>
+</body>-->
+
 </html>
