@@ -33,8 +33,8 @@
 						scrollTop: $(this.hash).offset().top
 					}, 1000);
 				});
-				var exportMyResume= function () {
-				location.href = "MyResume.html?ForDownload=true";
+				exportMyResume: function() {
+				location.href = process.env.API_ROOT + "/Files/Templates/AmazingKid数据导入模板.xlsx?ForDownload=true";
 			},
 			});
 		</script>
@@ -59,7 +59,11 @@
 					</div>
 					<div class="col-md-8 header-right">
 						<h2>你好</h2>
-						<h1>我是闫聪洋 <div onclick="exportMyResume()" >MyResume</div></h1>
+						<h1>我是闫聪洋
+						<a  style="font-size: 12px;" href='https://yancy777.github.io/MyResume.htm' download="MyResume" >
+							<button>下载↓</button>
+						</a>
+						</h1>
 						<h6>前端Web开发/架构师</h6>
 						<ul class="address">
 							<li>
@@ -98,7 +102,9 @@
 							</li>
 						</ul>
 					</div>
-					<div class="clearfix"> </div>
+					<div class="clearfix">
+						
+					</div>
 				</div>
 			</div>
 		</div>
